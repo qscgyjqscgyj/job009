@@ -1,0 +1,12 @@
+Django
+South
+pillow
+sorl-thumbnail
+django-simple-captcha
+django-redactorjs
+git+git://github.com/gkuhn1/django-admin-multiupload.git
+django-bootstrap
+django-bootstrap-toolkit
+django-file-picker
+django-flatblocks
+mysql-python
