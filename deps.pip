@@ -9,4 +9,5 @@ django-bootstrap
 django-bootstrap-toolkit
 django-file-picker
 django-flatblocks
+django-registration
 mysql-python
