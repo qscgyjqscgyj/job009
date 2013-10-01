@@ -60,6 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_geoip.middleware.LocationMiddleware',
 )
 
 ANONYMOUS_USER_ID = -1
@@ -90,11 +91,15 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'south',
+    'django_geoip',
+    'registration',
+    'captcha',
 )
 
 LOCAL_APPS = (
     'main',
-    )
+    'user_profile',
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -7,9 +7,14 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^geoip/', include('django_geoip.urls')),
+    url(r'^accounts/', include('user_profile.urls')),
+    url(r'^captcha/', include('captcha.urls')),
     url(r'^', include('main.urls')),
+    url(r'^test/', include('user_profile.urls')),
 )
 
 if settings.DEBUG:

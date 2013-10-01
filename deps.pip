@@ -10,4 +10,5 @@ django-bootstrap-toolkit
 django-file-picker
 django-flatblocks
 django-registration
+django-geoip
 mysql-python
