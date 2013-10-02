@@ -9,12 +9,13 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import ListView, UpdateView
 from registration import signals
 from registration.models import RegistrationProfile
-from user_profile.forms import CustomRegistrationForm
-from user_profile.models import CustomApplicant, CustomLocation
+from user_profile.forms import CustomRegistrationForm, ApplicantProfileForm, EmployerProfileForm, AgencyProfileForm
+from user_profile.models import CustomApplicant, CustomLocation, CustomEmployer, CustomAgency
 from registration.backends.default.views import RegistrationView
+from django.contrib.auth import authenticate, login
 
 
-class ApplicantRegistrationView(RegistrationView):
+class CustomRegistrationView(RegistrationView):
     form_class = CustomRegistrationForm
 
     def register(self, request, **cleaned_data):
@@ -26,6 +27,9 @@ class ApplicantRegistrationView(RegistrationView):
         else:
             site = RequestSite(request)
         new_user = self.create_inactive_user(username, email, password, site)
+
+        user_log = authenticate(username=username, password=password)
+        login(request, user_log)
 
         signals.user_registered.send(sender=self.__class__, user=new_user, request=request)
 
@@ -52,6 +56,9 @@ class ApplicantRegistrationView(RegistrationView):
         activation_key = hashlib.sha1(salt+username).hexdigest()
         return RegistrationProfile.objects.create(user=new_user, activation_key=activation_key)
 
+
+class ApplicantRegistrationView(CustomRegistrationView):
+
     @classmethod
     def create_user(cls, username, email, password=None, **extra_fields):
         now = timezone.now()
@@ -66,31 +73,69 @@ class ApplicantRegistrationView(RegistrationView):
         return user
 
 
-class ApplicantView(ListView):
-    model = CustomApplicant
-    template_name = 'profile.html'
-    context_object_name = 'test'
+class EmployerRegistrationView(CustomRegistrationView):
 
-    def get_context_data(self, **kwargs):
-        context = super(ApplicantView, self).get_context_data(**kwargs)
-        context['cities'] = CustomLocation.get_available_locations().order_by('name')
-        return context
+    @classmethod
+    def create_user(cls, username, email, password=None, **extra_fields):
+        now = timezone.now()
+        if not username:
+            raise ValueError('The given username must be set')
+        email = UserManager.normalize_email(email)
+        user = CustomEmployer(username=username, email=email, is_staff=False, is_active=True, is_superuser=False,
+                              last_login=now, date_joined=now, **extra_fields)
+
+        user.set_password(password)
+        user.save()
+        return user
 
 
-#class CustomProfileView(UpdateView):
-#    model = User
-#    context_object_name = 'profile'
-#    success_url = '/accounts/profile'
+class AgencyRegistrationView(CustomRegistrationView):
+
+    @classmethod
+    def create_user(cls, username, email, password=None, **extra_fields):
+        now = timezone.now()
+        if not username:
+            raise ValueError('The given username must be set')
+        email = UserManager.normalize_email(email)
+        user = CustomAgency(username=username, email=email, is_staff=False, is_active=True, is_superuser=False,
+                            last_login=now, date_joined=now, **extra_fields)
+
+        user.set_password(password)
+        user.save()
+        return user
+
+
+#class ApplicantView(ListView):
+#    model = CustomApplicant
+#    template_name = 'profile.html'
+#    context_object_name = 'test'
 #
-#    def get_object(self, queryset=None):
-#        try:
-#            obj = self.request.user.customuser
-#            self.form_class = ApplicantRegistrationForm
-#            return obj
-#        except ObjectDoesNotExist:
-#            obj = self.request.user.customfirm
-#            self.form_class = FirmProfileForm
-#            return obj
+#    def get_context_data(self, **kwargs):
+#        context = super(ApplicantView, self).get_context_data(**kwargs)
+#        context['cities'] = CustomLocation.get_available_locations().order_by('name')
+#        return context
+
+
+class CustomProfileView(UpdateView):
+    model = User
+    context_object_name = 'profile'
+    success_url = '/accounts/profile'
+
+    def get_object(self, queryset=None):
+        try:
+            obj = self.request.user.customapplicant
+            self.form_class = ApplicantProfileForm
+            return obj
+        except ObjectDoesNotExist:
+            try:
+                obj = self.request.user.customemployer
+                self.form_class = EmployerProfileForm
+                return obj
+            except ObjectDoesNotExist:
+                obj = self.request.user.customagency
+                self.form_class = AgencyProfileForm
+                return obj
+
 
 def my_change_password(request):
     return password_change(request, post_change_redirect='/accounts/password_change_done')

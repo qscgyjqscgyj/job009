@@ -14,7 +14,6 @@ urlpatterns = patterns(
     url(r'^accounts/', include('user_profile.urls')),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^', include('main.urls')),
-    url(r'^test/', include('user_profile.urls')),
 )
 
 if settings.DEBUG:

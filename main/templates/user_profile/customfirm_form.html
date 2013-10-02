@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+    <h2>Регистрационные данные:</h2>
+        <dt>Название фирмы:</dt>
+        <dd class="clearfix">
+            {{ form.username }}
+        </dd>
+        <dt>Год регистрации:</dt>
+        <dd class="clearfix">
+            {{ form.year }}
+        </dd>
+        <dt>Регистрационный номер:</dt>
+        <dd class="clearfix">
+            {{ form.reg_num }}
+        </dd>
+        <dt>Номер налогоплательщика:</dt>
+        <dd class="clearfix">
+            {{ form.taxpayer }}
+        </dd>
+
+    <h2>Контактные данные:</h2>
+        <dt>Телефоны:</dt>
+        <dd class="clearfix">
+            {{ form.phone }}
+        </dd>
+        <dt>Факс:</dt>
+        <dd class="clearfix">
+            {{ form.fax }}
+        </dd>
+        <dt>E-mail:</dt>
+        <dd class="clearfix">
+            {{ form.email }}
+            {{ form.email.error }}
+        </dd>
+        <dt>Skype:</dt>
+        <dd class="clearfix">
+            {{ form.skype }}
+        </dd>
+        <dt>Web:</dt>
+        <dd class="clearfix">
+            {{ form.web }}
+        </dd>
+        <input type="submit" value="Сохранить данные" class="clearfix">
+    </form>
+    <h2>Смена пароля:</h2>
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="/accounts/password_change/" method="post">{% csrf_token %}
+        <label for="id_old_password" class="required">Старый пароль:</label><input id="id_old_password" name="old_password" type="password">
+        <label for="id_new_password1" class="required">Новый пароль:</label><input id="id_new_password1" name="new_password1" type="password">
+        <label for="id_new_password2" class="required">Пароль (еще раз):</label><input id="id_new_password2" name="new_password2" type="password">
+        <input type="submit" value="Изменить мой пароль" class="default">
+    </form>
+{% endblock %}

@@ -99,8 +99,71 @@ class CustomApplicant(User):
         verbose_name_plural = _(u'Соискатели')
 
 
+class Position(models.Model):
+    name = models.CharField(verbose_name=_(u'Позиция'), max_length=50)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Позиция')
+        verbose_name_plural = _(u'Позиции в компании')
+
+
+class CompanyCategory(models.Model):
+    name = models.CharField(verbose_name=_(u'Название категории'), max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Категория')
+        verbose_name_plural = _(u'Категории компании')
+
+
+class Employees(models.Model):
+    name = models.CharField(verbose_name=_(u'Количество сотрудников'), max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Количество сотрудников')
+        verbose_name_plural = _(u'Количество сотрудников')
+
+
 #работодатель
 class CustomEmployer(User):
+    contact = models.CharField(verbose_name=_(u'Контактное лицо'), max_length=100, blank=True, null=True)
+    position = models.ForeignKey(Position, verbose_name=_(u'Должность в компании'),
+                                 related_name='employer_position', blank=True, null=True)
+    phone = models.CharField(verbose_name=_(u'Телефон'), max_length=20, blank=True, null=True)
+    company_name = models.CharField(verbose_name=_(u'Название компании'), max_length=100, blank=True, null=True)
+    legal_company_name = models.CharField(verbose_name=_(u'Юридическое название компании'),
+                                          max_length=100, blank=True, null=True)
+    photo = models.ImageField(verbose_name=_(u'Логотип'), upload_to='employer_photo', blank=True, null=True)
+    site = models.URLField(verbose_name=_(u'Адрес сайта'), max_length=100, blank=True, null=True)
+    company_categories = models.ManyToManyField(CompanyCategory, verbose_name=_(u'Рубрики'),
+                                                related_name='employer_company_categories', blank=True, null=True)
+    employees = models.ForeignKey(Employees, verbose_name=_(u'Количество сотрудников'),
+                                  related_name='employer_number_of_employees', blank=True, null=True)
+    city = models.ForeignKey(City, verbose_name=_(u'Город'), blank=True, null=True)
+    street = models.CharField(verbose_name=_(u'Улица'), max_length=100, blank=True, null=True)
+    building = models.CharField(verbose_name=_(u'Здание'), max_length=20, blank=True, null=True)
+    about_address = models.CharField(verbose_name=_(u'Дополнительная информация о адресе'), max_length=100, blank=True,
+                                     null=True)
     captcha = CaptchaField()
 
     objects = RegistrationManager()
@@ -119,6 +182,24 @@ class CustomEmployer(User):
 
 #кадровое агентство
 class CustomAgency(User):
+    contact = models.CharField(verbose_name=_(u'Контактное лицо'), max_length=100, blank=True, null=True)
+    position = models.ForeignKey(Position, verbose_name=_(u'Должность в компании'),
+                                 related_name='agency_position', blank=True, null=True)
+    phone = models.CharField(verbose_name=_(u'Телефон'), max_length=20, blank=True, null=True)
+    company_name = models.CharField(verbose_name=_(u'Название компании'), max_length=100, blank=True, null=True)
+    legal_company_name = models.CharField(verbose_name=_(u'Юридическое название компании'),
+                                          max_length=100, blank=True, null=True)
+    photo = models.ImageField(verbose_name=_(u'Логотип'), upload_to='agency_photo', blank=True, null=True)
+    site = models.URLField(verbose_name=_(u'Адрес сайта'), max_length=100, blank=True, null=True)
+    company_categories = models.ManyToManyField(CompanyCategory, verbose_name=_(u'Рубрики'),
+                                                related_name='agency_company_categories', blank=True, null=True)
+    employees = models.ForeignKey(Employees, verbose_name=_(u'Количество сотрудников'),
+                                  related_name='agency_number_of_employees', blank=True, null=True)
+    city = models.ForeignKey(City, verbose_name=_(u'Город'), blank=True, null=True)
+    street = models.CharField(verbose_name=_(u'Улица'), max_length=100, blank=True, null=True)
+    building = models.CharField(verbose_name=_(u'Здание'), max_length=20, blank=True, null=True)
+    about_address = models.CharField(verbose_name=_(u'Дополнительная информация о адресе'), max_length=100, blank=True,
+                                     null=True)
     captcha = CaptchaField()
 
     objects = RegistrationManager()
@@ -132,4 +213,4 @@ class CustomAgency(User):
             pass
 
         verbose_name = _(u'Кадровое агентство')
-        verbose_name_plural = _(u'Кадровые агентствая')
+        verbose_name_plural = _(u'Кадровые агентства')
