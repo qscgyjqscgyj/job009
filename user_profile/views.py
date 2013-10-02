@@ -18,7 +18,6 @@ class ApplicantRegistrationView(RegistrationView):
     form_class = CustomRegistrationForm
 
     def register(self, request, **cleaned_data):
-
         username = cleaned_data['username']
         email = cleaned_data['email']
         password = cleaned_data['password1']
@@ -33,7 +32,6 @@ class ApplicantRegistrationView(RegistrationView):
         return new_user
 
     def create_inactive_user(self, username, email, password, site, send_email=True):
-
         new_user = self.create_user(username, email, password)
         new_user.is_active = False
         new_user.save()
