@@ -2,45 +2,60 @@
 
 {% block content %}
     <form method="post">{% csrf_token %}
-    <h2>Регистрационные данные:</h2>
-        <dt>Название фирмы:</dt>
+    <h2>Соискатель:</h2>
+        <dt>Логин:</dt>
         <dd class="clearfix">
             {{ form.username }}
-        </dd>
-        <dt>Год регистрации:</dt>
-        <dd class="clearfix">
-            {{ form.year }}
-        </dd>
-        <dt>Регистрационный номер:</dt>
-        <dd class="clearfix">
-            {{ form.reg_num }}
-        </dd>
-        <dt>Номер налогоплательщика:</dt>
-        <dd class="clearfix">
-            {{ form.taxpayer }}
-        </dd>
-
-    <h2>Контактные данные:</h2>
-        <dt>Телефоны:</dt>
-        <dd class="clearfix">
-            {{ form.phone }}
-        </dd>
-        <dt>Факс:</dt>
-        <dd class="clearfix">
-            {{ form.fax }}
         </dd>
         <dt>E-mail:</dt>
         <dd class="clearfix">
             {{ form.email }}
             {{ form.email.error }}
         </dd>
+        <dt>Ф.И.О:</dt>
+        <dd class="clearfix">
+            {{ form.fio }}
+        </dd>
+        <dt>Фото:</dt>
+        <dd class="clearfix">
+            {{ form.photo }}
+        </dd>
+        <dt>Дата рождения:</dt>
+        <dd class="clearfix">
+            {{ form.birth }}
+        </dd>
+        <dt>Пол:</dt>
+        <dd class="clearfix">
+            {{ form.gender }}
+        </dd>
+        <dt>Семейное положение:</dt>
+        <dd class="clearfix">
+            {{ form.marital_status }}
+        </dd>
+        <dt>Профессиональные цели:</dt>
+        <dd class="clearfix">
+            {{ form.professional_goals }}
+        </dd>
+        <dt>Интересы:</dt>
+        <dd class="clearfix">
+            {{ form.interests }}
+        </dd>
+        <dt>Город:</dt>
+        <dd class="clearfix">
+            {{ form.city }}
+        </dd>
+        <dt>Телефон:</dt>
+        <dd class="clearfix">
+            {{ form.phone }}
+            {{ form.phone_details }}
+        </dd>
+        <dt>ICQ:</dt>
+        <dd class="clearfix">
+            {{ form.icq }}
+        </dd>
         <dt>Skype:</dt>
         <dd class="clearfix">
             {{ form.skype }}
-        </dd>
-        <dt>Web:</dt>
-        <dd class="clearfix">
-            {{ form.web }}
         </dd>
         <input type="submit" value="Сохранить данные" class="clearfix">
     </form>

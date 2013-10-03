@@ -94,6 +94,8 @@ INSTALLED_APPS = (
     'django_geoip',
     'registration',
     'captcha',
+    'resume',
+    'jobs',
 )
 
 LOCAL_APPS = (

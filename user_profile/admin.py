@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency
+from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency, CompanyCategory
 
 
 class CustomAdmin(UserAdmin):
@@ -10,4 +10,5 @@ class CustomAdmin(UserAdmin):
 admin.site.register(CustomApplicant)
 admin.site.register(CustomEmployer)
 admin.site.register(CustomAgency)
+admin.site.register(CompanyCategory)
 
