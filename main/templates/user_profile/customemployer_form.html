@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+        <a href="/resume/add/">Добавить резюме</a>
+        <a href="/job/add/">Добавить вакансию</a>
+    {% endif %}
     <form method="post">{% csrf_token %}
     <h2>Работодатель:</h2>
         <dt>Логин:</dt>

@@ -10,7 +10,7 @@ from main.models import Gender, MaritalStatus, Education
 
 class CustomLocation(GeoLocationFacade):
     name = models.CharField(max_length=100)
-    city = models.ForeignKey(City, related_name='custom_location')
+    city = models.ForeignKey(City, related_name='custom_location_city')
 
     def __init__(self):
         pass
@@ -20,7 +20,7 @@ class CustomLocation(GeoLocationFacade):
 
     @classmethod
     def get_available_locations(cls):
-        return City.objects.all()
+        return City.objects.all().order_by('name')
 
 
 #соискатель
