@@ -2,141 +2,14 @@
 
 {% block content %}
     <form method="post">{% csrf_token %}
-        <h2>Добавить резюме:</h2>
-            <dt>Должность:</dt>
+    <h2>Добавить резюме:</h2>
+        {% for field in form %}
+            <dt>{{ field.label }}:</dt>
             <dd class="clearfix">
-                {{ form.office }}
+                {{ field }}
+                {{ field.errors }}
             </dd>
-            <dt>Рубрика:</dt>
-            <dd class="clearfix">
-                {{ form.category }}
-            </dd>
-
-            <dt>График работы:</dt>
-            <dd class="clearfix">
-                {{ form.schedule }}
-            </dd>
-            <dt>Тип занятости:</dt>
-            <dd class="clearfix">
-                {{ form.employment }}
-            </dd>
-            <dt>Зарплата:</dt>
-            <dd class="clearfix">
-                {{ form.salary }}
-                {{ form.salary_measure }}
-            </dd>
-            <dt>Ф.И.О.:</dt>
-            <dd class="clearfix">
-                {{ form.fio }}
-            </dd>
-            <dt>Фото:</dt>
-            <dd class="clearfix">
-                {{ form.photo }}
-            </dd>
-            <dt>Дата рождения:</dt>
-            <dd class="clearfix">
-                {{ form.birth }}
-            </dd>
-            <dt>Пол:</dt>
-            <dd class="clearfix">
-                {{ form.gender }}
-            </dd>
-
-            <dt>Семейное положение:</dt>
-            <dd class="clearfix">
-                {{ form.marital_status }}
-            </dd>
-            <dt>Стаж работы:</dt>
-            <dd class="clearfix">
-                {{ form.experience }}
-            </dd>
-
-            <dt>Опыт работы и профессиональные навыки:</dt>
-            <dd class="clearfix">
-                {{ form.skills }}
-            </dd>
-            <dt>Образование:</dt>
-            <dd class="clearfix">
-                {{ form.education }}
-            </dd>
-            <dt>Учебное заведение:</dt>
-            <dd class="clearfix">
-                {{ form.institution }}
-            </dd>
-            <dt>Основная специальность по диплому:</dt>
-            <dd class="clearfix">
-                {{ form.diploma }}
-            </dd>
-            <dt>Дополнительное образование:</dt>
-            <dd class="clearfix">
-                {{ form.ex_education }}
-            </dd>
-            <dt>Личные качества:</dt>
-            <dd class="clearfix">
-                {{ form.qualities }}
-            </dd>
-            <dt>Водительские права:</dt>
-            <dd class="clearfix">
-                {{ form.driving_license }}
-            </dd>
-
-            <dt>Готовность к командировкам:</dt>
-            <dd class="clearfix">
-                {{ form.business_trip }}
-            </dd>
-            <dt>Курю:</dt>
-            <dd class="clearfix">
-                {{ form.smoke }}
-            </dd>
-            <dt>Загрузить резюме:</dt>
-            <dd class="clearfix">
-                {{ form.file_resume }}
-            </dd>
-            <dt>Город проживания:</dt>
-            <dd class="clearfix">
-                {{ form.city }}
-            </dd>
-            <dt>Район проживания:</dt>
-            <dd class="clearfix">
-                {{ form.area }}
-            </dd>
-            <dt>Телефон:</dt>
-            <dd class="clearfix">
-                {{ form.phone }}
-                {{ form.phone_details }}
-            </dd>
-            <dt>E-mail:</dt>
-            <dd class="clearfix">
-                {{ form.email }}
-            </dd>
-            <dt>ICQ:</dt>
-            <dd class="clearfix">
-                {{ form.icq }}
-            </dd>
-            <dt>Skype:</dt>
-            <dd class="clearfix">
-                {{ form.skype }}
-            </dd>
-            <dt>Желаемые районы для работы:</dt>
-            <dd class="clearfix">
-                {{ form.work_area }}
-            </dd>
-            <dt>Переезд:</dt>
-            <dd class="clearfix">
-                {{ form.move }}
-            </dd>
-            <dt>Возможные города для переезда:</dt>
-            <dd class="clearfix">
-                {{ form.move_cities }}
-            </dd>
-            <dt>Время жизни резюме:</dt>
-            <dd class="clearfix">
-                {{ form.skype }}
-            </dd>
-            <dt>Введите символы:</dt>
-            <dd class="clearfix">
-                {{ form.captcha }}
-            </dd>
+        {% endfor %}
         <input type="submit" value="Сохранить данные" class="clearfix">
     </form>
 {% endblock %}

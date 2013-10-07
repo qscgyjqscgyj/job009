@@ -8,26 +8,73 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Adding model 'Resume'
+        db.create_table(u'resume_resume', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], null=True, blank=True)),
+            ('office', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('category', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_category', to=orm['main.AdCategory'])),
+            ('schedule', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_schedule', null=True, to=orm['main.AdSchedule'])),
+            ('employment', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_employment', null=True, to=orm['main.AdEmployment'])),
+            ('salary', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
+            ('salary_measure', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_salary_measure', null=True, to=orm['main.AdSalaryMeasure'])),
+            ('fio', self.gf('django.db.models.fields.CharField')(max_length=50)),
+            ('photo', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
+            ('birth', self.gf('django.db.models.fields.DateField')()),
+            ('gender', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_gender', to=orm['main.Gender'])),
+            ('marital_status', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_marital_status', null=True, to=orm['main.MaritalStatus'])),
+            ('experience', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_experience', null=True, to=orm['main.AdExperience'])),
+            ('skills', self.gf('django.db.models.fields.TextField')()),
+            ('education', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_education', to=orm['main.Education'])),
+            ('institution', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
+            ('diploma', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
+            ('ex_education', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('qualities', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
+            ('driving_license', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('business_trip', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('smoke', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('file_resume', self.gf('django.db.models.fields.files.FileField')(max_length=100, null=True, blank=True)),
+            ('city', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_city', to=orm['django_geoip.City'])),
+            ('area', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_area', null=True, to=orm['main.AdArea'])),
+            ('phone', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
+            ('phone_details', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
+            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
+            ('icq', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
+            ('skype', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
+            ('move', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('ad_time', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_ad_time', null=True, to=orm['main.AdTime'])),
+        ))
+        db.send_create_signal(u'resume', ['Resume'])
 
-        # Changing field 'Resume.education'
-        db.alter_column(u'resume_resume', 'education_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Education']))
+        # Adding M2M table for field work_area on 'Resume'
+        m2m_table_name = db.shorten_name(u'resume_resume_work_area')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('resume', models.ForeignKey(orm[u'resume.resume'], null=False)),
+            ('adarea', models.ForeignKey(orm[u'main.adarea'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['resume_id', 'adarea_id'])
 
-        # Changing field 'Resume.gender'
-        db.alter_column(u'resume_resume', 'gender_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['main.Gender']))
+        # Adding M2M table for field move_cities on 'Resume'
+        m2m_table_name = db.shorten_name(u'resume_resume_move_cities')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('resume', models.ForeignKey(orm[u'resume.resume'], null=False)),
+            ('city', models.ForeignKey(orm[u'django_geoip.city'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['resume_id', 'city_id'])
 
-        # Changing field 'Resume.marital_status'
-        db.alter_column(u'resume_resume', 'marital_status_id', self.gf('django.db.models.fields.related.ForeignKey')(null=True, to=orm['main.MaritalStatus']))
 
     def backwards(self, orm):
+        # Deleting model 'Resume'
+        db.delete_table(u'resume_resume')
 
-        # Changing field 'Resume.education'
-        db.alter_column(u'resume_resume', 'education_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['user_profile.Education']))
+        # Removing M2M table for field work_area on 'Resume'
+        db.delete_table(db.shorten_name(u'resume_resume_work_area'))
 
-        # Changing field 'Resume.gender'
-        db.alter_column(u'resume_resume', 'gender_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['user_profile.Gender']))
+        # Removing M2M table for field move_cities on 'Resume'
+        db.delete_table(db.shorten_name(u'resume_resume_move_cities'))
 
-        # Changing field 'Resume.marital_status'
-        db.alter_column(u'resume_resume', 'marital_status_id', self.gf('django.db.models.fields.related.ForeignKey')(null=True, to=orm['user_profile.MaritalStatus']))
 
     models = {
         u'auth.group': {
@@ -87,6 +134,7 @@ class Migration(SchemaMigration):
         },
         u'main.adarea': {
             'Meta': {'object_name': 'AdArea'},
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'areas'", 'to': u"orm['django_geoip.City']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },

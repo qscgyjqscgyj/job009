@@ -12,12 +12,21 @@
         <p></p><a href="/accounts/register/applicant/">Регистрация соискателя</a></p>
         <p></p><a href="/accounts/register/applicant/">Регистрация компании</a></p>
         <p></p><a href="/accounts/register/applicant/">Регистрация агенства</a></p>
+        <p></p><a href="/resume/add">Добавить резюме</a></p>
         <a href="/accounts/login">Вход</a>
     {% endif %}
 
 
     {% block content %}
+        <h1>ВАКАНСИИ</h1>
+        {% for job in jobs %}
+            <p><a href="#">{{ job.office }}, {{ job.owner }}</a></p>
+        {% endfor %}
 
+        <h1>РЕЗЮМЕ</h1>
+        {% for res in resume %}
+            <p><a href="#">{{ res.office }}, {{ res.owner }}</a></p>
+        {% endfor %}
     {% endblock %}
     </body>
 </html>

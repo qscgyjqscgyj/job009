@@ -5,7 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django_geoip.models import GeoLocationFacade, City
 from registration.models import RegistrationManager
-from main.models import Gender, MaritalStatus, Education
+from main.models import Gender, MaritalStatus, Education, Position, CompanyCategory, Employees
 
 
 class CustomLocation(GeoLocationFacade):
@@ -54,51 +54,6 @@ class CustomApplicant(User):
 
         verbose_name = _(u'Соискатель')
         verbose_name_plural = _(u'Соискатели')
-
-
-class Position(models.Model):
-    name = models.CharField(verbose_name=_(u'Позиция'), max_length=50)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-
-        def __init__(self):
-            pass
-
-        verbose_name = _(u'Позиция')
-        verbose_name_plural = _(u'Позиции в компании')
-
-
-class CompanyCategory(models.Model):
-    name = models.CharField(verbose_name=_(u'Название категории'), max_length=20)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-
-        def __init__(self):
-            pass
-
-        verbose_name = _(u'Категория')
-        verbose_name_plural = _(u'Категории компании')
-
-
-class Employees(models.Model):
-    name = models.CharField(verbose_name=_(u'Количество сотрудников'), max_length=20)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-
-        def __init__(self):
-            pass
-
-        verbose_name = _(u'Количество сотрудников')
-        verbose_name_plural = _(u'Количество сотрудников')
 
 
 #работодатель

@@ -151,6 +151,7 @@ class Migration(SchemaMigration):
         },
         u'main.adarea': {
             'Meta': {'object_name': 'AdArea'},
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'areas'", 'to': u"orm['django_geoip.City']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },

@@ -19,7 +19,7 @@ class Resume(models.Model):
     salary_measure = models.ForeignKey(AdSalaryMeasure, verbose_name=_(u'Валюта'),
                                        related_name='resume_salary_measure', blank=True, null=True)
     fio = models.CharField(verbose_name=_(u'Ф.И.О.'), max_length=50)
-    photo = models.ImageField(verbose_name=_(u'Фото на резюме'), upload_to='resume_photo')
+    photo = models.ImageField(verbose_name=_(u'Фото на резюме'), upload_to='resume_photo', blank=True, null=True)
     birth = models.DateField(verbose_name=_(u'Дата рождения'))
     gender = models.ForeignKey(Gender, verbose_name=_(u'Пол'), related_name='resume_gender')
     marital_status = models.ForeignKey(MaritalStatus, verbose_name=_(u'Семейное положение'),
@@ -53,6 +53,9 @@ class Resume(models.Model):
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни резюме'), related_name='resume_ad_time',
                                 blank=True, null=True)
     captcha = CaptchaField()
+
+    def __unicode__(self):
+        return self.office
 
     class Meta:
 

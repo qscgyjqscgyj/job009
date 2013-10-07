@@ -48,6 +48,9 @@ class Job(models.Model):
                                 blank=True, null=True)
     captcha = CaptchaField()
 
+    def __unicode__(self):
+        return self.office
+
     class Meta:
 
         def __init__(self):

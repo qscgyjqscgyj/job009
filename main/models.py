@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django_geoip.models import City
 
 
 class AdCategory(models.Model):
@@ -79,6 +80,7 @@ class AdExperience(models.Model):
 
 
 class AdArea(models.Model):
+    city = models.ForeignKey(City, verbose_name=_(u'Город'), related_name='areas')
     name = models.CharField(verbose_name=_(u'Район проживания'), max_length=50)
 
     def __unicode__(self):
@@ -151,3 +153,48 @@ class Education(models.Model):
 
         verbose_name = _(u'Образование')
         verbose_name_plural = _(u'Образование')
+
+
+class Position(models.Model):
+    name = models.CharField(verbose_name=_(u'Позиция'), max_length=50)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Позиция')
+        verbose_name_plural = _(u'Позиции в компании')
+
+
+class CompanyCategory(models.Model):
+    name = models.CharField(verbose_name=_(u'Название категории'), max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Категория')
+        verbose_name_plural = _(u'Категории компании')
+
+
+class Employees(models.Model):
+    name = models.CharField(verbose_name=_(u'Количество сотрудников'), max_length=20)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Количество сотрудников')
+        verbose_name_plural = _(u'Количество сотрудников')

@@ -8,26 +8,12 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Deleting model 'ResumeTime'
-        db.delete_table(u'main_resumetime')
-
-        # Deleting model 'ResumeExperience'
-        db.delete_table(u'main_resumeexperience')
-
-        # Deleting model 'ResumeSalaryMeasure'
-        db.delete_table(u'main_resumesalarymeasure')
-
-        # Deleting model 'Area'
-        db.delete_table(u'main_area')
-
-        # Deleting model 'ResumeCategory'
-        db.delete_table(u'main_resumecategory')
-
-        # Deleting model 'ResumeEmployment'
-        db.delete_table(u'main_resumeemployment')
-
-        # Deleting model 'ResumeSchedule'
-        db.delete_table(u'main_resumeschedule')
+        # Adding model 'MaritalStatus'
+        db.create_table(u'main_maritalstatus', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=20)),
+        ))
+        db.send_create_signal(u'main', ['MaritalStatus'])
 
         # Adding model 'AdEmployment'
         db.create_table(u'main_ademployment', (
@@ -50,6 +36,21 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'main', ['AdSchedule'])
 
+        # Adding model 'Gender'
+        db.create_table(u'main_gender', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=20)),
+        ))
+        db.send_create_signal(u'main', ['Gender'])
+
+        # Adding model 'AdArea'
+        db.create_table(u'main_adarea', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('city', self.gf('django.db.models.fields.related.ForeignKey')(related_name='areas', to=orm['django_geoip.City'])),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
+        ))
+        db.send_create_signal(u'main', ['AdArea'])
+
         # Adding model 'AdSalaryMeasure'
         db.create_table(u'main_adsalarymeasure', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -57,12 +58,12 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'main', ['AdSalaryMeasure'])
 
-        # Adding model 'AdTime'
-        db.create_table(u'main_adtime', (
+        # Adding model 'Education'
+        db.create_table(u'main_education', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
         ))
-        db.send_create_signal(u'main', ['AdTime'])
+        db.send_create_signal(u'main', ['Education'])
 
         # Adding model 'AdCategory'
         db.create_table(u'main_adcategory', (
@@ -71,63 +72,17 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'main', ['AdCategory'])
 
-        # Adding model 'AdArea'
-        db.create_table(u'main_adarea', (
+        # Adding model 'AdTime'
+        db.create_table(u'main_adtime', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
         ))
-        db.send_create_signal(u'main', ['AdArea'])
+        db.send_create_signal(u'main', ['AdTime'])
 
 
     def backwards(self, orm):
-        # Adding model 'ResumeTime'
-        db.create_table(u'main_resumetime', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['ResumeTime'])
-
-        # Adding model 'ResumeExperience'
-        db.create_table(u'main_resumeexperience', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['ResumeExperience'])
-
-        # Adding model 'ResumeSalaryMeasure'
-        db.create_table(u'main_resumesalarymeasure', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['ResumeSalaryMeasure'])
-
-        # Adding model 'Area'
-        db.create_table(u'main_area', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['Area'])
-
-        # Adding model 'ResumeCategory'
-        db.create_table(u'main_resumecategory', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['ResumeCategory'])
-
-        # Adding model 'ResumeEmployment'
-        db.create_table(u'main_resumeemployment', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['ResumeEmployment'])
-
-        # Adding model 'ResumeSchedule'
-        db.create_table(u'main_resumeschedule', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'main', ['ResumeSchedule'])
+        # Deleting model 'MaritalStatus'
+        db.delete_table(u'main_maritalstatus')
 
         # Deleting model 'AdEmployment'
         db.delete_table(u'main_ademployment')
@@ -138,22 +93,48 @@ class Migration(SchemaMigration):
         # Deleting model 'AdSchedule'
         db.delete_table(u'main_adschedule')
 
-        # Deleting model 'AdSalaryMeasure'
-        db.delete_table(u'main_adsalarymeasure')
-
-        # Deleting model 'AdTime'
-        db.delete_table(u'main_adtime')
-
-        # Deleting model 'AdCategory'
-        db.delete_table(u'main_adcategory')
+        # Deleting model 'Gender'
+        db.delete_table(u'main_gender')
 
         # Deleting model 'AdArea'
         db.delete_table(u'main_adarea')
 
+        # Deleting model 'AdSalaryMeasure'
+        db.delete_table(u'main_adsalarymeasure')
+
+        # Deleting model 'Education'
+        db.delete_table(u'main_education')
+
+        # Deleting model 'AdCategory'
+        db.delete_table(u'main_adcategory')
+
+        # Deleting model 'AdTime'
+        db.delete_table(u'main_adtime')
+
 
     models = {
+        u'django_geoip.city': {
+            'Meta': {'unique_together': "(('region', 'name'),)", 'object_name': 'City'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'latitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '9', 'decimal_places': '6', 'blank': 'True'}),
+            'longitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '9', 'decimal_places': '6', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'region': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'cities'", 'to': u"orm['django_geoip.Region']"})
+        },
+        u'django_geoip.country': {
+            'Meta': {'object_name': 'Country'},
+            'code': ('django.db.models.fields.CharField', [], {'max_length': '2', 'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'})
+        },
+        u'django_geoip.region': {
+            'Meta': {'unique_together': "(('country', 'name'),)", 'object_name': 'Region'},
+            'country': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'regions'", 'to': u"orm['django_geoip.Country']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
         u'main.adarea': {
             'Meta': {'object_name': 'AdArea'},
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'areas'", 'to': u"orm['django_geoip.City']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
@@ -186,6 +167,21 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'AdTime'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+        },
+        u'main.education': {
+            'Meta': {'object_name': 'Education'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+        },
+        u'main.gender': {
+            'Meta': {'object_name': 'Gender'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '20'})
+        },
+        u'main.maritalstatus': {
+            'Meta': {'object_name': 'MaritalStatus'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '20'})
         }
     }
 

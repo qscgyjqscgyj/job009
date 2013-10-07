@@ -10,5 +10,4 @@ class CustomAdmin(UserAdmin):
 admin.site.register(CustomApplicant)
 admin.site.register(CustomEmployer)
 admin.site.register(CustomAgency)
-admin.site.register(CompanyCategory)
 

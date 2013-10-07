@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import hashlib
 import random
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, render_to_response, redirect
+from django.template.context import RequestContext
 from django.utils import timezone
 from django.contrib.auth.models import User, UserManager
 from django.contrib.auth.views import password_change
