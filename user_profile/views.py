@@ -1,19 +1,16 @@
 # -*- coding: utf-8 -*-
 import hashlib
 import random
-from django.http.response import HttpResponseRedirect
-from django.shortcuts import render, render_to_response, redirect
-from django.template.context import RequestContext
 from django.utils import timezone
 from django.contrib.auth.models import User, UserManager
 from django.contrib.auth.views import password_change
 from django.contrib.sites.models import Site, RequestSite
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import ListView, UpdateView
+from django.views.generic import UpdateView
 from registration import signals
 from registration.models import RegistrationProfile
 from user_profile.forms import CustomRegistrationForm, ApplicantProfileForm, EmployerProfileForm, AgencyProfileForm
-from user_profile.models import CustomApplicant, CustomLocation, CustomEmployer, CustomAgency
+from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency
 from registration.backends.default.views import RegistrationView
 from django.contrib.auth import authenticate, login
 
@@ -37,6 +34,19 @@ class CustomRegistrationView(RegistrationView):
         signals.user_registered.send(sender=self.__class__, user=new_user, request=request)
 
         return new_user
+
+    @classmethod
+    def create_user(cls, username, email, password=None, **extra_fields):
+        now = timezone.now()
+        if not username:
+            raise ValueError('The given username must be set')
+        email = UserManager.normalize_email(email)
+        user = User(username=username, email=email, is_staff=False, is_active=True, is_superuser=False,
+                    last_login=now, date_joined=now, **extra_fields)
+
+        user.set_password(password)
+        user.save()
+        return user
 
     def create_inactive_user(self, username, email, password, site, send_email=True):
         new_user = self.create_user(username, email, password)
@@ -106,17 +116,6 @@ class AgencyRegistrationView(CustomRegistrationView):
         user.set_password(password)
         user.save()
         return user
-
-
-#class ApplicantView(ListView):
-#    model = CustomApplicant
-#    template_name = 'profile.html'
-#    context_object_name = 'test'
-#
-#    def get_context_data(self, **kwargs):
-#        context = super(ApplicantView, self).get_context_data(**kwargs)
-#        context['cities'] = CustomLocation.get_available_locations().order_by('name')
-#        return context
 
 
 class CustomProfileView(UpdateView):

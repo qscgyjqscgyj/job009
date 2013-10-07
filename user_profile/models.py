@@ -16,7 +16,7 @@ class CustomLocation(GeoLocationFacade):
         pass
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     @classmethod
     def get_available_locations(cls):
@@ -45,7 +45,7 @@ class CustomApplicant(User):
     objects = RegistrationManager()
 
     def __unicode__(self):
-        return self.username
+        return unicode(self.username)
 
     class Meta:
 
@@ -81,7 +81,7 @@ class CustomEmployer(User):
     objects = RegistrationManager()
 
     def __unicode__(self):
-        return self.username
+        return unicode(self.username)
 
     class Meta:
 
@@ -117,7 +117,7 @@ class CustomAgency(User):
     objects = RegistrationManager()
 
     def __unicode__(self):
-        return self.username
+        return unicode(self.username)
 
     class Meta:
 

@@ -24,16 +24,19 @@ class ResumeFormView(FormView):
                     message.owner = self.request.user.customapplicant
                     message.save()
                     return HttpResponseRedirect(self.get_success_url())
-                except ObjectDoesNotExist:
+                except ObjectDoesNotExist and AttributeError:
                     try:
                         message = form_class.save()
                         message.owner = self.request.user.customemployer
                         message.save()
                         return HttpResponseRedirect(self.get_success_url())
-                    except ObjectDoesNotExist:
+                    except ObjectDoesNotExist and AttributeError:
                         try:
                             message = form_class.save()
                             message.owner = self.request.user.customagency
                             message.save()
                             return HttpResponseRedirect(self.get_success_url())
-                        except:
+                        except ObjectDoesNotExist and AttributeError:
+                            message = form_class.save()
+                            message.save()
+                            return HttpResponseRedirect(self.get_success_url())

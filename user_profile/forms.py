@@ -2,7 +2,8 @@
 from captcha.fields import CaptchaField
 from registration.forms import RegistrationForm
 from django import forms
-from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency, CompanyCategory
+from main.models import CompanyCategory
+from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency
 from django.utils.translation import ugettext_lazy as _
 
 #добавление рубрик работодателя и кадровых агенств в массив для вывода в форме профиля
@@ -32,7 +33,7 @@ class ApplicantProfileForm(forms.ModelForm):
 
 class EmployerProfileForm(forms.ModelForm):
     company_categories = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple,
-                                                   choices=CHOICE_CATEGORY)
+                                                   choices=CHOICE_CATEGORY, label='Категория компании')
     street = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Улица')}), label='Улица')
     building = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Здание')}), label='Здание')
     about_address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Дополнительная информация')}),
@@ -50,7 +51,7 @@ class EmployerProfileForm(forms.ModelForm):
 
 class AgencyProfileForm(forms.ModelForm):
     company_categories = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple,
-                                                   choices=CHOICE_CATEGORY)
+                                                   choices=CHOICE_CATEGORY, label='Категория компании')
     street = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Улица')}), label='Улица')
     building = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Здание')}), label='Здание')
     about_address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Дополнительная информация')}),

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency, CompanyCategory

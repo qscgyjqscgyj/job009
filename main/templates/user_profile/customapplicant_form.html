@@ -9,60 +9,13 @@
 
     <form method="post">{% csrf_token %}
     <h2>Соискатель:</h2>
-        <dt>Логин:</dt>
-        <dd class="clearfix">
-            {{ form.username }}
-        </dd>
-        <dt>E-mail:</dt>
-        <dd class="clearfix">
-            {{ form.email }}
-            {{ form.email.error }}
-        </dd>
-        <dt>Ф.И.О:</dt>
-        <dd class="clearfix">
-            {{ form.fio }}
-        </dd>
-        <dt>Фото:</dt>
-        <dd class="clearfix">
-            {{ form.photo }}
-        </dd>
-        <dt>Дата рождения:</dt>
-        <dd class="clearfix">
-            {{ form.birth }}
-        </dd>
-        <dt>Пол:</dt>
-        <dd class="clearfix">
-            {{ form.gender }}
-        </dd>
-        <dt>Семейное положение:</dt>
-        <dd class="clearfix">
-            {{ form.marital_status }}
-        </dd>
-        <dt>Профессиональные цели:</dt>
-        <dd class="clearfix">
-            {{ form.professional_goals }}
-        </dd>
-        <dt>Интересы:</dt>
-        <dd class="clearfix">
-            {{ form.interests }}
-        </dd>
-        <dt>Город:</dt>
-        <dd class="clearfix">
-            {{ form.city }}
-        </dd>
-        <dt>Телефон:</dt>
-        <dd class="clearfix">
-            {{ form.phone }}
-            {{ form.phone_details }}
-        </dd>
-        <dt>ICQ:</dt>
-        <dd class="clearfix">
-            {{ form.icq }}
-        </dd>
-        <dt>Skype:</dt>
-        <dd class="clearfix">
-            {{ form.skype }}
-        </dd>
+        {% for field in form %}
+            <dt>{{ field.label }}:</dt>
+            <dd class="clearfix">
+                {{ field }}
+                {{ field.errors }}
+            </dd>
+        {% endfor %}
         <input type="submit" value="Сохранить данные" class="clearfix">
     </form>
 {% endblock %}
