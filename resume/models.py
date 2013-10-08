@@ -9,6 +9,7 @@ from main.models import *
 
 class Resume(models.Model):
     owner = models.ForeignKey(User, verbose_name=_(u'Владелец резюме'), blank=True, null=True)
+    date = models.DateTimeField(verbose_name=_(u'Дата добавления'), auto_now=True)
     office = models.CharField(verbose_name=_(u'Должность'), max_length=50)
     category = models.ForeignKey(AdCategory, verbose_name=_(u'Рубрика'), related_name='resume_category')
     schedule = models.ForeignKey(AdSchedule, verbose_name=_(u'График работы'), related_name='resume_schedule',
