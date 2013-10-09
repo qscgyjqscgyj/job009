@@ -16,5 +16,6 @@ atlassian-ide-plugin.xml
 
 # Project
 local.py
+settings.py
 static/*
 media/*
