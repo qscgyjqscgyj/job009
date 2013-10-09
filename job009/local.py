@@ -21,3 +21,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'aliestarten@gmail.com'
 EMAIL_HOST_PASSWORD = 'qscgyjjygcsq'
 EMAIL_PORT = 587
+
+THUMBNAIL_FORMAT = 'PNG'

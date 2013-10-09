@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load thumbnail %}
 {#{% load flatblock_tags %}#}
 {#{% load thumbnail %}#}
 
@@ -29,16 +30,62 @@
         <div class="container">
             <div class="row">
                 <div class="span3">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                    {% thumbnail 'http://www.2-999-999.ru/files/logo/default_logo3.gif' '200x100' crop="center" as im %}
+                        <img src="{{ im.url }}" />
+                    {% endthumbnail %}
                 </div>
                 <div class="span3">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                    <img alt="140x140" src="http://adv.bce009.ru/show.php?bid=895&pid=3054" />
                 </div>
                 <div class="span3">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                    <div class="currency-banner">
+                        <img class="span1" src="{% static 'main/img/trace.gif' %}">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">09.10.2013</th>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>32.2984</td>
+                                </tr>
+                                <tr>
+                                    <td>EUR</td>
+                                    <td>43.8225</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <a href="/kurs/">все банки</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="span3">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                    <div class="currency-banner">
+                        <img class="span1" src="{% static 'main/img/trace.gif' %}">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">09.10.2013</th>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>32.2984</td>
+                                </tr>
+                                <tr>
+                                    <td>EUR</td>
+                                    <td>43.8225</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <a href="/kurs/">все банки</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -88,10 +135,10 @@
 {% block content %}
             <div class="row">
                 <div class="span6">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                    <img alt="140x140" src="{% static 'main/img/banner2.jpg' %}" />
                 </div>
                 <div class="span6">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                    <img alt="140x140" src="{% static 'main/img/banner2.jpg' %}" />
                 </div>
             </div>
             <div class="row">
@@ -101,11 +148,10 @@
                             <h3>Работа</h3>
                         </div>
                         <div class="span9">
-                            <div class="span9" style="background-color: #000000; border-radius: 0; height: 50px;">
-                                <ul class="nav">
-                                    <li><input type="text"></li>
-                                </ul>
-                            </div>
+                            <form method="post">{% csrf_token %}
+                                <input type="text">
+                                <input type="submit">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -193,7 +239,9 @@
                 </div>
 {% endblock %}
             <div class="span3">
-                <img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" /><img alt="140x140" src="http://lorempixel.com/140/140/" />
+                <img alt="140x140" src="{% static 'main/img/banner1.gif' %}" />
+                <img alt="140x140" src="{% static 'main/img/banner1.gif' %}" />
+                <img alt="140x140" src="{% static 'main/img/banner1.gif' %}" />
             </div>
 	    </div>
     </div>

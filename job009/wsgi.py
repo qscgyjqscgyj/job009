@@ -14,15 +14,30 @@ framework.
 
 """
 import os
+import sys
+import site
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "job009.settings")
+site.addsitedir('/var/www/html/job/lib/python2.7/site-packages')
+
+sys.path.append('/var/www/html/job009')
+sys.path.append('/var/www/html/job009/job009')
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+#from django.core.wsgi import get_wsgi_application
+#application = get_wsgi_application()
+# Activate your virtual env
+activate_env=os.path.expanduser("/var/www/html/job/bin/activate_this.py")
+execfile(activate_env, dict(__file__=activate_env))
+
 
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
+
+#hand
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()

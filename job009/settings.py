@@ -96,6 +96,9 @@ INSTALLED_APPS = (
     'captcha',
     'resume',
     'jobs',
+    'sorl.thumbnail',
+    'redactor',
+    'flatblocks',
 )
 
 LOCAL_APPS = (
@@ -136,5 +139,10 @@ for item in LOCAL_APPS:
     INSTALLED_APPS+=(item,)
     TEMPLATE_DIRS+=(join(PROJECT_PATH, item,'templates'),)
     STATICFILES_DIRS+=((item,join(PROJECT_PATH, item,'static')),)
+
+JQUERY_URL = STATIC_URL + 'js/jquery-1.7.min.js'
+REDACTOR_OPTIONS = {'lang': 'ru'}
+REDACTOR_UPLOAD = 'uploads/'
+
 
 from local import *

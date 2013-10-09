@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import patterns, include, url
-from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView
-from registration.backends.default.views import ActivationView
+from django.conf.urls import patterns, url
 from resume.views import ResumeFormView
-from user_profile.views import ApplicantRegistrationView, my_change_password, EmployerRegistrationView, AgencyRegistrationView, CustomProfileView
 
 urlpatterns = patterns(
     '',
