@@ -5,9 +5,7 @@ from django.views.generic import TemplateView
 from registration.backends.default.views import ActivationView
 from user_profile.views import ApplicantRegistrationView, my_change_password, EmployerRegistrationView, AgencyRegistrationView, CustomProfileView
 
-urlpatterns = patterns(
-    '',
-    #url(r'^$', ApplicantView.as_view(), name='applicant'),
+urlpatterns = patterns('',
     url(r'^activate/complete/$',
        TemplateView.as_view(template_name='registration/activation_complete.html'),
        name='registration_activation_complete'),
@@ -39,5 +37,4 @@ urlpatterns = patterns(
     url(r'^password_change_done$',
        TemplateView.as_view(template_name='registration/password_change_done.html'),
        name='change_pass_done'),
-
 )
