@@ -34,7 +34,7 @@ urlpatterns = patterns('',
     url(r'^password_change/$',
        my_change_password,
        name='change_pass'),
-    url(r'^password_change_done$',
+    url(r'^password_change_done/$',
        TemplateView.as_view(template_name='registration/password_change_done.html'),
        name='change_pass_done'),
 )
