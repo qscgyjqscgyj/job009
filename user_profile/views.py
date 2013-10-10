@@ -121,7 +121,7 @@ class AgencyRegistrationView(CustomRegistrationView):
 class CustomProfileView(UpdateView):
     model = User
     context_object_name = 'profile'
-    success_url = '/accounts/profile'
+    success_url = '/accounts/profile/'
 
     def get_object(self, queryset=None):
         try:
@@ -140,4 +140,4 @@ class CustomProfileView(UpdateView):
 
 
 def my_change_password(request):
-    return password_change(request, post_change_redirect='/accounts/password_change_done')
+    return password_change(request, post_change_redirect='/accounts/password_change_done/')
