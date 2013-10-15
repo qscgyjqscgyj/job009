@@ -1,7 +1,5 @@
 {% load staticfiles %}
 {% load thumbnail %}
-{#{% load flatblock_tags %}#}
-{#{% load thumbnail %}#}
 
 {#                <a href="/">Главная</a>#}
 {#    {% if user.is_authenticated %}#}
@@ -14,6 +12,15 @@
 {#        <p></p><a href="/resume/add">Добавить резюме</a></p>#}
 {#        <a href="/accounts/login">Вход</a>#}
 {#    {% endif %}#}
+
+
+{#                    {% thumbnail 'http://www.2-999-999.ru/files/logo/default_logo3.gif' '400x175' crop='left' as im %}#}
+{#                        <img class="_logo" src="{{ im.url }}" />#}
+{#                    {% endthumbnail %}#}
+{##}
+{#                    {% thumbnail 'http://adv.bce009.ru/show.php?bid=895&pid=3054' '468x60' crop='left' as im %}#}
+{#                        <img class="_tob-banner" src="{{ im.url }}" />#}
+{#                    {% endthumbnail %}#}
 
 <!DOCTYPE html>
 <html>
@@ -32,14 +39,10 @@
         <div class="container">
             <div class="row _top">
                 <div class="span3">
-                    {% thumbnail 'http://www.2-999-999.ru/files/logo/default_logo3.gif' '400x175' crop='left' as im %}
-                        <img class="_logo" src="{{ im.url }}" />
-                    {% endthumbnail %}
+                    <img class="_logo" src="{% static 'main/img/logo.png' %}" />
                 </div>
                 <div class="span5">
-                    {% thumbnail 'http://adv.bce009.ru/show.php?bid=895&pid=3054' '468x60' crop='left' as im %}
-                        <img class="_tob-banner" src="{{ im.url }}" />
-                    {% endthumbnail %}
+                    <img class="_tob-banner" src="{% static 'main/img/sivil.png' %}" />
                 </div>
                 <div class="span2">
                     <div class="_currency-banner">
