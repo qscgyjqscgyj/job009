@@ -1,3 +1,40 @@
+//функции//
+.submenu (@top; @width_ul; @width_a) {
+	list-style-image: url("../img/top_navigate_bullet.png");
+    list-style-position: inside;
+  ul {
+    background-color: #ffffff;
+  }
+  li {
+    ul {
+      position: absolute;
+      width: @width_ul;
+      left: -999em;
+    }
+    &:hover {
+      ul {
+        top: @top;
+        left: 20px;
+        z-index: 100;
+        border: 1px solid #f77116;
+        li {
+          padding-left: 5px;
+          &:hover {background-color: #f77116;}
+          a {
+            width: @width_a;
+            color: #000000;
+            &:hover {
+              color: #ffffff;
+              background-color: #f77116;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+////
+
 body {
   font-size: 12px;
 }
@@ -47,9 +84,7 @@ body {
   height: 90px;
   a {
     color: #000000;
-  }
-  a:hover {
-    color: #f77116;
+    &:hover {color: #f77116;}
   }
   ul {
     list-style-image: url("../img/top_navigate_bullet.png");
@@ -60,67 +95,28 @@ body {
     bottom: 20px;
   }
   ._top-navigate-1 {
-    width: 200px;
+    width: 190px;
+  }
+  ._top-navigate-2 {
+    width: 180px;
+  }
+  ._top-navigate-3 {
+    width: 150px;
+  }
+  ._top-navigate-4 {
+    width: 190px;
   }
   ._top-navigate-5 {
     width: 150px;
   }
-  ._top-navigate-4 {
-    width: 180px;
-  }
 }
 
-
-
-
-
-
-
-
 #nav {
-	padding: 0;
-	margin: 0;
-	list-style-image: url("../img/top_navigate_bullet.png");
-  ul {
-    padding: 0;
-	margin: 0;
-    background-color: #ffffff;
-  }
-  a {
-	display: block;
-	width: 235px;
-    color: #000000;
-  }
-  a:hover {
-    display: block;
-	width: 180px;
-    color: #ffffff;
-    background-color: #f77116;
-  }
-  li {
-	float: left;
-	width: 10em;
-    ul {
-      position: absolute;
-      width: 200px;
-      left: -999em;
-    }
-  }
-  li:hover {
-    
-    ul {
-      left: 10px;
-      z-index: 100;
-      border: 2px solid #f77116;
-      li {
-        position: relative;
-        left: 20px;
-      }
-    }
-  }
-  .sfhover {
-    ul {
-	  left: auto;
-    }
-  }
+  .submenu (@top: 17px; @left: 20px; @width_ul: 165px; @width_a: 160px);
+}
+#nav2 {
+  .submenu (@top: 37px; @left: 20px; @width_ul: 160px; @width_a: 155px);
+}
+#nav3 {
+  .submenu (@top: 17px; @left: 20px; @width_ul: 165px; @width_a: 160px);
 }
