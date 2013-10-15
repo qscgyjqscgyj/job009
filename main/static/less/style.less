@@ -38,6 +38,9 @@
 body {
   font-size: 12px;
 }
+//.container {
+//  background-color: #000000;
+//}
 ._top {
   height: 75px;
 }
@@ -82,6 +85,7 @@ body {
   font-size: 12px;
   margin-bottom: 10px;
   height: 90px;
+  width: 980px;
   a {
     color: #000000;
     &:hover {color: #f77116;}
@@ -90,7 +94,6 @@ body {
     list-style-image: url("../img/top_navigate_bullet.png");
   }
   div {
-    width: 165px;
     position: relative;
     bottom: 20px;
   }
@@ -119,4 +122,39 @@ body {
 }
 #nav3 {
   .submenu (@top: 17px; @width_ul: 165px; @width_a: 160px);
+}
+
+
+._middle{
+  padding-bottom: 30px;
+}
+
+._search-block{
+  height: 100px;
+  width: 980px;
+  position: relative;
+  left: 40px;
+  ._search{
+    margin-left: -30px;
+  }
+  ._work{
+    position: relative;
+    bottom: 15px;
+    border-top: 1px solid #f77116;
+    border-bottom: 1px solid #f77116;
+    height: 50px;
+    margin-left: 0px;
+    ._work-text{
+      position: relative;
+      left: 20px;
+    }
+  }
+  ._form{
+    height: 50px;
+    border: 1px solid #f77116;
+    position: relative;
+    bottom: 15px;
+    margin-left: 0px;
+    background-color: #f77116;
+  }
 }
