@@ -69,9 +69,6 @@ body {
   }
 }
 
-._tob-banner {
-  margin-top: 10px;
-}
 ._logo {
   position: relative;
   bottom: 10px;
@@ -83,7 +80,6 @@ body {
   border-bottom: 1px dotted #e0ded7;
   background-color: #ffedd3;
   font-size: 12px;
-  margin-bottom: 10px;
   height: 90px;
   width: 980px;
   a {
@@ -126,35 +122,68 @@ body {
 
 
 ._middle{
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
+
 ._search-block{
-  height: 100px;
+  margin-bottom: 20px;
   width: 980px;
-  position: relative;
-  left: 40px;
+  ._search-block-div{
+    width: 960px;
+  }
   ._search{
-    margin-left: -30px;
+    border-top: 1px solid #f55305;
+    border-bottom: 1px solid #f55305;
   }
   ._work{
     position: relative;
     bottom: 15px;
-    border-top: 1px solid #f77116;
-    border-bottom: 1px solid #f77116;
-    height: 50px;
-    margin-left: 0px;
+    height: 60px;
     ._work-text{
-      position: relative;
-      left: 20px;
     }
   }
   ._form{
-    height: 50px;
-    border: 1px solid #f77116;
-    position: relative;
-    bottom: 15px;
-    margin-left: 0px;
-    background-color: #f77116;
+    height: 60px;
+    background-color: #f55305;
+    padding-left: 20px;
+    ._form-input-text{
+      border-radius: 0px;
+      border: 2px solid #7f9db9;
+      height: 15px;
+      position: relative; top: 5px; left: 10px;
+      width: 400px;
+    }
+    ._form-input-submit{
+      position: relative; left: 10px;
+      border-radius: 3px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#bababa), to(#868686));
+      color: #ffffff;
+      font-size: 12px;
+    }
+    ._form-category{
+      color: #ffffff;
+      position: relative; right: 10px;
+      ._form-category-choices{
+        position: relative; bottom: 2px;
+        input{
+          width: 12px;
+          height: 12px;
+        }
+        ._form-category-type{
+          position: relative; right: 45px; top: 3px;
+        }
+      }
+    }
+  }
+  ._search-block-resume-add{
+    position: relative; left: 60px; top: 2px;
+    font-size: 12px;
+    color: #ffffff;
+  }
+    ._search-block-job-add{
+    position: relative; left: 150px; bottom: 5px;
+    font-size: 12px;
+    color: #ffffff;
   }
 }

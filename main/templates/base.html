@@ -9,7 +9,7 @@
 {#        <p></p><a href="/accounts/register/applicant/">Регистрация соискателя</a></p>#}
 {#        <p></p><a href="/accounts/register/employer/">Регистрация компании</a></p>#}
 {#        <p></p><a href="/accounts/register/agency/">Регистрация агенства</a></p>#}
-{#        <p></p><a href="/resume/add">Добавить резюме</a></p>#}
+
 {#        <a href="/accounts/login">Вход</a>#}
 {#    {% endif %}#}
 
@@ -43,7 +43,7 @@
 
             <div class="row _middle">
                 <div class="span6">
-                    <img alt="140x140" class="_middle-left-banner" src="{% static 'main/img/banner2.jpg' %}" />
+                    <img alt="140x140" src="{% static 'main/img/banner2.jpg' %}" />
                 </div>
                 <div class="span6">
                     <img alt="140x140" src="{% static 'main/img/banner2.jpg' %}" />
@@ -51,20 +51,48 @@
             </div>
 
             <div class="row _search-block">
-                <div class="span12">
+                <div class="span12 _search-block-div">
                     <div class="row _search">
                         <div class="span3 _work">
                             <h3 class="_work-text">Работа</h3>
                         </div>
                         <div class="span9 _form">
                             <form method="post">{% csrf_token %}
-                                <input type="text">
-                                <input type="submit">
+                                <div class="row">
+                                    <input class="_form-input-text" type="text" placeholder="Поиск должности, компании или ключевого слова">
+                                    <input class="_form-input-submit" type="submit" value="НАЙТИ">
+                                    <a class="_search-block-resume-add" href="/resume/add">Разместить резюме</a>
+                                </div>
+                                <div class="row _form-category">
+                                    <div class="span1">Я ищу:</div>
+                                    <div class="span2 _form-category-choices">
+                                        <div class="row">
+                                            <div class="span1">
+                                                <input id="st1" type="radio" name="type">
+                                            </div>
+                                            <div class="_form-category-type">
+                                                <label for="st1">Вакансию</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="span2 _form-category-choices">
+                                        <div class="row">
+                                            <div class="span1">
+                                                <input id="st2" type="radio" name="type">
+                                            </div>
+                                            <div class="_form-category-type">
+                                                <label for="st2">Резюме</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="_search-block-job-add" href="/job/add">Разместить вакансию</a>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="span3">
                     <ul>
