@@ -1,4 +1,7 @@
-//функции//
+//var//
+@orange: #f55305;
+////////
+//func//
 .submenu (@top; @width_ul; @width_a) {
 	list-style-image: url("../img/top_navigate_bullet.png");
     list-style-position: inside;
@@ -84,7 +87,7 @@ body {
   width: 980px;
   a {
     color: #000000;
-    &:hover {color: #f77116;}
+    &:hover {color: @orange;}
   }
   ul {
     list-style-image: url("../img/top_navigate_bullet.png");
@@ -133,19 +136,26 @@ body {
     width: 960px;
   }
   ._search{
-    border-top: 1px solid #f55305;
-    border-bottom: 1px solid #f55305;
+    border-top: 1px solid @orange;
+    border-bottom: 1px solid @orange;
   }
   ._work{
     position: relative;
     bottom: 15px;
     height: 60px;
     ._work-text{
+      color: @orange;
+      position: relative; left: 20px; top: 15px;
+      text-decoration: underline;
+      &:hover{
+        border: 0;
+        text-decoration: none;
+      }
     }
   }
   ._form{
     height: 60px;
-    background-color: #f55305;
+    background-color: @orange;
     padding-left: 20px;
     ._form-input-text{
       border-radius: 0px;
@@ -185,5 +195,55 @@ body {
     position: relative; left: 150px; bottom: 5px;
     font-size: 12px;
     color: #ffffff;
+  }
+}
+
+._content{
+  ._content-center{
+    position: relative; bottom: 20px;
+    border-left: 1px solid @orange;
+    ._table-main{
+      margin-left: 10px;
+    }
+    ._table{
+      border-radius: 0px;
+      border-collapse: collapse;
+      font-size: 12px;
+      tbody{
+        td{
+          -webkit-border-top-left-radius: none;
+          border-top-left-radius: none;
+          -moz-border-radius-topleft: none;
+        }
+      }
+    }
+  }
+  ._top-insets{
+    position: relative; top: 10px;
+    border-color: @orange;
+    a{
+      border-radius: 0px;
+      color: #808080;
+      &:hover{
+        background: none;
+        border: 1px solid #ffffff;
+        border-bottom-color: transparent;
+      }
+    }
+    li.active{
+      border-color: @orange;
+      a{
+        border-radius: 0px;
+        border: 1px solid @orange;
+        border-bottom-color: transparent;
+        color: #000000;
+      }
+    }
+  }
+  ._right-banners{
+    width: 200px;
+    img{
+      padding-bottom: 10px;
+    }
   }
 }

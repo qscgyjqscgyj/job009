@@ -54,7 +54,7 @@
                 <div class="span12 _search-block-div">
                     <div class="row _search">
                         <div class="span3 _work">
-                            <h3 class="_work-text">Работа</h3>
+                            <a class="_work-text" href="/"><h3>Работа</h3></a>
                         </div>
                         <div class="span9 _form">
                             <form method="post">{% csrf_token %}
@@ -93,7 +93,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row _content">
                 <div class="span3">
                     <ul>
                         <li>Lorem ipsum dolor sit amet</li>
@@ -113,26 +113,30 @@
                     </ul>
                 </div>
 {% block content %}
-                <div class="span6">
-                    <div class="tabbable" id="tabs-603801">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#panel-237083" data-toggle="tab">Вакансии</a></li>
+                <div class="span6 _content-center">
+                    <div class="tabbable _table-main" id="tabs-603801">
+                        <ul class="nav nav-tabs _top-insets">
+                            <li class="active"><a class="_top-insets-element" href="#panel-237083" data-toggle="tab">Вакансии</a></li>
                             <li><a href="#panel-184892" data-toggle="tab">Резюме</a></li>
                         </ul>
 
                         <div class="tab-content">
                             <div class="tab-pane active" id="panel-237083">
-                                <table class="table table-bordered">
+                                <table class="table table-condensed table-bordered _table">
                                     <tbody>
                                         {% for job in jobs %}
                                             <tr>
                                                 <td>
-                                                    <p>{{ job.date.day }}.{{ job.date.month }}.{{ job.date.year }}</p>
-                                                    <p>{{ job.date.time }}</p>
+                                                    {{ job.date.day }}.{{ job.date.month }}.{{ job.date.year }}
+                                                    <br>
+                                                    {{ job.date.time }}
                                                 </td>
                                                 <td>
-                                                    <p><a href="#">{{ job.office }}</a> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}</p>
-                                                    <p>{{ job.employment }}, {{ job.education }} образование, {{ job.experience }}, </p>
+                                                    <a href="#">{{ job.office }}</a> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}, стаж работы {{ job.experience }}
+                                                    <br>
+                                                    {{ job.employment }}, {{ job.education }} образование, {{ job.experience }}
+                                                    <br>
+                                                    феникс
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -141,18 +145,19 @@
                             </div>
 
                             <div class="tab-pane" id="panel-184892">
-                                <table class="table table-bordered">
+                                <table class="table table-condensed table-bordered _table">
                                     <tbody>
                                         {% for res in resume %}
-                                                    <tr>
-                                                        <td>
-                                                    <p>{{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}</p>
-                                                    <p>{{ res.date.time }}</p>
-                                                        </td>
-                                                        <td>
-                                                            {{ res.office }}
-                                                        </td>
-                                                    </tr>
+                                            <tr>
+                                                <td>
+                                                    {{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}
+                                                    <br>
+                                                    {{ res.date.time }}
+                                                </td>
+                                                <td>
+                                                    {{ res.office }}
+                                                </td>
+                                            </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>
@@ -160,22 +165,22 @@
                         </div>
                     </div>
 
-                    <div class="btn-group">
-                         <button class="btn" type="button"><em class="icon-align-left"></em></button> <button class="btn" type="button"><em class="icon-align-center"></em></button> <button class="btn" type="button"><em class="icon-align-right"></em></button> <button class="btn" type="button"><em class="icon-align-justify"></em></button>
-                    </div>
-
-                    <div class="pagination">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
+{#                    <div class="btn-group">#}
+{#                         <button class="btn" type="button"><em class="icon-align-left"></em></button> <button class="btn" type="button"><em class="icon-align-center"></em></button> <button class="btn" type="button"><em class="icon-align-right"></em></button> <button class="btn" type="button"><em class="icon-align-justify"></em></button>#}
+{#                    </div>#}
+{##}
+{#                    <div class="pagination">#}
+{#                        <ul>#}
+{#                            <li><a href="#">Prev</a></li>#}
+{#                            <li><a href="#">1</a></li>#}
+{#                            <li><a href="#">2</a></li>#}
+{#                            <li><a href="#">3</a></li>#}
+{#                            <li><a href="#">Next</a></li>#}
+{#                        </ul>#}
+{#                    </div>#}
                 </div>
 {% endblock %}
-                <div class="span3">
+                <div class="span3 _right-banners">
                     <img alt="140x140" src="{% static 'main/img/banner1.gif' %}" />
                     <img alt="140x140" src="{% static 'main/img/banner1.gif' %}" />
                     <img alt="140x140" src="{% static 'main/img/banner1.gif' %}" />
