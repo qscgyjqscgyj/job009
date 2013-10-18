@@ -127,12 +127,14 @@ body {
 
 ._middle{
   padding-bottom: 10px;
+  font-size: 12px;
 }
 
 
 ._search-block{
   margin-bottom: 20px;
   width: 980px;
+  font-size: 12px;
   ._search-block-div{
     width: 960px;
   }
@@ -158,6 +160,7 @@ body {
     height: 60px;
     background-color: @orange;
     padding-left: 20px;
+    font-size: 12px;
     ._form-input-text{
       border-radius: 0px;
       border: 2px solid #7f9db9;
@@ -183,6 +186,9 @@ body {
         }
         ._form-category-type{
           position: relative; right: 45px; top: 3px;
+          label{
+            font-size: 12px;
+          }
         }
       }
     }
@@ -199,7 +205,31 @@ body {
   }
 }
 
+._profile-link{
+  a{
+    color: #000000;
+    &:hover{
+      color: @orange;
+    }
+  }
+}
+
 ._content{
+  ._left-navigate{
+//    list-style-image: url("../img/left_navigate_bullet.png");
+    list-style: none;
+    position: relative; top: 10px; right: 10px;
+    font-size: 12px;
+    img{
+      margin-right: 3px;
+    }
+    a{
+      color: #000000;
+      &:hover{
+        color: @orange;
+      }
+    }
+  }
   ._content-center{
     position: relative; bottom: 20px;
     border-left: 1px solid @orange;
@@ -243,6 +273,7 @@ body {
   }
   ._right-banners{
     width: 200px;
+    position: relative; left: 20px; bottom: 10px;
     img{
       padding-bottom: 10px;
     }
