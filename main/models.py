@@ -4,11 +4,28 @@ from django.utils.translation import ugettext_lazy as _
 from django_geoip.models import City
 
 
-class AdCategory(models.Model):
-    name = models.CharField(verbose_name=_(u'Название рубрики'), max_length=50)
+class AdSubCategory(models.Model):
+    name = models.CharField(verbose_name=_(u'Название подрубрики'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Подрубрика')
+        verbose_name_plural = _(u'Подрубрики')
+
+
+class AdCategory(models.Model):
+    name = models.CharField(verbose_name=_(u'Название рубрики'), max_length=50)
+    subcategory = models.ManyToManyField(AdSubCategory, verbose_name=_(u'Подрубкрика'),
+                                         related_name='ad_category_subcategory')
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
 
@@ -23,7 +40,7 @@ class AdSchedule(models.Model):
     name = models.CharField(verbose_name=_(u'График работы'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -38,7 +55,7 @@ class AdEmployment(models.Model):
     name = models.CharField(verbose_name=_(u'Тип занятости'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -53,7 +70,7 @@ class AdSalaryMeasure(models.Model):
     name = models.CharField(verbose_name=_(u'Валюта (зарплата)'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -68,7 +85,7 @@ class AdExperience(models.Model):
     name = models.CharField(verbose_name=_(u'Стаж работы'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -84,7 +101,7 @@ class AdArea(models.Model):
     name = models.CharField(verbose_name=_(u'Район проживания'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -99,7 +116,7 @@ class AdTime(models.Model):
     name = models.CharField(verbose_name=_(u'Время жизни объявления'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -114,7 +131,7 @@ class Gender(models.Model):
     name = models.CharField(verbose_name=_(u'Пол'), max_length=20)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -129,7 +146,7 @@ class MaritalStatus(models.Model):
     name = models.CharField(verbose_name=_(u'Семейное положение'), max_length=20)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -144,7 +161,7 @@ class Education(models.Model):
     name = models.CharField(verbose_name=_(u'Образование'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -159,7 +176,7 @@ class Position(models.Model):
     name = models.CharField(verbose_name=_(u'Позиция'), max_length=50)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -174,7 +191,7 @@ class CompanyCategory(models.Model):
     name = models.CharField(verbose_name=_(u'Название категории'), max_length=20)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
@@ -189,7 +206,7 @@ class Employees(models.Model):
     name = models.CharField(verbose_name=_(u'Количество сотрудников'), max_length=20)
 
     def __unicode__(self):
-        return unicode(self.name)
+        return self.name
 
     class Meta:
 
