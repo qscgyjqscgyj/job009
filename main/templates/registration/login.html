@@ -1,36 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Авторизация</h1>
+<h4 class="_title">Авторизация</h4>
 
 {% if user.is_authenticated %}
-Что такое, {{ user.username }}? Вы же уже авторизорваны.
-Впрочем, всегда можно <a href="{% url 'auth_logout' %}">выйти</a>.<br/><br/>
+    Что такое, {{ user.username }}? Вы же уже авторизорваны.
+    Впрочем, всегда можно <a href="{% url 'auth_logout' %}">выйти</a>.<br/><br/>
 {% else %}
 
 {% if form.non_field_errors %}
-{{ form.non_field_errors }}
+    {{ form.non_field_errors }}
 {% endif %}
 
-<form method="post" action="">
-{% csrf_token %}
-<dl class="register">
-{% for field in form %}
-    <dt>{{ field.label_tag }}</dt>
-    <dd class="clearfix">{{ field }}
-    {% if field.help_text %}<div class="clearfix">{{ field.help_text }}</div>{% endif %}
-    {% if field.errors %}<div class="myerrors clearfix">{{ field.errors }}</div>{% endif %}
-    </dd>
-{% endfor %}
-</dl>
-<input type="submit" value="Вход" class="clearfix">
+<form method="post" class="_login-form form-horizontal">{% csrf_token %}
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">Логин</label>
+        <div class="controls">
+            {{ form.username }}
+            {% if form.username.help_text %}<div class="clearfix">{{ form.username.help_text }}</div>{% endif %}
+            {% if form.username.errors %}<div class="myerrors clearfix">{{ form.username.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">Пароль</label>
+        <div class="controls _login-form-field">
+            {{ form.password }}
+            {% if form.password.help_text %}<div class="clearfix">{{ form.password.help_text }}</div>{% endif %}
+            {% if form.password.errors %}<div class="myerrors clearfix">{{ form.password.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+             <label class="checkbox"><input type="checkbox" />Запомнить меня</label> <input type="submit" value="Вход" class="clearfix">
+        </div>
+    </div>
 </form>
 
-<script type="text/javascript">
-document.getElementById('id_username').focus()
-</script>
-
- <br/><br/>
-<ul>
+<ul class="_login-list">
     <li><a href="{% url 'auth_password_reset' %}">Забыли пароль?</a></li>
     <li><a href="/accounts/register/applicant/">Регистрация соискателя</a></li>
     <li><a href="/accounts/register/employer/">Регистрация работодателя</a></li>

@@ -1,17 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Регистрация</h1>
-<form method="post">
-{% csrf_token %}
-    <dl class="register">
-        {% for field in form %}
-            <dt>{{ field.label_tag }}</dt>
-            <dd class="clearfix">{{ field }}
-                {% if field.help_text %}<div class="clearfix">{{ field.help_text }}</div>{% endif %}
-                {% if field.errors %}<div class="myerrors clearfix">{{ field.errors }}</div>{% endif %}
-            </dd>
-        {% endfor %}
-    </dl>
-    <input type="submit" value="Зарегистрироваться" class="clearfix">
+<h4 class="_title">Регистрация</h4>
+<form method="post" class="_login-form form-horizontal">{% csrf_token %}
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">Логин</label>
+        <div class="controls">
+            {{ form.username }}
+            {% if form.username.help_text %}<div class="clearfix">{{ form.username.help_text }}</div>{% endif %}
+            {% if form.username.errors %}<div class="myerrors clearfix">{{ form.username.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">E-mail</label>
+        <div class="controls _login-form-field">
+            {{ form.email }}
+            {% if form.email.help_text %}<div class="clearfix">{{ form.email.help_text }}</div>{% endif %}
+            {% if form.email.errors %}<div class="myerrors clearfix">{{ form.email.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">Пароль</label>
+        <div class="controls _login-form-field">
+            {{ form.password1 }}
+            {% if form.password1.help_text %}<div class="clearfix">{{ form.password1.help_text }}</div>{% endif %}
+            {% if form.password1.errors %}<div class="myerrors clearfix">{{ form.password1.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">Пароль (еще раз)</label>
+        <div class="controls _login-form-field">
+            {{ form.password2 }}
+            {% if form.password2.help_text %}<div class="clearfix">{{ form.password2.help_text }}</div>{% endif %}
+            {% if form.password2.errors %}<div class="myerrors clearfix">{{ form.password2.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+         <label class="control-label" for="inputEmail">Код с картинки</label>
+        <div class="controls _login-form-field">
+            {{ form.captcha }}
+            {% if form.captcha.help_text %}<div class="clearfix">{{ form.captcha.help_text }}</div>{% endif %}
+            {% if form.captcha.errors %}<div class="myerrors clearfix">{{ form.captcha.errors }}</div>{% endif %}
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <input type="submit" value="Зарегестрироваться" class="clearfix">
+        </div>
+    </div>
 </form>
+
 {% endblock %}
