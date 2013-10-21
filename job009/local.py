@@ -23,3 +23,9 @@ EMAIL_HOST_PASSWORD = 'qscgyjjygcsq'
 EMAIL_PORT = 587
 
 THUMBNAIL_FORMAT = 'PNG'
+
+import djcelery
+djcelery.setup_loader()
+
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+BROKER_BACKEND = "djkombu.transport.DatabaseTransport"
