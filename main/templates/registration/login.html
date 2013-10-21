@@ -32,7 +32,9 @@ document.getElementById('id_username').focus()
  <br/><br/>
 <ul>
     <li><a href="{% url 'auth_password_reset' %}">Забыли пароль?</a></li>
-    <li><a href="/reg">Регистрация</a></li>
+    <li><a href="/accounts/register/applicant/">Регистрация соискателя</a></li>
+    <li><a href="/accounts/register/employer/">Регистрация работодателя</a></li>
+    <li><a href="/accounts/register/agency/">Регистрация агентства</a></li>
 </ul>
 {% endif %}
 {% endblock %}

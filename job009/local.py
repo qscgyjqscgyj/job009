@@ -29,3 +29,4 @@ djcelery.setup_loader()
 
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 BROKER_BACKEND = "djkombu.transport.DatabaseTransport"
+
