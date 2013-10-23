@@ -16,28 +16,28 @@ class Resume(models.Model):
                                  blank=True, null=True)
     employment = models.ForeignKey(AdEmployment, verbose_name=_(u'Тип занятости'), related_name='resume_employment',
                                    blank=True, null=True)
-    salary = models.CharField(verbose_name=_(u'Зарплата (от)'), max_length=50, blank=True, null=True)
+    salary = models.CharField(verbose_name=_(u'Зарплата'), max_length=50, blank=True, null=True)
     salary_measure = models.ForeignKey(AdSalaryMeasure, verbose_name=_(u'Валюта'),
                                        related_name='resume_salary_measure', blank=True, null=True)
     fio = models.CharField(verbose_name=_(u'Ф.И.О.'), max_length=50)
-    photo = models.ImageField(verbose_name=_(u'Фото на резюме'), upload_to='resume_photo', blank=True, null=True)
+    photo = models.ImageField(verbose_name=_(u'Фото'), upload_to='resume_photo', blank=True, null=True)
     birth = models.DateField(verbose_name=_(u'Дата рождения'))
     gender = models.ForeignKey(Gender, verbose_name=_(u'Пол'), related_name='resume_gender')
     marital_status = models.ForeignKey(MaritalStatus, verbose_name=_(u'Семейное положение'),
                                        related_name='resume_marital_status', blank=True, null=True)
-    experience = models.ForeignKey(AdExperience, verbose_name=_(u'Стаж работы'), related_name='resume_experience',
+    experience = models.ForeignKey(AdExperience, verbose_name=_(u'Общий стаж работы'), related_name='resume_experience',
                                    blank=True, null=True)
     skills = models.TextField(verbose_name=_(u'Опыт работы и профессиональные навыки'))
     education = models.ForeignKey(Education, verbose_name=_(u'Образование'), related_name='resume_education')
     institution = models.CharField(verbose_name=_(u'Учебное заведение'), max_length=50, blank=True, null=True)
     diploma = models.CharField(verbose_name=_(u'Основная специальность по диплому'), max_length=50,
                                blank=True, null=True)
-    ex_education = models.TextField(verbose_name=_(u'Дополнительное образование'), blank=True, null=True)
+    ex_education = models.TextField(verbose_name=_(u'Доп. образование'), blank=True, null=True)
     qualities = models.TextField(verbose_name=_(u'Личные качества'), blank=True, null=True)
     driving_license = models.NullBooleanField(verbose_name=_(u'Водительские права'), blank=True, null=True)
-    business_trip = models.NullBooleanField(verbose_name=_(u'Готов ли к командировкам'), blank=True, null=True)
-    smoke = models.NullBooleanField(verbose_name=_(u'Курит ли'), blank=True, null=True)
-    file_resume = models.FileField(verbose_name=_(u'Загрузить резюме'), upload_to='resume_file', blank=True, null=True)
+    business_trip = models.NullBooleanField(verbose_name=_(u'Готовность к командировкам'), blank=True, null=True)
+    smoke = models.NullBooleanField(verbose_name=_(u'Курю'), blank=True, null=True)
+    file_resume = models.FileField(verbose_name=_(u'Ррезюме'), upload_to='resume_file', blank=True, null=True)
     city = models.ForeignKey(City, verbose_name=_(u'Город проживания'), related_name='resume_city')
     area = models.ForeignKey(AdArea, verbose_name=_(u'Район проживания'), related_name='resume_area',
                              blank=True, null=True)
@@ -54,6 +54,7 @@ class Resume(models.Model):
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни резюме'), related_name='resume_ad_time',
                                 blank=True, null=True)
     captcha = CaptchaField()
+    rating = models.IntegerField(verbose_name=_(u'Рейтинг объявления'), blank=True, null=True)
 
     def __unicode__(self):
         return self.office

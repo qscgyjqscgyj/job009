@@ -48,6 +48,7 @@ class Job(models.Model):
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни вакансии'), related_name='job_ad_time',
                                 blank=True, null=True)
     captcha = CaptchaField()
+    rating = models.IntegerField(verbose_name=_(u'Рейтинг объявления'), blank=True, null=True)
 
     def __unicode__(self):
         return self.office

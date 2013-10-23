@@ -8,57 +8,18 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Job'
-        db.create_table(u'jobs_job', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], null=True, blank=True)),
-            ('office', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('category', self.gf('django.db.models.fields.related.ForeignKey')(related_name='job_category', to=orm['main.AdCategory'])),
-            ('schedule', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_schedule', null=True, to=orm['main.AdSchedule'])),
-            ('employment', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_employment', null=True, to=orm['main.AdEmployment'])),
-            ('salary_from', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('salary_to', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('salary_measure', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_salary_measure', null=True, to=orm['main.AdSalaryMeasure'])),
-            ('about_job', self.gf('django.db.models.fields.TextField')()),
-            ('city', self.gf('django.db.models.fields.related.ForeignKey')(related_name='job_city', to=orm['django_geoip.City'])),
-            ('another_city_candidate', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('street', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('building', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('about_address', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('education', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_education', null=True, to=orm['main.Education'])),
-            ('experience', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_experience', null=True, to=orm['main.AdExperience'])),
-            ('skills', self.gf('django.db.models.fields.TextField')()),
-            ('driving_license', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('business_trip', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('smoke', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('area', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_area', null=True, to=orm['main.AdArea'])),
-            ('phone', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('phone_details', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
-            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
-            ('icq', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
-            ('skype', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('move', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('ad_time', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='job_ad_time', null=True, to=orm['main.AdTime'])),
-        ))
-        db.send_create_signal(u'jobs', ['Job'])
 
-        # Adding M2M table for field move_cities on 'Job'
-        m2m_table_name = db.shorten_name(u'jobs_job_move_cities')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('job', models.ForeignKey(orm[u'jobs.job'], null=False)),
-            ('city', models.ForeignKey(orm[u'django_geoip.city'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['job_id', 'city_id'])
-
+        # Changing field 'Job.rating'
+        db.alter_column(u'jobs_job', 'rating', self.gf('django.db.models.fields.IntegerField')(null=True))
 
     def backwards(self, orm):
-        # Deleting model 'Job'
-        db.delete_table(u'jobs_job')
 
-        # Removing M2M table for field move_cities on 'Job'
-        db.delete_table(db.shorten_name(u'jobs_job_move_cities'))
-
+        # User chose to not deal with backwards NULL issues for 'Job.rating'
+        raise RuntimeError("Cannot reverse this migration. 'Job.rating' and its values cannot be restored.")
+        
+        # The following code is provided here to aid in writing a correct migration
+        # Changing field 'Job.rating'
+        db.alter_column(u'jobs_job', 'rating', self.gf('django.db.models.fields.IntegerField')())
 
     models = {
         u'auth.group': {
@@ -127,6 +88,7 @@ class Migration(SchemaMigration):
             'business_trip': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'category': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'job_category'", 'to': u"orm['main.AdCategory']"}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'job_city'", 'to': u"orm['django_geoip.City']"}),
+            'date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'driving_license': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'education': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'job_education'", 'null': 'True', 'to': u"orm['main.Education']"}),
             'email': ('django.db.models.fields.EmailField', [], {'max_length': '75'}),
@@ -140,6 +102,7 @@ class Migration(SchemaMigration):
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']", 'null': 'True', 'blank': 'True'}),
             'phone': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'phone_details': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'rating': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'salary_from': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
             'salary_measure': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'job_salary_measure'", 'null': 'True', 'to': u"orm['main.AdSalaryMeasure']"}),
             'salary_to': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
@@ -158,7 +121,8 @@ class Migration(SchemaMigration):
         u'main.adcategory': {
             'Meta': {'object_name': 'AdCategory'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
+            'subcategory': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'ad_category_subcategory'", 'symmetrical': 'False', 'to': u"orm['main.AdSubCategory']"})
         },
         u'main.ademployment': {
             'Meta': {'object_name': 'AdEmployment'},
@@ -177,6 +141,11 @@ class Migration(SchemaMigration):
         },
         u'main.adschedule': {
             'Meta': {'object_name': 'AdSchedule'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+        },
+        u'main.adsubcategory': {
+            'Meta': {'object_name': 'AdSubCategory'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },

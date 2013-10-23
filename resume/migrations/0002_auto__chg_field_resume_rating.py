@@ -8,16 +8,18 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'Resume.date'
-        db.add_column(u'resume_resume', 'date',
-                      self.gf('django.db.models.fields.DateField')(default=datetime.datetime(2013, 10, 8, 0, 0)),
-                      keep_default=False)
 
+        # Changing field 'Resume.rating'
+        db.alter_column(u'resume_resume', 'rating', self.gf('django.db.models.fields.IntegerField')(null=True))
 
     def backwards(self, orm):
-        # Deleting field 'Resume.date'
-        db.delete_column(u'resume_resume', 'date')
 
+        # User chose to not deal with backwards NULL issues for 'Resume.rating'
+        raise RuntimeError("Cannot reverse this migration. 'Resume.rating' and its values cannot be restored.")
+        
+        # The following code is provided here to aid in writing a correct migration
+        # Changing field 'Resume.rating'
+        db.alter_column(u'resume_resume', 'rating', self.gf('django.db.models.fields.IntegerField')())
 
     models = {
         u'auth.group': {
@@ -84,7 +86,8 @@ class Migration(SchemaMigration):
         u'main.adcategory': {
             'Meta': {'object_name': 'AdCategory'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
+            'subcategory': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'ad_category_subcategory'", 'symmetrical': 'False', 'to': u"orm['main.AdSubCategory']"})
         },
         u'main.ademployment': {
             'Meta': {'object_name': 'AdEmployment'},
@@ -103,6 +106,11 @@ class Migration(SchemaMigration):
         },
         u'main.adschedule': {
             'Meta': {'object_name': 'AdSchedule'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
+        },
+        u'main.adsubcategory': {
+            'Meta': {'object_name': 'AdSubCategory'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
@@ -134,7 +142,7 @@ class Migration(SchemaMigration):
             'business_trip': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'category': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_category'", 'to': u"orm['main.AdCategory']"}),
             'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_city'", 'to': u"orm['django_geoip.City']"}),
-            'date': ('django.db.models.fields.DateField', [], {}),
+            'date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'diploma': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
             'driving_license': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'education': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_education'", 'to': u"orm['main.Education']"}),
@@ -157,6 +165,7 @@ class Migration(SchemaMigration):
             'phone_details': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'qualities': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'rating': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'salary': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
             'salary_measure': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_salary_measure'", 'null': 'True', 'to': u"orm['main.AdSalaryMeasure']"}),
             'schedule': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_schedule'", 'null': 'True', 'to': u"orm['main.AdSchedule']"}),

@@ -12,7 +12,7 @@
 {% endif %}
 
 <form method="post" class="_login-form form-horizontal">{% csrf_token %}
-    <div class="control-group">
+    <div class="control-group _login-form-block">
          <label class="control-label" for="inputEmail">Логин</label>
         <div class="controls">
             {{ form.username }}
@@ -20,7 +20,7 @@
             {% if form.username.errors %}<div class="myerrors clearfix">{{ form.username.errors }}</div>{% endif %}
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group _login-form-block">
          <label class="control-label" for="inputEmail">Пароль</label>
         <div class="controls _login-form-field">
             {{ form.password }}
@@ -28,9 +28,10 @@
             {% if form.password.errors %}<div class="myerrors clearfix">{{ form.password.errors }}</div>{% endif %}
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group _login-form-block">
         <div class="controls">
-             <label class="checkbox"><input type="checkbox" />Запомнить меня</label> <input type="submit" value="Вход" class="clearfix">
+             <label class="checkbox _login-form-remember-label"><input class="_login-form-remember-input" type="checkbox" />Запомнить меня</label>
+             <input type="submit" value="Войти" class="btn btn-small _login-form-button">
         </div>
     </div>
 </form>

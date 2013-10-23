@@ -1,33 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
+{% load flatblock_tags %}
 <h4 class="_title">Регистрация</h4>
+{% flatblock 'Регистрация' %}
 <form method="post" class="_login-form form-horizontal">{% csrf_token %}
-    <div class="control-group">
-         <label class="control-label" for="inputEmail">Логин</label>
+    <div class="control-group _login-form-block">
+         <label class="control-label" for="inputEmail">Логин<a class="_red-star">*</a></label>
         <div class="controls">
             {{ form.username }}
             {% if form.username.help_text %}<div class="clearfix">{{ form.username.help_text }}</div>{% endif %}
             {% if form.username.errors %}<div class="myerrors clearfix">{{ form.username.errors }}</div>{% endif %}
         </div>
     </div>
-    <div class="control-group">
-         <label class="control-label" for="inputEmail">E-mail</label>
+    <div class="control-group _login-form-block">
+         <label class="control-label" for="inputEmail">E-mail<a class="_red-star">*</a></label>
         <div class="controls _login-form-field">
             {{ form.email }}
             {% if form.email.help_text %}<div class="clearfix">{{ form.email.help_text }}</div>{% endif %}
             {% if form.email.errors %}<div class="myerrors clearfix">{{ form.email.errors }}</div>{% endif %}
         </div>
     </div>
-    <div class="control-group">
-         <label class="control-label" for="inputEmail">Пароль</label>
+    <div class="control-group _login-form-block">
+         <label class="control-label" for="inputEmail">Пароль<a class="_red-star">*</a></label>
         <div class="controls _login-form-field">
             {{ form.password1 }}
             {% if form.password1.help_text %}<div class="clearfix">{{ form.password1.help_text }}</div>{% endif %}
             {% if form.password1.errors %}<div class="myerrors clearfix">{{ form.password1.errors }}</div>{% endif %}
         </div>
     </div>
-    <div class="control-group">
-         <label class="control-label" for="inputEmail">Пароль (еще раз)</label>
+    <div class="control-group _login-form-block">
+         <label class="control-label" for="inputEmail">Пароль (еще раз)<a class="_red-star">*</a></label>
         <div class="controls _login-form-field">
             {{ form.password2 }}
             {% if form.password2.help_text %}<div class="clearfix">{{ form.password2.help_text }}</div>{% endif %}
@@ -35,18 +37,17 @@
         </div>
     </div>
     <div class="control-group">
-         <label class="control-label" for="inputEmail">Код с картинки</label>
-        <div class="controls _login-form-field">
+         <label class="control-label" for="inputEmail">Код с картинки<a class="_red-star">*</a></label>
+        <div class="controls _login-form-field _reg-captcha">
             {{ form.captcha }}
             {% if form.captcha.help_text %}<div class="clearfix">{{ form.captcha.help_text }}</div>{% endif %}
             {% if form.captcha.errors %}<div class="myerrors clearfix">{{ form.captcha.errors }}</div>{% endif %}
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group _login-form-block">
         <div class="controls">
-            <input type="submit" value="Зарегестрироваться" class="clearfix">
+            <input type="submit" value="Зарегестрироваться" class="btn btn-small _reg-form-button">
         </div>
     </div>
 </form>
-
 {% endblock %}

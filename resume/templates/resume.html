@@ -1,15 +1,176 @@
 {% extends "base.html" %}
+{% load flatblock_tags %}
 
 {% block content %}
     <form method="post">{% csrf_token %}
-    <h2>Добавить резюме:</h2>
-        {% for field in form %}
-            <dt>{{ field.label }}:</dt>
-            <dd class="clearfix">
-                {{ field }}
-                {{ field.errors }}
-            </dd>
-        {% endfor %}
-        <input type="submit" value="Сохранить данные" class="clearfix">
+    <h4 class="_title">Добавление резюме:</h4>
+        {% flatblock 'Добавление резюме' %}
+        <table class="_ad-table">
+            <tr>
+                <td colspan="2"><h5>Требования к должности</h5></td>
+            </tr>
+
+
+            <tr>
+                <td class="span2">{{ form.office.label }}<a class="_red-star">*</a></td>
+                <td class="span4">{{ form.office.errors }}{{ form.office }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.category.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.category.errors }}{{ form.category }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.schedule.label }}</td>
+                <td>{{ form.schedule.errors }}{{ form.schedule }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.employment.label }}</td>
+                <td>{{ form.employment.errors }}{{ form.employment }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.salary.label }}</td>
+                <td>
+                    <div class="row">
+                        <div class="span2">{{ form.salary.errors }}{{ form.salary }}</div>
+                        <div class="span2">{{ form.salary_measure.errors }}{{ form.salary_measure }}</div>
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Персональные данные</h5></td>
+            </tr>
+
+
+            <tr>
+                <td class="span2">{{ form.fio.label }}<a class="_red-star">*</a></td>
+                <td class="span4">{{ form.fio.errors }}{{ form.fio }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.photo.label }}</td>
+                <td>{{ form.photo.errors }}{{ form.photo }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.birth.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.birth.errors }}{{ form.birth }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.gender.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.gender.errors }}{{ form.gender }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.marital_status.label }}</td>
+                <td>{{ form.marital_status.errors }}{{ form.marital_status }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.experience.label }}</td>
+                <td>{{ form.experience.errors }}{{ form.experience }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.skills.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.skills.errors }}{{ form.skills }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.education.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.education.errors }}{{ form.education }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.institution.label }}</td>
+                <td>{{ form.institution.errors }}{{ form.institution }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.diploma.label }}</td>
+                <td>{{ form.diploma.errors }}{{ form.diploma }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.ex_education.label }}</td>
+                <td>{{ form.ex_education.errors }}{{ form.ex_education }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.qualities.label }}</td>
+                <td>{{ form.qualities.errors }}{{ form.qualities }}</td>
+            </tr>
+            <tr>
+                <td>Дополнительные сведения</td>
+                <td>{{ form.driving_license.errors }}{{ form.driving_license }}{{ form.driving_license.label }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{ form.business_trip.errors }}{{ form.business_trip }}{{ form.business_trip.label }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{ form.smoke.errors }}{{ form.smoke }}{{ form.smoke.label }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.file_resume.label }}</td>
+                <td>{{ form.file_resume.errors }}{{ form.file_resume }}</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Контактная информация</h5></td>
+            </tr>
+
+
+            <tr>
+                <td class="span2">{{ form.city.label }}<a class="_red-star">*</a></td>
+                <td class="span4">{{ form.city.errors }}{{ form.city }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.area.label }}</td>
+                <td>{{ form.area.errors }}{{ form.area }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.phone.label }}</td>
+                <td>
+                    <div class="row">
+                        <div class="span2">{{ form.phone.errors }}{{ form.phone }}</div>
+                        <div class="span2">{{ form.phone_details.errors }}{{ form.phone_details }}</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form.email.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.email.errors }}{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.icq.label }}</td>
+                <td>{{ form.icq.errors }}{{ form.icq }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.skype.label }}</td>
+                <td>{{ form.skype.errors }}{{ form.skype }}</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Место работы</h5></td>
+            </tr>
+
+
+            <tr>
+                <td class="span2">{{ form.work_area.label }}</td>
+                <td class="span4">{{ form.work_area.errors }}{{ form.work_area }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.move.label }}</td>
+                <td>{{ form.move.errors }}{{ form.move }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.move_cities.label }}</td>
+                <td>{{ form.move_cities.errors }}{{ form.move_cities }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.ad_time.label }}</td>
+                <td>{{ form.ad_time.errors }}{{ form.ad_time }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.captcha.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.captcha.errors }}{{ form.captcha }}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Сохранить данные" class="btn btn-small">
     </form>
 {% endblock %}
