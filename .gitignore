@@ -15,6 +15,7 @@ atlassian-ide-plugin.xml
 .idea/*
 
 # Project
+droptables
 local.py
 settings.py
 wsgi.py
