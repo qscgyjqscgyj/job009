@@ -111,12 +111,16 @@ body {
   width: 70px;
   position: relative; top: 5px; right: 50px;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
   background: url('../img/drop_down_blue_icon.png') no-repeat right #FEFEFE;
 
 }
 #id_category, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
   height: 20px;
   width: 313px;
+  line-height: 10px;
   position: relative; top: 5px; right: 5px;
   overflow: hidden;
   background: url('../img/drop_down_icon.png') no-repeat right #FEFEFE;
@@ -127,9 +131,14 @@ body {
   -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
   box-shadow: inset 0px 0px 10px 1px #FEFEFE;
   font-size:12px;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  appearance: none;
   -webkit-appearance: none;
+  -o-appearance: none;
+  padding: 1px;
 }
-
 #id_photo, #id_file_resume{
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -148,6 +157,16 @@ body {
 #id_captcha_1{
   position: relative; right: 73px;
 }
+#id_work_area, #id_move_cities{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  min-height: 50px;
+  height: 100px;
+  position: relative; top: 5px; right: 5px;
+}
+
 
 ._red-star{
   color: red;
