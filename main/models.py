@@ -108,8 +108,8 @@ class AdArea(models.Model):
         def __init__(self):
             pass
 
-        verbose_name = _(u'Район проживания')
-        verbose_name_plural = _(u'Районы проживания')
+        verbose_name = _(u'Район')
+        verbose_name_plural = _(u'Районы')
 
 
 class AdTime(models.Model):

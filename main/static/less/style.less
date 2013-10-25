@@ -105,20 +105,31 @@ body {
   -moz-border-radius: 0px;
   border-radius: 0px;
   border: none;
-  online: 0px;
-  height: 20px;
+  color: @blue;
+  height: 25px;
+  line-height: 15px;
   width: 70px;
   position: relative; top: 5px; right: 50px;
+  -webkit-appearance: none;
+  background: url('../img/drop_down_blue_icon.png') no-repeat right #FEFEFE;
+
 }
 #id_category, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
+  height: 20px;
+  width: 313px;
+  position: relative; top: 5px; right: 5px;
+  overflow: hidden;
+  background: url('../img/drop_down_icon.png') no-repeat right #FEFEFE;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
   border-color: @blue;
-  height: 20px;
-  width: 313px;
-  position: relative; top: 5px; right: 5px;
+  -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+  box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+  font-size:12px;
+  -webkit-appearance: none;
 }
+
 #id_photo, #id_file_resume{
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -373,6 +384,9 @@ body {
     }
     li.active{
       border-color: @blue;
+      &:hover{
+        background-color: #ffffff;
+      }
       a{
         border-radius: 0px;
         border: 1px solid @blue;
@@ -440,5 +454,44 @@ body {
   position: relative; left: 20px;
   td{
     padding: 5px;
+  }
+}
+._ad-more-info-check{
+  position: relative; right: 5px; bottom: 5px;
+  font-size: 12px;
+  input{
+    position: relative; bottom: 2px;
+  }
+}
+._ad-more-info-list{
+  position: relative; right: 30px;
+  li{
+    display: inline-block;
+    padding-right: 10px;
+    label{
+      font-size: 12px;
+      input{
+        position: relative; bottom: 2px;
+      }
+    }
+  }
+}
+._ad-move-list{
+  position: relative; right: 30px; top: 7px;
+  li{
+    display: inline-block;
+    padding-right: 10px;
+    label{
+      font-size: 12px;
+      input{
+        position: relative; bottom: 2px;
+      }
+    }
+  }
+}
+._ad-captcha{
+  img{
+    margin-bottom: 70px;
+    position: relative; top: 70px;
   }
 }

@@ -93,15 +93,15 @@
             </tr>
             <tr>
                 <td>Дополнительные сведения</td>
-                <td>{{ form.driving_license.errors }}{{ form.driving_license }}{{ form.driving_license.label }}</td>
+                <td class="_ad-more-info-check">{{ form.driving_license.errors }}{{ form.driving_license }} есть водительские права</td>
             </tr>
             <tr>
                 <td></td>
-                <td>{{ form.business_trip.errors }}{{ form.business_trip }}{{ form.business_trip.label }}</td>
+                <td class="_ad-more-info-list">{{ form.business_trip.errors }}{{ form.business_trip }}</td>
             </tr>
             <tr>
                 <td></td>
-                <td>{{ form.smoke.errors }}{{ form.smoke }}{{ form.smoke.label }}</td>
+                <td class="_ad-more-info-list">{{ form.smoke.errors }}{{ form.smoke }}</td>
             </tr>
             <tr>
                 <td>{{ form.file_resume.label }}</td>
@@ -156,7 +156,7 @@
             </tr>
             <tr>
                 <td>{{ form.move.label }}</td>
-                <td>{{ form.move.errors }}{{ form.move }}</td>
+                <td class="_ad-move-list">{{ form.move.errors }}{{ form.move }}</td>
             </tr>
             <tr>
                 <td>{{ form.move_cities.label }}</td>
@@ -166,9 +166,9 @@
                 <td>{{ form.ad_time.label }}</td>
                 <td>{{ form.ad_time.errors }}{{ form.ad_time }}</td>
             </tr>
-            <tr>
+            <tr class="_ad-captcha">
                 <td>{{ form.captcha.label }}<a class="_red-star">*</a></td>
-                <td>{{ form.captcha.errors }}{{ form.captcha }}</td>
+                <td>{{ form.captcha }}{{ form.captcha.errors }}</td>
             </tr>
         </table>
         <input type="submit" value="Сохранить данные" class="btn btn-small">

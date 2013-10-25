@@ -34,7 +34,7 @@ class Resume(models.Model):
                                blank=True, null=True)
     ex_education = models.TextField(verbose_name=_(u'Доп. образование'), blank=True, null=True)
     qualities = models.TextField(verbose_name=_(u'Личные качества'), blank=True, null=True)
-    driving_license = models.NullBooleanField(verbose_name=_(u'Водительские права'), blank=True, null=True)
+    driving_license = models.BooleanField(verbose_name=_(u'Водительские права'))
     business_trip = models.NullBooleanField(verbose_name=_(u'Готовность к командировкам'), blank=True, null=True)
     smoke = models.NullBooleanField(verbose_name=_(u'Курю'), blank=True, null=True)
     file_resume = models.FileField(verbose_name=_(u'Ррезюме'), upload_to='resume_file', blank=True, null=True)
@@ -42,8 +42,8 @@ class Resume(models.Model):
     area = models.ForeignKey(AdArea, verbose_name=_(u'Район проживания'), related_name='resume_area',
                              blank=True, null=True)
     phone = models.CharField(verbose_name=_(u'Телефон'), max_length=100, blank=True, null=True)
-    phone_details = models.CharField(verbose_name=_(u'Дополнительная информация'), max_length=100,
-                                     blank=True, null=True)
+    phone_details = models.CharField(verbose_name=_(u'Дополнительная информация'),
+                                     max_length=100, blank=True, null=True)
     email = models.EmailField(verbose_name=_(u'E-mail'))
     icq = models.CharField(verbose_name=_(u'ICQ'), max_length=20, blank=True, null=True)
     skype = models.CharField(verbose_name=_(u'Skype'), max_length=50, blank=True, null=True)
