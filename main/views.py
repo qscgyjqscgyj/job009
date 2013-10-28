@@ -25,7 +25,7 @@ def get_banners_info(page):
     weather_td = weather.findAll('td')
     currency = soup.find(id='currency-banner')
     currency_td = currency.findAll('td')
-    banners = {'weather_date': weather.th.text, 'weather_night': unicode(weather_td[1].text),
-               'weather_day': unicode(weather_td[3].text), 'currency_date': currency.th.text,
-               'currency_usd': unicode(currency_td[1].text), 'currency_eur': unicode(currency_td[3].text)}
+    banners = {'weather_date': weather.th.text, 'weather_night': weather_td[1].text,
+               'weather_day': weather_td[3].text, 'currency_date': currency.th.text,
+               'currency_usd': currency_td[1].text, 'currency_eur': currency_td[3].text}
     return {'banners': banners}
