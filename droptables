@@ -1,0 +1,1 @@
+python manage.py sqlclear resume main jobs south django_geoip captcha flatblocks djcelery  djkombu user_profile | python manage.py dbshell

@@ -2,6 +2,8 @@
 from django.views.generic import ListView
 from jobs.models import Job
 from resume.models import Resume
+import urllib
+from bs4 import BeautifulSoup
 
 
 class MainView(ListView):
@@ -14,3 +16,16 @@ class MainView(ListView):
         context['resume'] = Resume.objects.all()
         context['jobs'] = Job.objects.all()
         return context
+
+
+def get_banners_info(page):
+    page = urllib.urlopen("http://www.2-999-999.ru/")
+    soup = BeautifulSoup(page.read(), from_encoding="utf-8")
+    weather = soup.find(id='weather-banner')
+    weather_td = weather.findAll('td')
+    currency = soup.find(id='currency-banner')
+    currency_td = currency.findAll('td')
+    banners = {'weather_date': weather.th.text, 'weather_night': unicode(weather_td[1].text),
+               'weather_day': unicode(weather_td[3].text), 'currency_date': currency.th.text,
+               'currency_usd': unicode(currency_td[1].text), 'currency_eur': unicode(currency_td[3].text)}
+    return {'banners': banners}
