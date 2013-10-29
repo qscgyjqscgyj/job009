@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block ad_list %}
+<div class="tabbable _table-main" id="tabs-603801">
+    <ul class="nav nav-tabs _top-insets">
+        <li><a class="_top-insets-element" href="/">Вакансии</a></li>
+        <li class="active"><a>Резюме</a></li>
+        <li class="pull-right _profile-link"><a href="/accounts/profile/">Войти в личный кабинет</a></li>
+    </ul>
+
+    <div class="tab-pane active" id="panel-184892">
+        <table class="table table-condensed table-bordered _table">
+            <tbody>
+                {% for res in resume %}
+                    <tr>
+                        <td>
+                            {{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}
+                            <br>
+                            {{ res.date.time }}
+                        </td>
+                        <td>
+                            {{ res.office }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span class="step-links">
+                {% if resume.has_previous %}
+                    <a href="?page={{ resume.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ resume.number }} of {{ resume.paginator.num_pages }}.
+                </span>
+
+                {% if resume.has_next %}
+                    <a href="?page={{ resume.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock %}

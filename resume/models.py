@@ -42,15 +42,14 @@ class Resume(models.Model):
     area = models.ForeignKey(AdArea, verbose_name=_(u'Район проживания'), related_name='resume_area',
                              blank=True, null=True)
     phone = models.CharField(verbose_name=_(u'Телефон'), max_length=100, blank=True, null=True)
-    phone_details = models.CharField(verbose_name=_(u'Дополнительная информация'),
-                                     max_length=100, blank=True, null=True)
+    phone_details = models.CharField(verbose_name=_(u'Дополнительная информация'), max_length=100,
+                                     blank=True, null=True)
     email = models.EmailField(verbose_name=_(u'E-mail'))
     icq = models.CharField(verbose_name=_(u'ICQ'), max_length=20, blank=True, null=True)
     skype = models.CharField(verbose_name=_(u'Skype'), max_length=50, blank=True, null=True)
     work_area = models.ManyToManyField(AdArea, verbose_name=_(u'Желаемые районы для работы'),
                                        related_name='resume_work_area', blank=True, null=True)
     move = models.NullBooleanField(verbose_name=_(u'Переезд'), blank=True, null=True)
-    move_cities = models.ManyToManyField(City, verbose_name=_(u'Возможные города для переезда'), blank=True, null=True)
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни резюме'), related_name='resume_ad_time',
                                 blank=True, null=True)
     captcha = CaptchaField()

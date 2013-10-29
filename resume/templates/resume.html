@@ -127,7 +127,7 @@
                 <td>
                     <div class="row">
                         <div class="span2">{{ form.phone.errors }}{{ form.phone }}</div>
-                        <div class="span2">{{ form.phone_details.errors }}{{ form.phone_details }}</div>
+                        <div class="span2">{{ form.phone_details }}</div>
                     </div>
                 </td>
             </tr>
@@ -157,10 +157,6 @@
             <tr>
                 <td>{{ form.move.label }}</td>
                 <td class="_ad-move-list">{{ form.move.errors }}{{ form.move }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.move_cities.label }}</td>
-                <td>{{ form.move_cities.errors }}{{ form.move_cities }}</td>
             </tr>
             <tr>
                 <td>{{ form.ad_time.label }}</td>

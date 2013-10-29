@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 from jobs.models import Job
 from resume.models import Resume
@@ -6,15 +7,41 @@ import urllib
 import lxml.html
 
 
-class MainView(ListView):
+class MainJobsView(ListView):
     model = Job
     template_name = 'base.html'
-    paginate_by = 20
 
     def get_context_data(self, **kwargs):
-        context = super(MainView, self).get_context_data(**kwargs)
-        context['resume'] = Resume.objects.all()
-        context['jobs'] = Job.objects.all()
+        context = super(MainJobsView, self).get_context_data(**kwargs)
+        job_list = Job.objects.all()
+        job_paginator = Paginator(job_list, 10)
+        page = self.request.GET.get('page')
+        try:
+            jobs = job_paginator.page(page)
+        except PageNotAnInteger:
+            jobs = job_paginator.page(1)
+        except EmptyPage:
+            jobs = job_paginator.page(job_paginator.num_pages)
+        context['jobs'] = jobs
+        return context
+
+
+class MainResumeView(ListView):
+    model = Resume
+    template_name = 'resume-list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(MainResumeView, self).get_context_data(**kwargs)
+        resume_list = Resume.objects.all()
+        resume_paginator = Paginator(resume_list, 10)
+        page = self.request.GET.get('page')
+        try:
+            resume = resume_paginator.page(page)
+        except PageNotAnInteger:
+            resume = resume_paginator.page(1)
+        except EmptyPage:
+            resume = resume_paginator.page(resume_paginator.num_pages)
+        context['resume'] = resume
         return context
 
 

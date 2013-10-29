@@ -44,3 +44,5 @@ class ResumeForm(forms.ModelForm):
             pass
 
         model = Resume
+
+        exclude = ('owner', 'date', 'rating', )
