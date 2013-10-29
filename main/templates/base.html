@@ -105,21 +105,33 @@
                                         {% endfor %}
                                     </tbody>
                                 </table>
+                            {% if jobs_all_pages != 0 %}
                                 <div class="pagination">
                                     <span class="step-links">
-                                        {% if jobs.has_previous %}
-                                            <a href="?page={{ jobs.previous_page_number }}">Предыдущая</a>
-                                        {% endif %}
-
                                         <span class="current">
-                                            Всего {{ jobs_len }} позиций. Страница: {{ jobs.number }} из {{ jobs.paginator.num_pages }}.
+                                            <p>
+                                                Показывать по:
+                                                <a href="?show=10">10</a>
+                                                <a href="?show=30">30</a>
+                                                <a href="?show=50">50</a>
+                                            </p>
                                         </span>
 
+                                        <span class="current">
+                                            Всего позиций: {{ jobs_len }}. Страница: {{ jobs.number }} из {{ jobs.paginator.num_pages }}.
+                                        </span>
+
+                                        {% if jobs.has_previous %}
+                                            <a href="?page=1&show={{ show }}">Первая</a>
+                                            ←<a href="?page={{ jobs.previous_page_number }}&show={{ show }}">Предыдущая</a>
+                                        {% endif %}
                                         {% if jobs.has_next %}
-                                            <a href="?page={{ jobs.next_page_number }}">Следующая</a>
+                                            <a href="?page={{ jobs.next_page_number }}&show={{ show }}">Следующая</a>→
+                                            <a href="?page={{ jobs_all_pages }}&show={{ show }}">Последняя</a>
                                         {% endif %}
                                     </span>
                                 </div>
+                            {% endif %}
                             </div>
                         </div>
                     </div>
