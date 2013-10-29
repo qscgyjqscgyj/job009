@@ -23,6 +23,7 @@ class MainJobsView(ListView):
         except EmptyPage:
             jobs = job_paginator.page(job_paginator.num_pages)
         context['jobs'] = jobs
+        context['jobs_len'] = len(Job.objects.all())
         return context
 
 
@@ -42,6 +43,7 @@ class MainResumeView(ListView):
         except EmptyPage:
             resume = resume_paginator.page(resume_paginator.num_pages)
         context['resume'] = resume
+        context['resume_len'] = len(Resume.objects.all())
         return context
 
 

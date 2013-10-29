@@ -28,15 +28,15 @@
         <div class="pagination">
             <span class="step-links">
                 {% if resume.has_previous %}
-                    <a href="?page={{ resume.previous_page_number }}">previous</a>
+                    <a href="?page={{ resume.previous_page_number }}">Предыдущая</a>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ resume.number }} of {{ resume.paginator.num_pages }}.
+                    Всего {{ resume_len }} позиций. Страница: {{ resume.number }} из {{ resume.paginator.num_pages }}.
                 </span>
 
                 {% if resume.has_next %}
-                    <a href="?page={{ resume.next_page_number }}">next</a>
+                    <a href="?page={{ resume.next_page_number }}">Следующая</a>
                 {% endif %}
             </span>
         </div>

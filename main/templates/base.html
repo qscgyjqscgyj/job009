@@ -108,15 +108,15 @@
                                 <div class="pagination">
                                     <span class="step-links">
                                         {% if jobs.has_previous %}
-                                            <a href="?page={{ jobs.previous_page_number }}">previous</a>
+                                            <a href="?page={{ jobs.previous_page_number }}">Предыдущая</a>
                                         {% endif %}
 
                                         <span class="current">
-                                            Page {{ jobs.number }} of {{ jobs.paginator.num_pages }}.
+                                            Всего {{ jobs_len }} позиций. Страница: {{ jobs.number }} из {{ jobs.paginator.num_pages }}.
                                         </span>
 
                                         {% if jobs.has_next %}
-                                            <a href="?page={{ jobs.next_page_number }}">next</a>
+                                            <a href="?page={{ jobs.next_page_number }}">Следующая</a>
                                         {% endif %}
                                     </span>
                                 </div>
