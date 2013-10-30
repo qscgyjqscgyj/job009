@@ -9,7 +9,7 @@ import lxml.html
 
 class MainJobsView(ListView):
     model = Job
-    template_name = 'base.html'
+    template_name = 'test.html'
 
     def get_context_data(self, **kwargs):
         context = super(MainJobsView, self).get_context_data(**kwargs)

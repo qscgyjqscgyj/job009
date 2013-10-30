@@ -102,6 +102,8 @@ INSTALLED_APPS = (
     'flatblocks',
     'djcelery',
     'djkombu',
+    'sphinx',
+    'sphinxit',
 )
 
 LOCAL_APPS = (
