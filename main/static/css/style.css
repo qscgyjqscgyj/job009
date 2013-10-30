@@ -1,0 +1,1334 @@
+/* meyerweb css reset start */
+/* The goal of a reset stylesheet is to reduce browser inconsistencies in things like default line heights, margins and font sizes of headings, and so on. */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-weight: inherit;
+font-style: inherit;
+font-size: 100%;
+font-family: inherit;
+vertical-align: baseline;
+}
+a img, :link img, :visited img {
+border: 0;
+}
+/* remember to define focus styles! */
+:focus {
+outline: 0;
+}
+body {
+line-height: 1;
+color: black;
+background: white;
+font-size: 13px;
+text-align:center; /* for ie5.+*/
+}
+a {
+color: inherit;
+text-decoration: none;
+}
+ol, ul {
+list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+border-collapse: separate;
+border-spacing: 0;
+}
+caption, th, td {
+text-align: left;
+font-weight: normal;
+}
+blockquote:before, blockquote:after,q:before, q:after {
+content: "";
+}
+blockquote, q {
+quotes: none;
+}
+/* meyerweb css reset end */
+
+em {font-style: italic;}
+strong {font-weight: bold;}
+h1, h2, h3, h4, h5, h6{font-weight:bold;}
+h1{font-size:197%}/* 26px */
+h2{font-size:182%}/* 24px */
+h3{font-size:167%}/* 22px */
+h4{font-size:152%}/* 20px */
+h5{font-size:136%}/* 18px */
+h6{font-size:122%}/* 16px */
+
+.clearfix:after {
+content: " ";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+.clearfix {display: inline-block;}  /* for IE/Mac */
+
+/* For HTML5 to be rendered correctly in old browsers */
+article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: block;}
+
+.before-last {
+    margin-right: 0 !important;
+}
+
+
+.global_container_ {
+	padding: 5.0px 92.0px 0.0px 73.0px;
+	width: 1281.0px;
+	min-height: 883.0px;
+	margin: 0.0px auto 0.0px auto;
+	float: none;
+	height: auto;
+	position: relative;
+}
+.header {
+	float: left;
+	position: relative;
+	width: 1281.0px;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.header_2 {
+	width: 1281.0px;
+	float: left;
+	position: relative;
+}
+.header_top {
+	padding: 2.0px 0.0px 0.0px 246.0px;
+	float: left;
+	position: relative;
+	width: 1018.0px;
+	margin: 0.0px 0.0px 0.0px 9.0px;
+}
+.banner-alena {
+	float: left;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.pogoda {
+	float: left;
+	position: relative;
+	width: 262.0px;
+	margin: 0.0px 0.0px 0.0px 18.0px;
+}
+.image {
+	padding: 5.0px 78.0px 6.0px 5.0px;
+	width: 179.0px;
+	float: left;
+	position: relative;
+}
+.weather {
+	float: left;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.text {
+	min-height: 46.0px;
+	float: right;
+	position: relative;
+	width: 71.0px;
+	margin: 1.0px 0.0px 0.0px 0.0px;
+}
+.na_10_dnei {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #104f8a;
+	margin: -1.0px 0.0px -1.0px 0.0px;
+	position: absolute;
+	top: 37.0px;
+	left: 0.0;
+	height: 9.0px;
+	min-width: 59.0px;
+}
+.layer0_c {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 14.0px;
+	left: 40.0px;
+	height: 7.0px;
+	min-width: 24.0px;
+}
+.dnem {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	position: absolute;
+	top: 26.0px;
+	left: 0.0;
+	height: 9.0px;
+	min-width: 32.0px;
+}
+.layer6_c {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 26.0px;
+	left: 40.0px;
+	height: 7.0px;
+	min-width: 24.0px;
+}
+.nochu {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 14.0px;
+	left: 0.0;
+	height: 7.0px;
+	min-width: 39.0px;
+}
+.layer30_09_2013 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 69.23%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 0.0;
+	left: 0.0;
+	height: 7.0px;
+	min-width: 71.0px;
+}
+.image {
+	background: url(../img/images/ramka_weather.png) no-repeat;
+	min-height: 49.0px;
+}
+.wrapper1 {
+	float: right;
+	position: relative;
+	width: 264.0px;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.valuta {
+	float: left;
+	position: relative;
+	width: 262.0px;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.image_2 {
+	padding: 5.0px 78.0px 6.0px 5.0px;
+	width: 179.0px;
+	float: left;
+	position: relative;
+}
+.valuta_2 {
+	float: left;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.text_2 {
+	min-height: 45.0px;
+	float: right;
+	position: relative;
+	width: 71.0px;
+	margin: 1.0px 0.0px 0.0px 0.0px;
+}
+.na_10_dnei_kopiya {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #104f8a;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 37.0px;
+	left: 0.0;
+	height: 8.0px;
+	min-width: 56.0px;
+}
+.layer32_3451 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 14.0px;
+	left: 25.0px;
+	height: 7.0px;
+	min-width: 41.0px;
+}
+.layer43_6497 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 26.0px;
+	left: 25.0px;
+	height: 7.0px;
+	min-width: 41.0px;
+}
+.usd {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 14.0px;
+	left: 1.0px;
+	height: 7.0px;
+	min-width: 23.0px;
+}
+.eur {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 26.0px;
+	left: 1.0px;
+	height: 7.0px;
+	min-width: 22.0px;
+}
+.layer28_09_2013 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 69.23%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 0.0;
+	left: 0.0;
+	height: 7.0px;
+	min-width: 71.0px;
+}
+.image_2 {
+	background: url(../img/images/ramka_valuta.png) no-repeat;
+	min-height: 49.0px;
+}
+.c_wrapper5 {
+	float: right;
+	clear: both;
+	position: relative;
+	width: 196.0px;
+	margin: 5.0px 0.0px 0.0px 0.0px;
+}
+.dobavit_v_izbrannoe {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #104f8a;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	float: left;
+	min-width: 113.0px;
+}
+.dobavit_v_izbrannoe_kopiy {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 76.92%;
+	color: #104f8a;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	float: right;
+	min-width: 83.0px;
+}
+.header_top {
+	background: url(../img/images/logo.jpg) no-repeat;
+	min-height: 75.0px;
+}
+.top_menu {
+	padding: 13.0px 131.0px 11.0px 20.0px;
+	float: left;
+	clear: both;
+	position: relative;
+	width: 1130.0px;
+	margin: 6.0px 0.0px 0.0px 0.0px;
+}
+.menu {
+	text-align: left;
+	width: 1130.0px;
+	float: left;
+	position: relative;
+}
+.menu li {
+	float: left;
+}
+.menu1 {
+	text-align: left;
+	width: 189.0px;
+}
+.menu1 li {
+	float: left;
+	margin: 0.0px 0.0px 7.0px 0.0px;
+}
+.menu1 li.last {
+	margin-bottom: 0.0;
+}
+.katalog_tovarov_i_uslug {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 148.0px;
+}
+.li-katalog_tovarov_i_uslug {
+	margin-left: -1.0px!important;
+}
+.katalog_firm {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 89.0px;
+}
+.li-katalog_firm {
+	margin-left: -1.0px!important;
+}
+.katalog_saitov {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	min-width: 95.0px;
+}
+.li-katalog_saitov {
+	margin-left: -1.0px!important;
+}
+.katalog_internet-magazino {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 173.0px;
+}
+.li-katalog_internet-magazino {
+	margin-left: -1.0px!important;
+}
+ul.menu1 li {
+	background: url(../img/images/kopiya_4.jpg) no-repeat;
+	padding-left: 17.0px;
+}
+.li-menu1 {
+	margin: 1.0px 0.0px 0.0px 0.0px;
+}
+.menu2 {
+	text-align: left;
+	width: 146.0px;
+}
+.menu2 li {
+	float: left;
+	margin: 0.0px 0.0px 7.0px 0.0px;
+}
+.menu2 li.last {
+	margin-bottom: 0.0;
+}
+.gorodskaya_spravka {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 116.0px;
+}
+.li-gorodskaya_spravka {
+	margin-left: -1.0px!important;
+}
+.karta_krasnoyarska {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 117.0px;
+}
+.li-karta_krasnoyarska {
+	margin-left: -1.0px!important;
+}
+.chastnye_obyavleniya {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	min-width: 130.0px;
+}
+.li-chastnye_obyavleniya {
+	margin-left: -1.0px!important;
+}
+.akcii_rasprodazhi {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 122.0px;
+}
+.li-akcii_rasprodazhi {
+	margin-left: -1.0px!important;
+}
+ul.menu2 li {
+	background: url(../img/images/kopiya_4.jpg) no-repeat;
+	padding-left: 17.0px;
+}
+.li-menu2 {
+	margin: 1.0px 0.0px 0.0px 67.0px;
+}
+.menu3 {
+	text-align: left;
+	width: 114.0px;
+}
+.menu3 li {
+	float: left;
+	margin: 0.0px 0.0px 8.0px 0.0px;
+}
+.menu3 li.last {
+	margin-bottom: 0.0;
+}
+.novosti {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	min-width: 56.0px;
+}
+.li-novosti {
+	margin-left: -1.0px!important;
+}
+.den_v_istorii {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 98.0px;
+}
+.li-den_v_istorii {
+	margin-left: -1.0px!important;
+}
+.stati {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	min-width: 46.0px;
+}
+.li-stati {
+	margin-left: -1.0px!important;
+}
+.slovar {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 55.0px;
+}
+.li-slovar {
+	margin-left: -1.0px!important;
+}
+ul.menu3 li {
+	background: url(../img/images/kopiya_4.jpg) no-repeat;
+	padding-left: 17.0px;
+}
+.li-menu3 {
+	margin: 1.0px 0.0px 0.0px 110.0px;
+}
+.menu4 {
+	text-align: left;
+	width: 169.0px;
+}
+.menu4 li {
+	float: left;
+	margin: 0.0px 0.0px 7.0px 0.0px;
+}
+.menu4 li.last {
+	margin-bottom: 0.0;
+}
+.rabota {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	min-width: 47.0px;
+}
+.li-rabota {
+	margin-left: -1.0px!important;
+}
+.raspisanie_dvizheniya {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -1.0px 0.0px;
+	min-width: 138.0px;
+}
+.li-raspisanie_dvizheniya {
+	margin-left: -1.0px!important;
+}
+.goroskop {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 62.0px;
+}
+.li-goroskop {
+	margin-left: -1.0px!important;
+}
+.otkrytki_pozdravleniya_ko {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 153.0px;
+}
+.li-otkrytki_pozdravleniya_ko {
+	margin-left: -1.0px!important;
+}
+ul.menu4 li {
+	background: url(../img/images/kopiya_4.jpg) no-repeat;
+	padding-left: 17.0px;
+}
+.li-menu4 {
+	margin: 0.0px 0.0px 0.0px 142.0px;
+}
+.menu5 {
+	text-align: left;
+	width: 106.0px;
+}
+.menu5 li {
+	float: left;
+	margin: 0.0px 0.0px 7.0px 0.0px;
+}
+.menu5 li.last {
+	margin-bottom: 0.0;
+}
+.afisha {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 47.0px;
+}
+.li-afisha {
+	margin-left: -1.0px!important;
+}
+.tv_programma {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 89.0px;
+}
+.li-tv_programma {
+	margin-left: -1.0px!important;
+}
+.umor {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 41.0px;
+}
+.li-umor {
+	margin-left: -1.0px!important;
+}
+.znakomstva {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	min-width: 73.0px;
+}
+.li-znakomstva {
+	margin-left: -1.0px!important;
+}
+ul.menu5 li {
+	background: url(../img/images/kopiya_4.jpg) no-repeat;
+	padding-left: 18.0px;
+}
+.li-menu5 {
+	float: right!important;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.top_menu {
+	background: url(../img/images/hren.jpg) no-repeat;
+	min-height: 66.0px;
+}
+.top_banners {
+	float: left;
+	clear: both;
+	position: relative;
+	width: 1107.0px;
+	margin: 10.0px 0.0px 0.0px 87.0px;
+}
+.bannertop1 {
+	float: left;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.bannertop2 {
+	float: right;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.poisk {
+	padding: 0.0px 0.0px 0.0px 27.0px;
+	float: left;
+	clear: both;
+	position: relative;
+	width: 1254.0px;
+	margin: 10.0px 0.0px 0.0px 0.0px;
+}
+.rabota_2 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Georgia, serif;
+	font-size: 184.62%;
+	color: #45a1df;
+	margin: 12.0px 0.0px -5.0px 0.0px;
+	float: left;
+	min-width: 85.0px;
+}
+.figura_8-holder {
+	padding: 5.0px 280.0px 4.0px 13.0px;
+	float: right;
+	position: relative;
+	width: 712.0px;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.c_wrapper2 {
+	float: left;
+	position: relative;
+	width: 710.0px;
+	margin: 0.0px 0.0px 0.0px 2.0px;
+}
+.c_wrapper7 {
+	min-height: 22.0px;
+	float: left;
+	position: relative;
+	width: 471.0px;
+	margin: 1.0px 0.0px 0.0px 0.0px;
+}
+.forma {
+	height: 18.0px;
+	padding: 0.0px 2.0px 2.0px 2.0px;
+	border: 0.0;
+	background: url(../img/images/forma.jpg) no-repeat;
+	position: absolute;
+	top: 0.0;
+	left: 0.0;
+	width: 467.0px;
+}
+.dolzhnosti_kompanii {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #555555;
+	margin: -3.0px 0.0px 0.0px 0.0px;
+	position: absolute;
+	top: 9.0px;
+	left: 45.0px;
+	height: 9.0px;
+	min-width: 131.0px;
+}
+.poisk_2 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #aaaaaa;
+	margin: -1.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 7.0px;
+	left: 5.0px;
+	height: 9.0px;
+	min-width: 38.0px;
+}
+.ili {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #aaaaaa;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 9.0px;
+	left: 179.0px;
+	height: 7.0px;
+	min-width: 29.0px;
+}
+.kluchevogo_slova {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #555555;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	position: absolute;
+	top: 9.0px;
+	left: 208.0px;
+	height: 7.0px;
+	min-width: 100.0px;
+}
+.button {
+	height: 22.0px;
+	background: url(../img/images/mergedimage.png) no-repeat;
+	float: left;
+	width: 57.0px;
+	margin: 0.0px 0.0px 0.0px 7.0px;
+}
+.razmestit_vakansiu {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #ffffff;
+	margin: 7.0px 0.0px -2.0px 0.0px;
+	float: right;
+	min-width: 130.0px;
+}
+.c_wrapper3 {
+	float: left;
+	clear: both;
+	position: relative;
+	width: 702.0px;
+	margin: 1.0px 0.0px 0.0px 0.0px;
+}
+.ya_ishu {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #ffffff;
+	margin: 7.0px 0.0px 0.0px 0.0px;
+	float: left;
+	min-width: 44.0px;
+}
+.perekluchatel2 {
+	height: 17.0px;
+	border: 0.0;
+	margin: 3.0px 0.0px 0.0px 42.0px;
+	float: left;
+	width: 23.0px;
+}
+.vakansiu {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #ffffff;
+	margin: 8.0px 0.0px -2.0px 1.0px;
+	float: left;
+	min-width: 63.0px;
+}
+.perekluchatel {
+	height: 15.0px;
+	border: 0.0;
+	margin: 5.0px 0.0px 0.0px 63.0px;
+	float: left;
+	width: 15.0px;
+}
+.rezume {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #ffffff;
+	margin: 8.0px 0.0px -2.0px 4.0px;
+	float: left;
+	min-width: 51.0px;
+}
+.razmestit_rezume {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #ffffff;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	float: right;
+	min-width: 120.0px;
+}
+.figura_8-holder {
+	background: url(../img/images/figura_8.jpg) no-repeat;
+	min-height: 44.0px;
+}
+.poisk {
+	background: url(../img/images/mergedimage_2.png) no-repeat;
+	min-height: 53.0px;
+}
+.content {
+	padding: 12.0px 0.0px 24.0px 0.0px;
+	float: left;
+	clear: both;
+	position: relative;
+	width: 1247.0px;
+	margin: -2.0px 0.0px 0.0px 24.0px;
+}
+.left {
+	float: left;
+	position: relative;
+	width: 251.0px;
+	margin: 12.0px 0.0px 0.0px 0.0px;
+}
+.vakansii {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px -2.0px 4.0px;
+	float: left;
+	min-width: 61.0px;
+}
+.spisok {
+	text-align: left;
+	float: left;
+	clear: both;
+	position: relative;
+	width: 251.0px;
+	margin: 11.0px 0.0px 0.0px 0.0px;
+}
+.spisok li {
+	float: left;
+	margin: 0.0px 0.0px 3.0px 0.0px;
+}
+.spisok li.last {
+	margin-bottom: 0.0;
+}
+.it_komputery_programmnoe_ {
+	text-align: left;
+	text-indent: 0.0;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	line-height: 130.0%;
+	color: #000000;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	width: 183.0px;
+}
+.li-it_komputery_programmnoe_ {
+	margin-left: -1.0px!important;
+}
+.avtoservis_32 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 103.0px;
+}
+.li-avtoservis_32 {
+	margin-left: -1.0px!important;
+}
+.buhgalteriya_1s_kassovyi_ {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 221.0px;
+}
+.li-buhgalteriya_1s_kassovyi_ {
+	margin-left: -1.0px!important;
+}
+.voditeli_kurery_transport {
+	text-align: left;
+	text-indent: 0.0;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	line-height: 130.0%;
+	color: #000000;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	width: 207.0px;
+}
+.li-voditeli_kurery_transport {
+	margin-left: -1.0px!important;
+}
+.direktora_rukovoditeli_6 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 180.0px;
+}
+.li-direktora_rukovoditeli_6 {
+	margin-left: -1.0px!important;
+}
+.inzhenery_sfera_zhkh_2 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 166.0px;
+}
+.li-inzhenery_sfera_zhkh_2 {
+	margin-left: -1.0px!important;
+}
+.iskusstvo_1 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 87.0px;
+}
+.li-iskusstvo_1 {
+	margin-left: -1.0px!important;
+}
+.medicina_farmacevtika_15 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 185.0px;
+}
+.li-medicina_farmacevtika_15 {
+	margin-left: -1.0px!important;
+}
+.menedzhery_po_personalu_k {
+	text-align: left;
+	text-indent: 0.0;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	line-height: 130.0%;
+	color: #000000;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	width: 164.0px;
+}
+.li-menedzhery_po_personalu_k {
+	margin-left: -1.0px!important;
+}
+.menedzhment_prodazhi_15 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 172.0px;
+}
+.li-menedzhment_prodazhi_15 {
+	margin-left: -1.0px!important;
+}
+.obrazovanie_treningi_6 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 166.0px;
+}
+.li-obrazovanie_treningi_6 {
+	margin-left: -1.0px!important;
+}
+.obshepit_povara_oficianty {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 210.0px;
+}
+.li-obshepit_povara_oficianty {
+	margin-left: -1.0px!important;
+}
+.operatory_administratory_ {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 205.0px;
+}
+.li-operatory_administratory_ {
+	margin-left: -1.0px!important;
+}
+.ohrana_policiya_bezopasno {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 221.0px;
+}
+.li-ohrana_policiya_bezopasno {
+	margin-left: -1.0px!important;
+}
+.personal_dlya_doma_3 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 143.0px;
+}
+.li-personal_dlya_doma_3 {
+	margin-left: -1.0px!important;
+}
+.proizvodstvo_sborka_monta {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 216.0px;
+}
+.li-proizvodstvo_sborka_monta {
+	margin-left: -1.0px!important;
+}
+.rabota_aktivnym_18 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 135.0px;
+}
+.li-rabota_aktivnym_18 {
+	margin-left: -1.0px!important;
+}
+.rabochie_specialnosti_str {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 229.0px;
+}
+.li-rabochie_specialnosti_str {
+	margin-left: -1.0px!important;
+}
+.raznorabochie_tehnicheski {
+	text-align: left;
+	text-indent: 0.0;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	line-height: 130.0%;
+	color: #000000;
+	margin: -2.0px 0.0px -2.0px 0.0px;
+	width: 171.0px;
+}
+.li-raznorabochie_tehnicheski {
+	margin-left: -1.0px!important;
+}
+.reklama_marketing_pr_9 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 167.0px;
+}
+.li-reklama_marketing_pr_9 {
+	margin-left: -1.0px!important;
+}
+.rieltory_nedvizhimost_6 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 178.0px;
+}
+.li-rieltory_nedvizhimost_6 {
+	margin-left: -1.0px!important;
+}
+.sekretari_pomoshniki_ofis {
+	text-align: left;
+	text-indent: 0.0;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	line-height: 130.0%;
+	color: #000000;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	width: 146.0px;
+}
+.li-sekretari_pomoshniki_ofis {
+	margin-left: -1.0px!important;
+}
+.smi_zhurnalisty_redaktory {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 202.0px;
+}
+.li-smi_zhurnalisty_redaktory {
+	margin-left: -1.0px!important;
+}
+.sfera_uslug_servis_dlya_n {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 246.0px;
+}
+.li-sfera_uslug_servis_dlya_n {
+	margin-left: -1.0px!important;
+}
+.torgovlya_torgovye_predst {
+	text-align: left;
+	text-indent: 0.0;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	line-height: 130.0%;
+	color: #000000;
+	margin: -3.0px 0.0px -2.0px 0.0px;
+	width: 218.0px;
+}
+.li-torgovlya_torgovye_predst {
+	margin-left: -1.0px!important;
+}
+.turizm_gostinichnyi_bizne {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 197.0px;
+}
+.li-turizm_gostinichnyi_bizne {
+	margin-left: -1.0px!important;
+}
+.finansy_konsalding_audit_ {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 195.0px;
+}
+.li-finansy_konsalding_audit_ {
+	margin-left: -1.0px!important;
+}
+.urisprudenciya_pristavy_1 {
+	text-align: left;
+	text-decoration: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 92.31%;
+	color: #000000;
+	margin: -1.0px 0.0px 0.0px 0.0px;
+	min-width: 185.0px;
+}
+.li-urisprudenciya_pristavy_1 {
+	margin-left: -1.0px!important;
+}
+ul.spisok li {
+	background: url(../img/images/4.png) no-repeat;
+	padding-left: 6.0px;
+}
+.right {
+	float: right;
+	position: relative;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.bannerright1 {
+	float: left;
+	margin: 0.0px 0.0px 0.0px 0.0px;
+}
+.bannerright2 {
+	float: left;
+	clear: both;
+	margin: 10.0px 0.0px 0.0px 0.0px;
+}
+.bannerright3 {
+	float: left;
+	clear: both;
+	margin: 10.0px 0.0px 0.0px 0.0px;
+}
+.content {
+	background: url(../img/images/figura_7.png) no-repeat 252px 0;
+	min-height: 538.0px;
+}
+.global_container_ {
+	background: url(../img/images/background.jpg) no-repeat;
+	min-height: 878.0px;
+}

@@ -1,0 +1,16 @@
+[Wed Oct 30 14:51:00.866 2013] [12764] accepting connections
+[Wed Oct 30 15:27:59.078 2013] [12764] rotating indices (seamless=1)
+[Wed Oct 30 15:27:59.078 2013] [12764] WARNING: index 'common': key 'path' not found - NOT SERVING
+[Wed Oct 30 15:27:59.078 2013] [12764] WARNING: INTERNAL ERROR: nothing to rotate after SIGHUP
+[Wed Oct 30 15:51:19.617 2013] [12764] caught SIGTERM, shutting down
+[Wed Oct 30 15:51:19.617 2013] [12764] shutdown complete
+[Wed Oct 30 15:51:24.050 2013] [14527] accepting connections
+[Wed Oct 30 16:43:03.169 2013] [14527] caught SIGTERM, shutting down
+[Wed Oct 30 16:43:03.169 2013] [14527] shutdown complete
+[Wed Oct 30 16:43:23.606 2013] [15540] accepting connections
+[Wed Oct 30 16:53:34.247 2013] [15540] caught SIGTERM, shutting down
+[Wed Oct 30 16:53:34.303 2013] [15540] shutdown complete
+[Wed Oct 30 16:53:47.721 2013] [15790] accepting connections
+[Wed Oct 30 16:55:29.013 2013] [15790] caught SIGTERM, shutting down
+[Wed Oct 30 16:55:29.071 2013] [15790] shutdown complete
+[Wed Oct 30 16:59:24.962 2013] [15955] accepting connections
