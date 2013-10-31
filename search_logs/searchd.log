@@ -14,3 +14,5 @@
 [Wed Oct 30 16:55:29.013 2013] [15790] caught SIGTERM, shutting down
 [Wed Oct 30 16:55:29.071 2013] [15790] shutdown complete
 [Wed Oct 30 16:59:24.962 2013] [15955] accepting connections
+[Wed Oct 30 17:52:49.480 2013] [15955] caught SIGTERM, shutting down
+[Wed Oct 30 17:52:49.480 2013] [15955] shutdown complete

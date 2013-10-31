@@ -1,72 +1,37 @@
 {% load static %}
 
-<div class="row _top">
-    <div class="span3">
-        <a href="/"><img class="_logo" src="{% static 'main/img/logo.png' %}" /></a>
+ <div class="header_top clearfix">
+  <img class=" banner-alena" src="{% static 'main/img/images/banner-alena.jpg' %}" alt="" width="468" height="60" />
+  <div class="pogoda">
+   <div class="image clearfix">
+    <img class=" weather" src="{% static 'main/img/images/weather.jpg' %}" alt="" width="104" height="49" />
+    <div class="text">
+     <p class=" na_10_dnei"><a href="http://www.2-999-999.ru/pogoda/" target="_blank">На 10 дней</a></p>
+     <p class=" layer0_c">{{ banners.weather_night }}</p>
+     <p class=" dnem">Днем</p>
+     <p class=" layer6_c">{{ banners.weather_day }}</p>
+     <p class=" nochu">Ночью</p>
+     <p class=" layer30_09_2013"><strong>{{ banners.weather_date }}</strong></p>
     </div>
-    <div class="span5">
-        <img class="_tob-banner" src="{% static 'main/img/sivil.png' %}" />
+   </div>
+  </div>
+  <div class="wrapper1 clearfix">
+   <div class="valuta">
+    <div class="image_2 clearfix">
+     <img class=" valuta_2" src="{% static 'main/img/images/valuta.jpg' %}" alt="" width="104" height="49" />
+     <div class="text_2">
+      <p class=" na_10_dnei_kopiya"><a href="http://www.2-999-999.ru/kurs/" target="_blank">все банки</a></p>
+      <p class=" layer32_3451">{{ banners.currency_usd }}</p>
+      <p class=" layer43_6497">{{ banners.currency_eur }}</p>
+      <p class=" usd">USD</p>
+      <p class=" eur">EUR</p>
+      <p class=" layer28_09_2013"><strong>{{ banners.currency_date }}</strong></p>
+     </div>
     </div>
-    <div class="span2">
-        <div class="_currency-banner">
-            <div class="row">
-                <div class="span1">
-                    <img class="_currency-banner-img" src="{% static 'main/img/trace.gif' %}">
-                </div>
-                <div class="span1">
-                    <table class="_currency-banner-table">
-                        <tbody>
-                            <tr>
-                                <th colspan="2">{{ banners.weather_date }}</th>
-                            </tr>
-                            <tr>
-                                <td>Ночью</td>
-                                <td>{{ banners.weather_night }}</td>
-                            </tr>
-                            <tr>
-                                <td>Днем</td>
-                                <td>{{ banners.weather_day }}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <a href="http://www.2-999-999.ru/pogoda/" target="_blank">На 10 дней</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="span2">
-        <div class="_currency-banner">
-            <div class="row">
-                <div class="span1">
-                    <img class="_currency-banner-img" src="{% static 'main/img/note.gif' %}">
-                </div>
-                <div class="span1">
-                    <table class="_currency-banner-table">
-                        <tbody>
-                            <tr>
-                                <th colspan="2">{{ banners.currency_date }}</th>
-                            </tr>
-                            <tr>
-                                <td>USD</td>
-                                <td>{{ banners.currency_usd }}</td>
-                            </tr>
-                            <tr>
-                                <td>EUR</td>
-                                <td>{{ banners.currency_eur }}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <a href="http://www.2-999-999.ru/kurs/" target="_blank">все банки</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+   </div>
+   <div class="c_wrapper5 clearfix">
+    <p class=" dobavit_v_izbrannoe"><a href="#">Добавить в избранное</a></p>
+    <p class=" dobavit_v_izbrannoe_kopiy"><a href="#">Личный кабинет</a></p>
+   </div>
+  </div>
+ </div>

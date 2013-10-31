@@ -5,7 +5,6 @@
     <ul class="nav nav-tabs _top-insets">
         <li><a class="_top-insets-element" href="/">Вакансии</a></li>
         <li class="active"><a>Резюме</a></li>
-        <li class="pull-right _profile-link"><a href="/accounts/profile/">Войти в личный кабинет</a></li>
     </ul>
 
     <div class="tab-pane active" id="panel-184892">
@@ -13,12 +12,12 @@
             <tbody>
                 {% for res in resume %}
                     <tr>
-                        <td>
+                        <td class="_table-time">
                             {{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}
                             <br>
                             {{ res.date.time }}
                         </td>
-                        <td>
+                        <td class="_table-data">
                             {{ res.office }}
                         </td>
                     </tr>

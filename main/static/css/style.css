@@ -28,9 +28,11 @@ outline: 0;
 body {
 line-height: 1;
 color: black;
-background: white;
+background: #efede1;
 font-size: 13px;
 text-align:center; /* for ie5.+*/
+margin: 0;
+padding: 0;
 }
 a {
 color: inherit;
@@ -84,9 +86,12 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 
 
 .global_container_ {
-	padding: 5.0px 92.0px 0.0px 73.0px;
-	width: 1281.0px;
-	min-height: 883.0px;
+	padding: 5px 0 0 0;
+    min-width: 1220px;
+    max-width: 1267px;
+    border-right: 1px dotted #abaca7;
+    width: auto;
+	min-height: 100%;
 	margin: 0.0px auto 0.0px auto;
 	float: none;
 	height: auto;
@@ -95,11 +100,15 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 .header {
 	float: left;
 	position: relative;
-	width: 1281.0px;
+    /*min-width: 1120px;*/
+    /*max-width: 1280px;*/
+    width: 100%;
 	margin: 0.0px 0.0px 0.0px 0.0px;
 }
 .header_2 {
-	width: 1281.0px;
+    /*min-width: 1120px;*/
+	/*max-width: 1270px;*/
+    width: 100%;
 	float: left;
 	position: relative;
 }
@@ -107,7 +116,7 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 	padding: 2.0px 0.0px 0.0px 246.0px;
 	float: left;
 	position: relative;
-	width: 1018.0px;
+    width: auto;
 	margin: 0.0px 0.0px 0.0px 9.0px;
 }
 .banner-alena {
@@ -117,11 +126,12 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 .pogoda {
 	float: left;
 	position: relative;
-	width: 262.0px;
-	margin: 0.0px 0.0px 0.0px 18.0px;
+	width: 235px;
+	margin: 0.0px 18px 0 18.0px;
+    border-right: 1px solid #e5e4de;
 }
 .image {
-	padding: 5.0px 78.0px 6.0px 5.0px;
+	padding: 5.0px 51px 6.0px 5.0px;
 	width: 179.0px;
 	float: left;
 	position: relative;
@@ -222,17 +232,17 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 .wrapper1 {
 	float: right;
 	position: relative;
-	width: 264.0px;
+	width: 225px;
 	margin: 0.0px 0.0px 0.0px 0.0px;
 }
 .valuta {
 	float: left;
 	position: relative;
-	width: 262.0px;
+    border-right: 1px solid #e5e4de;
 	margin: 0.0px 0.0px 0.0px 0.0px;
 }
 .image_2 {
-	padding: 5.0px 78.0px 6.0px 5.0px;
+	padding: 5.0px 41.0px 6.0px 5.0px;
 	width: 179.0px;
 	float: left;
 	position: relative;
@@ -362,16 +372,16 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 	min-height: 75.0px;
 }
 .top_menu {
-	padding: 13.0px 131.0px 11.0px 20.0px;
+	padding: 13.0px 129.0px 11.0px 20.0px;
 	float: left;
 	clear: both;
+    min-width: 1110px;
 	position: relative;
-	width: 1130.0px;
 	margin: 6.0px 0.0px 0.0px 0.0px;
 }
 .menu {
-	text-align: left;
-	width: 1130.0px;
+	width: 1118px;
+    text-align: left;
 	float: left;
 	position: relative;
 }
@@ -733,7 +743,7 @@ ul.menu5 li {
 	float: left;
 	clear: both;
 	position: relative;
-	width: 1254.0px;
+	width: 1240px;
 	margin: 10.0px 0.0px 0.0px 0.0px;
 }
 .rabota_2 {
@@ -920,7 +930,7 @@ ul.menu5 li {
 	clear: both;
 	position: relative;
 	width: 1247.0px;
-	margin: -2.0px 0.0px 0.0px 24.0px;
+	margin: -2.0px 0.0px 0.0px 12px;
 }
 .left {
 	float: left;
@@ -1325,10 +1335,15 @@ ul.spisok li {
 	margin: 10.0px 0.0px 0.0px 0.0px;
 }
 .content {
-	background: url(../img/images/figura_7.png) no-repeat 252px 0;
-	min-height: 538.0px;
+	background: url(../img/images/figura_7.png) repeat-y 250px 0;
+	min-height: 800px;
 }
 .global_container_ {
-	background: url(../img/images/background.jpg) no-repeat;
-	min-height: 878.0px;
+	background: url(../img/images/background.jpg) repeat-y;
+	min-height: 1000px;
+}
+._center{
+    width: 750px;
+    float: left;
+    margin-left: 10px;
 }

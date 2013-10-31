@@ -1,43 +1,125 @@
-//var//
-@orange: #f55305;
-@blue: #45a1e0;
-////////
-//func//
-.submenu (@top; @width_ul; @width_a) {
-	list-style-image: url("../img/top_navigate_bullet.png");
-    list-style-position: inside;
-  ul {
-    background-color: #ffffff;
-  }
-  li {
-    ul {
-      position: absolute;
-      width: @width_ul;
-      left: -999em;
-    }
-    &:hover {
-      ul {
-        top: @top;
-        left: 20px;
-        z-index: 100;
-        border: 1px solid #f77116;
-        li {
-          padding-left: 5px;
-          &:hover {background-color: #f77116;}
-          a {
-            width: @width_a;
-            color: #000000;
-            &:hover {
-              color: #ffffff;
-              background-color: #f77116;
-            }
-          }
-        }
-      }
-    }
+
+#id_username, #id_password, #id_password1, #id_password2, #id_captcha_1, #_reg-email{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  width: 100px;
+  height: 10px;
+  line-height: 10px;
+  position: relative; top: 5px; right: 5px;
+  font-size: 10px;
+}
+#id_office, #id_fio, #id_birth, #id_institution, #id_diploma, #id_icq, #id_skype, #_ad-email{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  width: 300px;
+  height: 10px;
+  line-height: 10px;
+  position: relative; top: 5px; right: 5px;
+  font-size: 10px;
+}
+#id_salary{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  width: 70px;
+  height: 10px;
+  line-height: 10px;
+  position: relative; top: 5px; right: 5px;
+  font-size: 10px;
+}
+#id_phone, #id_phone_details{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  width: 100px;
+  height: 10px;
+  line-height: 10px;
+  position: relative; top: 5px; right: 5px;
+  font-size: 10px;
+}
+#id_salary_measure{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
+  color: @blue;
+  height: 25px;
+  line-height: 15px;
+  width: 70px;
+  position: relative; top: 5px; right: 50px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  background: url('../img/drop_down_blue_icon.png') no-repeat right #FEFEFE;
+
+}
+#id_category, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
+  height: 20px;
+  width: 313px;
+  line-height: 10px;
+  position: relative; top: 5px; right: 5px;
+  overflow: hidden;
+  background: url('../img/drop_down_icon.png') no-repeat right #FEFEFE;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+  box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+  font-size:12px;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  padding: 1px;
+}
+#id_photo, #id_file_resume{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+#id_skills, #id_ex_education, #id_qualities{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  min-height: 50px;
+  height: 100px;
+  min-width: 350px;
+  position: relative; top: 5px; right: 5px;
+}
+#id_captcha_1{
+  position: relative; right: 73px;
+}
+#id_work_area, #id_move_cities{
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-color: @blue;
+  min-height: 50px;
+  height: 100px;
+  position: relative; top: 5px; right: 5px;
+}
+
+
+._red-star{
+  color: red;
+  &:hover{
+    color: red;
+    text-decoration: none;
   }
 }
-////
+
+
 
 body {
   font-size: 12px;
@@ -247,16 +329,6 @@ body {
   }
 }
 
-#nav {
-  .submenu (@top: 17px; @width_ul: 165px; @width_a: 160px);
-}
-#nav2 {
-  .submenu (@top: 37px; @width_ul: 160px; @width_a: 155px);
-}
-#nav3 {
-  .submenu (@top: 17px; @width_ul: 165px; @width_a: 160px);
-}
-
 
 ._middle{
   padding-bottom: 10px;
@@ -365,29 +437,6 @@ body {
   ._content-center{
     position: relative; bottom: 20px;
     border-left: 1px solid @blue;
-    ._table-main{
-      margin-left: 10px;
-    }
-    ._table{
-      border-radius: 0px;
-      border-collapse: collapse;
-      font-size: 12px;
-      ._date{
-        position: relative; top: 10px; left: 10px;
-      }
-      ._table-company{
-        margin-bottom: 0px;
-        font-size: 11px;
-        color: #808080;
-      }
-      tbody{
-        td{
-          -webkit-border-top-left-radius: none;
-          border-top-left-radius: none;
-          -moz-border-radius-topleft: none;
-        }
-      }
-    }
   }
   ._top-insets{
     position: relative; top: 10px;
@@ -514,3 +563,95 @@ body {
     position: relative; top: 70px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+/////////////new//////////////
+//var//
+@orange: #f55305;
+@blue: #45a1e0;
+////////
+//func//
+.submenu (@top; @left; @width_ul; @width_a) {
+//	list-style-image: url("../img/top_navigate_bullet.png");
+    list-style-position: inside;
+  ul {
+    background-color: #ffffff;
+  }
+  li {
+    ul {
+      position: absolute;
+      width: @width_ul;
+      left: -999em;
+    }
+    &:hover {
+      ul {
+        top: @top;
+        left: @left;
+        z-index: 100;
+        border: 1px solid #f77116;
+        li {
+          margin-left: 5px;
+          margin-top: 5px;
+          &:hover {background-color: @orange;}
+          a {
+            width: @width_a;
+            color: #000000;
+            &:hover {
+              color: #ffffff;
+              background-color: #f77116;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+////
+
+
+#nav {
+  .submenu (@top: 13px; @left: 525px; @width_ul: 165px; @width_a: 160px);
+}
+#nav2 {
+  .submenu (@top: 27px; @left: 782px; @width_ul: 160px; @width_a: 155px);
+}
+#nav3 {
+  .submenu (@top: 12px; @left: 1026px; @width_ul: 165px; @width_a: 160px);
+}
+
+._table{
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #e2d8bd;
+  tbody{
+    border-spacing: 2px;
+    border-color: gray;
+    tr{
+      display: table-row;
+      vertical-align: inherit;
+      border-color: inherit;
+      td{
+        border-bottom: 1px solid #e2d8bd;
+      }
+      ._table-time{
+        width: 15%;
+      }
+      ._table-data{
+        width: 85%;
+      }
+    }
+  }
+}
+//.menu{
+//  li{
+//    list-style-image: url("../img/top_navigate_bullet.png");
+//  }
+//}
