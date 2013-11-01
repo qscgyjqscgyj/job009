@@ -12,6 +12,20 @@ $(document).ready(function () {
 }
 if (window.attachEvent) window.attachEvent("onload", sfHover);
 
+    var placeholder = $( "#search_text").value
+
+    if(placeholder == null){
+        $( ".placeholder" ).fadeIn( 1, function(){});
+    }
+
+    $( "#search_text" ).click(function() {
+        $( ".placeholder" ).fadeOut( 1, function(){});
+    });
+
+    $( "#search_text" ).blur(function() {
+        $( ".placeholder" ).fadeIn( 1, function(){});
+    });
+
 });
 
 

@@ -282,7 +282,7 @@
   clear: both;
 }
 .tab-content {
-  overflow: auto;
+  overflow: none;
 }
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,

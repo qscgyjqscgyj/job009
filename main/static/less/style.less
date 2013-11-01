@@ -577,6 +577,7 @@ body {
 //var//
 @orange: #f55305;
 @blue: #45a1e0;
+@dark_blue: #1a568e;
 ////////
 //func//
 .submenu (@top; @left; @width_ul; @width_a) {
@@ -643,11 +644,77 @@ body {
       }
       ._table-time{
         width: 15%;
+        .date{
+          margin-top: 10px;
+          margin-left: 5px;
+        }
+        .time{
+          margin-top: 5px;
+          margin-left: 5px;
+        }
       }
       ._table-data{
         width: 85%;
+        .office_p{
+          position: relative; bottom: 7px;
+          .office{
+            color: @dark_blue;
+            &:hover{
+              color: @blue;
+              text-decoration: underline;
+            }
+          }
+        }
+        .info{
+          position: relative; bottom: 5px;
+        }
+        .company{
+          position: relative; bottom: 2px;
+          color: #555555;
+        }
       }
     }
+  }
+}
+
+.pagination{
+  margin-top: 20px;
+  text-align: left;
+  .show{
+    margin-bottom: 15px;
+    .show_by{
+      color: #000000;
+      margin: 3px;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    .active{
+      border: 1px solid #e3dabb;
+      padding: 2px;
+      margin: 0;
+      background-color: #f0ece3;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#tab-profile{
+  color: @dark_blue;
+    &:hover{
+    color: @blue;
+    text-decoration: underline;
+  }
+}
+
+.main_link{
+  color: @blue;
+  border-bottom: 1px dotted @blue;
+  &:hover{
+    color: @blue - 30;
+    border-bottom: 1px dashed @blue;
   }
 }
 //.menu{

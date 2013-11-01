@@ -37,7 +37,7 @@ class Resume(models.Model):
     driving_license = models.BooleanField(verbose_name=_(u'Водительские права'))
     business_trip = models.NullBooleanField(verbose_name=_(u'Готовность к командировкам'), blank=True, null=True)
     smoke = models.NullBooleanField(verbose_name=_(u'Курю'), blank=True, null=True)
-    file_resume = models.FileField(verbose_name=_(u'Ррезюме'), upload_to='resume_file', blank=True, null=True)
+    file_resume = models.FileField(verbose_name=_(u'Резюме'), upload_to='resume_file', blank=True, null=True)
     city = models.ForeignKey(City, verbose_name=_(u'Город проживания'), related_name='resume_city')
     area = models.ForeignKey(AdArea, verbose_name=_(u'Район проживания'), related_name='resume_area',
                              blank=True, null=True)

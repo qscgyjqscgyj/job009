@@ -794,7 +794,7 @@ ul.menu5 li {
 	color: #555555;
 	margin: -3.0px 0.0px 0.0px 0.0px;
 	position: absolute;
-	top: 9.0px;
+	top: 7.0px;
 	left: 45.0px;
 	height: 9.0px;
 	min-width: 131.0px;
@@ -807,7 +807,7 @@ ul.menu5 li {
 	color: #aaaaaa;
 	margin: -1.0px 0.0px -2.0px 0.0px;
 	position: absolute;
-	top: 7.0px;
+	top: 5.0px;
 	left: 5.0px;
 	height: 9.0px;
 	min-width: 38.0px;
@@ -820,7 +820,7 @@ ul.menu5 li {
 	color: #aaaaaa;
 	margin: -3.0px 0.0px -2.0px 0.0px;
 	position: absolute;
-	top: 9.0px;
+	top: 7.0px;
 	left: 179.0px;
 	height: 7.0px;
 	min-width: 29.0px;
@@ -833,14 +833,14 @@ ul.menu5 li {
 	color: #555555;
 	margin: -3.0px 0.0px -2.0px 0.0px;
 	position: absolute;
-	top: 9.0px;
+	top: 7.0px;
 	left: 208.0px;
 	height: 7.0px;
 	min-width: 100.0px;
 }
 .button {
 	height: 22.0px;
-	background: url(../img/images/mergedimage.png) no-repeat;
+	background: url(../img/images/mergedimage.png) no-repeat center;
 	float: left;
 	width: 57.0px;
 	margin: 0.0px 0.0px 0.0px 7.0px;

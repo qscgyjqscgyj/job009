@@ -34,6 +34,7 @@
                                 <ul class="nav nav-tabs _top-insets">
                                     <li class="active"><a class="_top-insets-element">Вакансии</a></li>
                                     <li><a href="/resume/">Резюме</a></li>
+                                    <li class="pull-right"><a id="tab-profile" href="/accounts/profile">Войти в личный кабинет</a></li>
                                 </ul>
 
                                 <div class="tab-content">
@@ -43,15 +44,13 @@
                                                 {% for job in jobs %}
                                                     <tr>
                                                         <td class="_table-time">
-                                                            {{ job.date.day }}.{{ job.date.month }}.{{ job.date.year }}
-                                                            <br>
-                                                            {{ job.date.time.hour }}:{{ job.date.time.minute }}
+                                                            <p class="date">{{ job.date.day }}.{{ job.date.month }}.{{ job.date.year }}</p>
+                                                            <p class="time">{{ job.date.time.hour }}:{{ job.date.time.minute }}</p>
                                                         </td>
                                                         <td class="_table-data">
-                                                            <a href="#">{{ job.office }}</a><b> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}</b>
-                                                            <br>
-                                                            стаж работы {{ job.experience }}, {{ job.employment }}, {{ job.education }} образование
-                                                            <p class="_table-company">"Феникс"</p>
+                                                            <p class="office_p"><a class="office" href="#">{{ job.office }}</a><b> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}</b></p>
+                                                            <p class="info">стаж работы {{ job.experience }}, {{ job.employment }}, {{ job.education }} образование</p>
+                                                            <p class="company">"Феникс"</p>
                                                         </td>
                                                     </tr>
                                                 {% endfor %}
@@ -60,29 +59,23 @@
 
                                     {% if jobs_all_pages != 0 %}
                                         <div class="pagination">
-                                            <span class="step-links">
-                                                <span class="current">
-                                                    <p>
-                                                        Показывать по:
-                                                        <a href="?show=10">10</a>
-                                                        <a href="?show=30">30</a>
-                                                        <a href="?show=50">50</a>
-                                                    </p>
-                                                </span>
-
-                                                <span class="current">
-                                                    Всего позиций: {{ jobs_len }}. Страница: {{ jobs.number }} из {{ jobs.paginator.num_pages }}.
-                                                </span>
-
+                                            <p class="show">
+                                                Показывать по:
+                                                <a id="by_10" class="show_by {% if show == 10 %}active{% elif show != 10 and show != 30 and show != 50 %}active{% endif %}" href="?show=10">10</a>
+                                                <a id="by_30" class="show_by {% if show == 30 %}active{% endif %}" href="?show=30">30</a>
+                                                <a id="by_50" class="show_by {% if show == 50 %}active{% endif %}" href="?show=50">50</a>
+                                            </p>
+                                            <p class="show">
+                                                Всего позиций: {{ jobs_len }}. Страница: {{ jobs.number }} из {{ jobs.paginator.num_pages }}.
                                                 {% if jobs.has_previous %}
-                                                    <a href="?page=1&show={{ show }}">Первая</a>
-                                                    ←<a href="?page={{ jobs.previous_page_number }}&show={{ show }}">Предыдущая</a>
+                                                    <a class="show_by" href="?page=1&show={{ show }}">Первая</a>
+                                                    ←<a class="show_by" href="?page={{ jobs.previous_page_number }}&show={{ show }}">Предыдущая</a>
                                                 {% endif %}
                                                 {% if jobs.has_next %}
-                                                    <a href="?page={{ jobs.next_page_number }}&show={{ show }}">Следующая</a>→
-                                                    <a href="?page={{ jobs_all_pages }}&show={{ show }}">Последняя</a>
+                                                    <a class="show_by" href="?page={{ jobs.next_page_number }}&show={{ show }}">Следующая</a>→
+                                                    <a class="show_by" href="?page={{ jobs_all_pages }}&show={{ show }}">Последняя</a>
                                                 {% endif %}
-                                            </span>
+                                            </p>
                                         </div>
                                     {% endif %}
                                     </div>

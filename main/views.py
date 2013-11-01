@@ -16,11 +16,13 @@ class MainJobsView(ListView):
         job_list = Job.objects.all()
         if self.request.GET.get('show'):
             show_get = self.request.GET.get('show')
-            if type(int(show_get)) == int and show_get:
-                show = int(show_get)
-            elif not show_get:
-                show = 10
-            else:
+            try:
+                int(show_get)
+                if int(show_get) != 10 and int(show_get) != 30 and int(show_get) != 50:
+                    show = 10
+                else:
+                    show = int(show_get)
+            except ValueError:
                 show = 10
         else:
             show = 10
@@ -35,6 +37,7 @@ class MainJobsView(ListView):
         context['jobs'] = jobs
         context['jobs_len'] = len(Job.objects.all())
         context['jobs_all_pages'] = job_paginator.count
+        context['show'] = show
         return context
 
 
@@ -47,11 +50,13 @@ class MainResumeView(ListView):
         resume_list = Resume.objects.all()
         if self.request.GET.get('show'):
             show_get = self.request.GET.get('show')
-            if type(int(show_get)) == int and show_get:
-                show = int(show_get)
-            elif not show_get:
-                show = 10
-            else:
+            try:
+                int(show_get)
+                if int(show_get) != 10 and int(show_get) != 30 and int(show_get) != 50:
+                    show = 10
+                else:
+                    show = int(show_get)
+            except ValueError:
                 show = 10
         else:
             show = 10
