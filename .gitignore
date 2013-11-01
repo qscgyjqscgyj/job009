@@ -20,3 +20,8 @@ local.py
 settings.py
 wsgi.py
 media/*
+sphinx.conf
+droptables*
+.htaccess
+indexes/*
+.gitignore
