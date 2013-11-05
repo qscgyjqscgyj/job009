@@ -1,22 +1,24 @@
-<p class=" rabota_2"><a class="main_link" href="/">Работа</a></p>
-<div class="figura_8-holder clearfix">
-    <div class="c_wrapper2 clearfix">
-        <div class="c_wrapper7">
-            <input id="search_text" class="forma" type="text" name="forma" form="auto-generated-form" />
-            <p class="placeholder dolzhnosti_kompanii">должности, компании</p>
-            <p class="placeholder poisk_2">Поиск</p>
-            <p class="placeholder ili">или</p>
-            <p class="placeholder kluchevogo_slova">ключевого слова</p>
+<form method="GET" action="/">
+    <p class=" rabota_2"><a class="main_link" href="/">Работа</a></p>
+    <div class="figura_8-holder clearfix">
+        <div class="c_wrapper2 clearfix">
+            <div class="c_wrapper7">
+                <input id="search_text" class="forma" type="text" name="search"/>
+                <p class="placeholder dolzhnosti_kompanii">должности, компании</p>
+                <p class="placeholder poisk_2">Поиск</p>
+                <p class="placeholder ili">или</p>
+                <p class="placeholder kluchevogo_slova">ключевого слова</p>
+            </div>
+            <input class="button" type="submit" value="" />
+            <p class=" razmestit_vakansiu"><a class="search_ad" href="/job/add">Разместить вакансию</a></p>
         </div>
-        <input class="button" type="submit" name="button" alt="" value="" form="auto-generated-form" />
-        <p class=" razmestit_vakansiu"><a class="search_ad" href="/job/add">Разместить вакансию</a></p>
+        <div class="c_wrapper3 clearfix">
+            <p class=" ya_ishu">Я ищу:</p>
+            <input class="perekluchatel2" type="radio" name="job"/>
+            <p class=" vakansiu">Вакансию</p>
+            <input class="perekluchatel" type="radio" name="resume"/>
+            <p class=" rezume">Резюме</p>
+            <p class=" razmestit_rezume"><a class="search_ad" href="/resume/add">Разместить резюме</a></p>
+        </div>
     </div>
-    <div class="c_wrapper3 clearfix">
-        <p class=" ya_ishu">Я ищу:</p>
-        <input class="perekluchatel2" type="radio" name="c_wrapper3" form="auto-generated-form" />
-        <p class=" vakansiu">Вакансию</p>
-        <input class="perekluchatel" type="radio" name="c_wrapper3" form="auto-generated-form" />
-        <p class=" rezume">Резюме</p>
-        <p class=" razmestit_rezume"><a class="search_ad" href="/resume/add">Разместить резюме</a></p>
-    </div>
-</div>
+</form>
