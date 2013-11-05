@@ -39,11 +39,11 @@
                 <a id="by_50" class="show_by {% if show == 50 %}active{% endif %}" href="?show=50">50</a>
             </p>
             <p class="show">
-                Всего позиций: {{ resume_len }}. Страница: {{ resume.number }} из {{ resume.paginator.num_pages }}.
                 {% if resume.has_previous %}
                     <a class="show_by" href="?page=1&show={{ show }}">Первая</a>
                     ←<a class="show_by" href="?page={{ resume.previous_page_number }}&show={{ show }}">Предыдущая</a>
                 {% endif %}
+                Всего позиций: {{ resume_len }}. Страница: {{ resume.number }} из {{ resume.paginator.num_pages }}.
                 {% if resume.has_next %}
                     <a class="show_by" href="?page={{ resume.next_page_number }}&show={{ show }}">Следующая</a>→
                     <a class="show_by" href="?page={{ resume_all_pages }}&show={{ show }}">Последняя</a>

@@ -1,4 +1,9 @@
-
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
 #id_username, #id_password, #id_password1, #id_password2, #id_captcha_1, #_reg-email{
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -459,7 +464,13 @@
           width: 87%;
           height: 20px;
           background-image: none;
-          &:hover {background-color: @orange;}
+          &:hover {
+            background-color: @orange;
+            a{
+              color: #ffffff;
+              text-decoration: underline;
+            }
+          }
           a {
             width: @width_a;
             color: #000000;
@@ -586,5 +597,15 @@
   color: #ffffff;
   &:hover{
     text-decoration: underline;
+  }
+}
+
+.top_menu{
+  a{
+    color: #000000;
+    &:hover{
+      color: @orange;
+      text-decoration: underline;
+    }
   }
 }
