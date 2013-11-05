@@ -34,7 +34,11 @@
                                 <ul class="nav nav-tabs _top-insets">
                                     <li class="active"><a class="_top-insets-element">Вакансии</a></li>
                                     <li><a href="/resume/">Резюме</a></li>
-                                    <li class="pull-right"><a id="tab-profile" href="/accounts/profile">Войти в личный кабинет</a></li>
+                                    {% if user.is_active and user.is_stuff %}
+                                        <li class="pull-right"><a id="tab-profile" href="/admin">Панель администратора</a></li>
+                                    {% else %}
+                                        <li class="pull-right"><a id="tab-profile" href="/accounts/profile">Войти в личный кабинет</a></li>
+                                    {% endif %}
                                 </ul>
 
                                 <div class="tab-content">

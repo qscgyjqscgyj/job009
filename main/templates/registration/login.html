@@ -12,28 +12,24 @@
 {% endif %}
 
 <form method="post" class="_login-form form-horizontal">{% csrf_token %}
-    <div class="control-group _login-form-block">
-         <label class="control-label" for="inputEmail">Логин</label>
-        <div class="controls">
-            {{ form.username }}
-            {% if form.username.help_text %}<div class="clearfix">{{ form.username.help_text }}</div>{% endif %}
-            {% if form.username.errors %}<div class="myerrors clearfix">{{ form.username.errors }}</div>{% endif %}
-        </div>
-    </div>
-    <div class="control-group _login-form-block">
-         <label class="control-label" for="inputEmail">Пароль</label>
-        <div class="controls _login-form-field">
-            {{ form.password }}
-            {% if form.password.help_text %}<div class="clearfix">{{ form.password.help_text }}</div>{% endif %}
-            {% if form.password.errors %}<div class="myerrors clearfix">{{ form.password.errors }}</div>{% endif %}
-        </div>
-    </div>
-    <div class="control-group _login-form-block">
-        <div class="controls">
-             <label class="checkbox _login-form-remember-label"><input class="_login-form-remember-input" type="checkbox" />Запомнить меня</label>
-             <input type="submit" value="Войти" class="btn btn-small _login-form-button">
-        </div>
-    </div>
+    <table class="_ad-table">
+        <tr>
+            <td class="span2">{{ form.username.label }}</td>
+            <td class="span4">{{ form.username.errors }}{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label }}</td>
+            <td>{{ form.password.errors }}{{ form.password }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><label class="checkbox _login-form-remember-label"><input class="_login-form-remember-input" type="checkbox" />Запомнить меня</label></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Войти" class="btn btn-small _login-form-button"></td>
+        </tr>
+    </table>
 </form>
 
 <ul class="_login-list">

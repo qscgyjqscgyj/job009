@@ -4,11 +4,9 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
   border-color: @blue;
+  border-width: 1px;
   width: 100px;
-  height: 10px;
-  line-height: 10px;
-  position: relative; top: 5px; right: 5px;
-  font-size: 10px;
+  position: relative; left: 5px;
 }
 #id_office, #id_fio, #id_birth, #id_institution, #id_diploma, #id_icq, #id_skype, #_ad-email{
   -webkit-border-radius: 0px;
@@ -16,10 +14,7 @@
   border-radius: 0px;
   border-color: @blue;
   width: 300px;
-  height: 10px;
-  line-height: 10px;
   position: relative; top: 5px; right: 5px;
-  font-size: 10px;
 }
 #id_salary{
   -webkit-border-radius: 0px;
@@ -27,10 +22,7 @@
   border-radius: 0px;
   border-color: @blue;
   width: 70px;
-  height: 10px;
-  line-height: 10px;
   position: relative; top: 5px; right: 5px;
-  font-size: 10px;
 }
 #id_phone, #id_phone_details{
   -webkit-border-radius: 0px;
@@ -38,10 +30,7 @@
   border-radius: 0px;
   border-color: @blue;
   width: 100px;
-  height: 10px;
-  line-height: 10px;
   position: relative; top: 5px; right: 5px;
-  font-size: 10px;
 }
 #id_salary_measure{
   -webkit-border-radius: 0px;
@@ -58,7 +47,6 @@
   text-indent: 0.01px;
   text-overflow: '';
   background: url('../img/drop_down_blue_icon.png') no-repeat right #FEFEFE;
-
 }
 #id_category, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
   height: 20px;
@@ -97,9 +85,6 @@
   min-width: 350px;
   position: relative; top: 5px; right: 5px;
 }
-#id_captcha_1{
-  position: relative; right: 73px;
-}
 #id_work_area, #id_move_cities{
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -111,144 +96,13 @@
 }
 
 
-._red-star{
-  color: red;
-  &:hover{
-    color: red;
-    text-decoration: none;
-  }
-}
-
-
-
-body {
-  font-size: 12px;
-}
-//.container {
-//  background-color: #000000;
-//}
 .captcha{
-  width: 60px;
-  height: 30px;
+  width: 80px;
+  height: 40px;
   border-color: @blue;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px @blue,0 0 8px @blue;
-  -moz-box-shadow: inset 0 1px 1px @blue,0 0 8px @blue;
-  box-shadow: inset 0 1px 1px @blue,0 0 8px @blue;
-  position: relative; right: 3px; top: 5px;
-  margin-right: 5px;
+  position: relative; left: 5px; top: 5px;
 }
-#id_username, #id_password, #id_password1, #id_password2, #id_captcha_1, #_reg-email{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  width: 100px;
-  height: 10px;
-  line-height: 10px;
-  position: relative; top: 5px; right: 5px;
-  font-size: 10px;
-}
-#id_office, #id_fio, #id_birth, #id_institution, #id_diploma, #id_icq, #id_skype, #_ad-email{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  width: 300px;
-  height: 10px;
-  line-height: 10px;
-  position: relative; top: 5px; right: 5px;
-  font-size: 10px;
-}
-#id_salary{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  width: 70px;
-  height: 10px;
-  line-height: 10px;
-  position: relative; top: 5px; right: 5px;
-  font-size: 10px;
-}
-#id_phone, #id_phone_details{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  width: 100px;
-  height: 10px;
-  line-height: 10px;
-  position: relative; top: 5px; right: 5px;
-  font-size: 10px;
-}
-#id_salary_measure{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border: none;
-  color: @blue;
-  height: 25px;
-  line-height: 15px;
-  width: 70px;
-  position: relative; top: 5px; right: 50px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  background: url('../img/drop_down_blue_icon.png') no-repeat right #FEFEFE;
-
-}
-#id_category, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
-  height: 20px;
-  width: 313px;
-  line-height: 10px;
-  position: relative; top: 5px; right: 5px;
-  overflow: hidden;
-  background: url('../img/drop_down_icon.png') no-repeat right #FEFEFE;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
-  box-shadow: inset 0px 0px 10px 1px #FEFEFE;
-  font-size:12px;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  appearance: none;
-  -webkit-appearance: none;
-  -o-appearance: none;
-  padding: 1px;
-}
-#id_photo, #id_file_resume{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-#id_skills, #id_ex_education, #id_qualities{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  min-height: 50px;
-  height: 100px;
-  min-width: 350px;
-  position: relative; top: 5px; right: 5px;
-}
-#id_captcha_1{
-  position: relative; right: 73px;
-}
-#id_work_area, #id_move_cities{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  border-color: @blue;
-  min-height: 50px;
-  height: 100px;
-  position: relative; top: 5px; right: 5px;
-}
-
 
 ._red-star{
   color: red;
@@ -475,17 +329,13 @@ body {
 ._title{
   color: @blue;
   position: relative; left: 10px;
+  text-align: left;
 }
+
 ._login-form{
-  position: relative; right: 70px;
+  text-align: left;
   ._login-form-block{
     margin-bottom: 0px;
-    ._login-form-remember-label{
-      position: relative; bottom: 5px; right: 5px;
-      ._login-form-remember-input{
-        position: relative; top: 3px;
-      }
-    }
   }
   label{
     font-size: 10px;
@@ -500,28 +350,32 @@ body {
   }
   ._login-form-button{
     font-size: 10px;
-    position: relative; bottom: 5px; right: 5px;
+    position: relative; left: 3px;
   }
   ._reg-form-button{
     font-size: 10px;
-    position: relative; top: 30px; right: 5px;
-  }
-  ._reg-captcha{
-    .captcha{
-      position: relative; top: 40px;
-    }
+    position: relative; top: 10px;
   }
 }
 ._login-list{
   list-style: none;
-  font-size: 10px;
   position: relative; right: 10px;
   margin-top: 60px;
+  margin-left: 10px;
+  text-align: left;
+  a{
+    color: @blue;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
 ._ad-table{
-  position: relative; left: 20px;
+  position: relative; left: 5px; top: 10px;
+  font-size: 12px;
   td{
-    padding: 5px;
+    padding-right: 30px;
+    padding-bottom: 5px;
   }
 }
 ._ad-more-info-check{
@@ -727,3 +581,10 @@ body {
 //    list-style-image: url("../img/top_navigate_bullet.png");
 //  }
 //}
+
+.search_ad{
+  color: #ffffff;
+  &:hover{
+    text-decoration: underline;
+  }
+}
