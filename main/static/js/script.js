@@ -10,20 +10,22 @@ $(document).ready(function () {
 		}
 	}
 }
+
 if (window.attachEvent) window.attachEvent("onload", sfHover);
 
-    var placeholder = $( "#search_text").value
-
-    if(placeholder == null){
-        $( ".placeholder" ).fadeIn( 1, function(){});
-    }
+    $( ".placeholder" ).click(function() {
+        $( ".placeholder" ).fadeOut( 1, function(){});
+        $( "#search_text" ).focus();
+    });
 
     $( "#search_text" ).click(function() {
         $( ".placeholder" ).fadeOut( 1, function(){});
     });
 
     $( "#search_text" ).blur(function() {
-        $( ".placeholder" ).fadeIn( 1, function(){});
+        if($( "#search_text").val() == ''){
+            $( ".placeholder" ).fadeIn( 1, function(){});
+        }
     });
 
 });

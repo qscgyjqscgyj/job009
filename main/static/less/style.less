@@ -581,10 +581,10 @@ body {
 ////////
 //func//
 .submenu (@top; @left; @width_ul; @width_a) {
-//	list-style-image: url("../img/top_navigate_bullet.png");
-    list-style-position: inside;
   ul {
     background-color: #ffffff;
+    list-style-image: url("../img/top_navigate_bullet.png");
+    list-style-position: inside;
   }
   li {
     ul {
@@ -599,15 +599,20 @@ body {
         z-index: 100;
         border: 1px solid #f77116;
         li {
-          margin-left: 5px;
-          margin-top: 5px;
+          padding-top: 5px;
+          margin-bottom: 0px;
+          padding-right: 10px;
+          width: 87%;
+          height: 20px;
+          background-image: none;
           &:hover {background-color: @orange;}
           a {
             width: @width_a;
             color: #000000;
+            right: 10px;
             &:hover {
               color: #ffffff;
-              background-color: #f77116;
+              background-color: @orange;
             }
           }
         }
@@ -619,13 +624,13 @@ body {
 
 
 #nav {
-  .submenu (@top: 13px; @left: 525px; @width_ul: 165px; @width_a: 160px);
+  .submenu (@top: 13px; @left: 525px; @width_ul: 200px; @width_a: 205px);
 }
 #nav2 {
-  .submenu (@top: 27px; @left: 782px; @width_ul: 160px; @width_a: 155px);
+  .submenu (@top: 27px; @left: 782px; @width_ul: 190px; @width_a: 155px);
 }
 #nav3 {
-  .submenu (@top: 12px; @left: 1026px; @width_ul: 165px; @width_a: 160px);
+  .submenu (@top: 12px; @left: 1026px; @width_ul: 195px; @width_a: 160px);
 }
 
 ._table{
