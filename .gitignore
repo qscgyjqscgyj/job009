@@ -4,6 +4,8 @@
 # Python
 *.pyc
 *.pyo
+*.log
+*.pid
 
 # Common IDEs
 *.swp
