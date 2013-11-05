@@ -45,7 +45,7 @@
                                                     <tr>
                                                         <td class="_table-time">
                                                             <p class="date">{{ job.date.day }}.{{ job.date.month }}.{{ job.date.year }}</p>
-                                                            <p class="time">{{ job.date.time.hour }}:{{ job.date.time.minute }}</p>
+                                                            <p class="time">{{ job.date.time|time:"H:i" }}</p>
                                                         </td>
                                                         <td class="_table-data">
                                                             <p class="office_p"><a class="office" href="#">{{ job.office }}</a><b> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}</b></p>

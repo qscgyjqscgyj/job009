@@ -4,25 +4,10 @@ from django.utils.translation import ugettext_lazy as _
 from django_geoip.models import City
 
 
-class AdSubCategory(models.Model):
-    name = models.CharField(verbose_name=_(u'Название подрубрики'), max_length=50)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-
-        def __init__(self):
-            pass
-
-        verbose_name = _(u'Подрубрика')
-        verbose_name_plural = _(u'Подрубрики')
-
-
 class AdCategory(models.Model):
     name = models.CharField(verbose_name=_(u'Название рубрики'), max_length=50)
-    subcategory = models.ManyToManyField(AdSubCategory, verbose_name=_(u'Подрубкрика'),
-                                         related_name='ad_category_subcategory')
+    #subcategory = models.ManyToManyField(AdSubCategory, verbose_name=_(u'Подрубкрика'),
+    #                                     related_name='ad_category_subcategory')
 
     def __unicode__(self):
         return self.name
@@ -34,6 +19,22 @@ class AdCategory(models.Model):
 
         verbose_name = _(u'Рубрика')
         verbose_name_plural = _(u'Рубрики')
+
+
+class AdSubCategory(models.Model):
+    name = models.CharField(verbose_name=_(u'Название подрубрики'), max_length=50)
+    category = models.ForeignKey(AdCategory, verbose_name=_(u'Рубрика'), related_name='ad_sub_category_category')
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Подрубрика')
+        verbose_name_plural = _(u'Подрубрики')
 
 
 class AdSchedule(models.Model):

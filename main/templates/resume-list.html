@@ -15,7 +15,7 @@
                     <tr>
                         <td class="_table-time">
                             <p class="date">{{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}</p>
-                            <p class="time">{{ res.date.time.hour }}:{{ res.date.time.minute }}</p>
+                            <p class="time">{{ res.date.time|time:"H:i" }}</p>
                         </td>
                         <td class="_table-data">
                             <p class="office_p"><a class="office" href="#">{{ res.office }}</a><b> от {{ res.salary }} {{ res.salary_measure }}</b></p>
