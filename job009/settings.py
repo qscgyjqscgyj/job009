@@ -78,7 +78,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
-    'main.views.get_banners_info'
+    'main.processors.get_banners_info'
 )
 
 
