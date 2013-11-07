@@ -32,3 +32,5 @@
 [Wed Nov  6 08:52:10.822 2013] [ 5398] caught SIGTERM, shutting down
 [Wed Nov  6 08:52:10.823 2013] [ 5398] shutdown complete
 [Wed Nov  6 08:52:16.749 2013] [ 8392] accepting connections
+[Wed Nov  6 16:56:46.346 2013] [ 8392] caught SIGTERM, shutting down
+[Wed Nov  6 16:56:46.732 2013] [ 8392] shutdown complete

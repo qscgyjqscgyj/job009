@@ -5,67 +5,52 @@ a{
   }
 }
 #id_username, #id_password, #id_password1, #id_password2, #id_captcha_1, #_reg-email{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border-color: @blue;
   border-width: 1px;
   width: 100px;
   position: relative; left: 5px;
 }
 #id_office, #id_fio, #id_birth, #id_institution, #id_diploma, #id_icq, #id_skype, #_ad-email{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border-color: @blue;
-  width: 300px;
+  width: 400px;
   position: relative; top: 5px; right: 5px;
 }
 #id_salary{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border-color: @blue;
   width: 70px;
   position: relative; top: 5px; right: 5px;
 }
-#id_phone, #id_phone_details{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
+#id_phone{
   border-color: @blue;
-  width: 100px;
+  width: 180px;
   position: relative; top: 5px; right: 5px;
 }
+#id_phone_details{
+  border-color: @blue;
+  width: 190px;
+  position: relative; top: 5px; right: 280px;
+}
 #id_salary_measure{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border: none;
   color: @blue;
   height: 25px;
   line-height: 15px;
   width: 70px;
-  position: relative; top: 5px; right: 50px;
+  position: relative; top: 5px; right: 350px;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 0.01px;
   text-overflow: '';
   background: url('../img/drop_down_blue_icon.png') no-repeat right #FEFEFE;
 }
-#id_category, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
+#id_category, #id_subcategory, #id_schedule, #id_employment, #id_gender, #id_marital_status, #id_experience, #id_education, #id_city, #id_area, #id_ad_time{
   height: 20px;
-  width: 313px;
+  width: 405px;
   line-height: 10px;
   position: relative; top: 5px; right: 5px;
   overflow: hidden;
   background: url('../img/drop_down_icon.png') no-repeat right #FEFEFE;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border-color: @blue;
-  -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
-  box-shadow: inset 0px 0px 10px 1px #FEFEFE;
   font-size:12px;
   -moz-appearance: none;
   text-indent: 0.01px;
@@ -75,25 +60,13 @@ a{
   -o-appearance: none;
   padding: 1px;
 }
-#id_photo, #id_file_resume{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
 #id_skills, #id_ex_education, #id_qualities{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border-color: @blue;
-  min-height: 50px;
-  height: 100px;
-  min-width: 350px;
+  max-height: 150px;
+  width: 450px;
   position: relative; top: 5px; right: 5px;
 }
 #id_work_area, #id_move_cities{
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
   border-color: @blue;
   min-height: 50px;
   height: 100px;
@@ -101,13 +74,6 @@ a{
 }
 
 
-.captcha{
-  width: 80px;
-  height: 40px;
-  border-color: @blue;
-  outline: 0;
-  position: relative; left: 5px; top: 5px;
-}
 
 ._red-star{
   color: red;
@@ -378,16 +344,23 @@ a{
 ._ad-table{
   position: relative; left: 5px; top: 10px;
   font-size: 12px;
-  td{
-    padding-right: 30px;
-    padding-bottom: 5px;
+  tr{
+    td{
+      padding-right: 30px;
+      padding-bottom: 15px;
+      vertical-align: middle;
+    }
+    .captcha-label{
+      padding-top: 5px;
+      vertical-align: top;
+    }
   }
 }
 ._ad-more-info-check{
   position: relative; right: 5px; bottom: 5px;
   font-size: 12px;
   input{
-    position: relative; bottom: 2px;
+    position: relative; top: 2px;
   }
 }
 ._ad-more-info-list{
@@ -397,8 +370,9 @@ a{
     padding-right: 10px;
     label{
       font-size: 12px;
+      position: relative; left: 25px;
       input{
-        position: relative; bottom: 2px;
+        position: relative; top: 2px;
       }
     }
   }
@@ -410,19 +384,16 @@ a{
     padding-right: 10px;
     label{
       font-size: 12px;
+      position: relative; left: 25px;
       input{
-        position: relative; bottom: 2px;
+        position: relative; top: 1px;
       }
     }
   }
 }
-._ad-captcha{
-  img{
-    margin-bottom: 70px;
-    position: relative; top: 70px;
-  }
+._ad-btn{
+  position: relative; right: 5px;
 }
-
 
 
 
@@ -585,6 +556,7 @@ a{
   &:hover{
     color: @blue - 30;
     border-bottom: 1px dashed @blue;
+    text-decoration: none;
   }
 }
 //.menu{
@@ -608,4 +580,13 @@ a{
       text-decoration: underline;
     }
   }
+}
+
+.captcha {
+  width: 80px;
+  height: 40px;
+  outline: 0;
+  position: relative;
+  left: 5px;
+  top: 5px;
 }

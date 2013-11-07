@@ -12,6 +12,7 @@ class Resume(models.Model):
     date = models.DateTimeField(verbose_name=_(u'Дата добавления'), auto_now=True)
     office = models.CharField(verbose_name=_(u'Должность'), max_length=50)
     category = models.ForeignKey(AdCategory, verbose_name=_(u'Рубрика'), related_name='resume_category')
+    subcategory = models.ForeignKey(AdSubCategory, verbose_name=_(u'Подрубрика'), related_name='resume_subcategory')
     schedule = models.ForeignKey(AdSchedule, verbose_name=_(u'График работы'), related_name='resume_schedule',
                                  blank=True, null=True)
     employment = models.ForeignKey(AdEmployment, verbose_name=_(u'Тип занятости'), related_name='resume_employment',

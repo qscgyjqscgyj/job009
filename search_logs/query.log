@@ -215,3 +215,8 @@
 [Wed Nov  6 09:10:45.092 2013] 0.001 sec [ext2/0/ext 1 (0,20)] [resume] asd
 [Wed Nov  6 09:10:53.682 2013] 0.000 sec [ext2/0/ext 1 (0,20)] [resume] Программист
 [Wed Nov  6 09:23:43.837 2013] 0.000 sec [ext2/0/ext 1 (0,20)] [resume] Программист
+[Wed Nov  6 13:41:31.353 2013] 0.126 sec [ext2/0/ext 0 (0,20)] [resume] модер
+[Wed Nov  6 13:41:39.382 2013] 0.063 sec [ext2/0/ext 1 (0,20)] [resume] программист
+[Wed Nov  6 13:41:48.629 2013] 0.000 sec [ext2/0/ext 0 (0,20)] [resume] 1с
+[Wed Nov  6 13:41:53.683 2013] 0.000 sec [ext2/0/ext 0 (0,20)] [resume] 1с 
+[Wed Nov  6 13:42:08.322 2013] 0.000 sec [ext2/0/ext 1 (0,20)] [resume] профессионал

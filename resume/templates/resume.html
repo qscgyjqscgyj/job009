@@ -12,12 +12,16 @@
 
 
             <tr>
-                <td class="span2">{{ form.office.label }}<a class="_red-star">*</a></td>
-                <td class="span4">{{ form.office.errors }}{{ form.office }}</td>
+                <td>{{ form.office.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.office.errors }}{{ form.office }}</td>
             </tr>
             <tr>
                 <td>{{ form.category.label }}<a class="_red-star">*</a></td>
                 <td>{{ form.category.errors }}{{ form.category }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.subcategory.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.subcategory.errors }}{{ form.subcategory }}</td>
             </tr>
             <tr>
                 <td>{{ form.schedule.label }}</td>
@@ -29,12 +33,10 @@
             </tr>
             <tr>
                 <td>{{ form.salary.label }}</td>
-                <td>
-                    <div class="row">
-                        <div class="span2">{{ form.salary.errors }}{{ form.salary }}</div>
-                        <div class="span2">{{ form.salary_measure.errors }}{{ form.salary_measure }}</div>
-                    </div>
-                </td>
+                <td>{{ form.salary.errors }}{{ form.salary }}</td>
+                <td>{{ form.salary_measure.errors }}{{ form.salary_measure }}</td>
+                <td></td>
+                <td></td>
             </tr>
 
 
@@ -44,8 +46,8 @@
 
 
             <tr>
-                <td class="span2">{{ form.fio.label }}<a class="_red-star">*</a></td>
-                <td class="span4">{{ form.fio.errors }}{{ form.fio }}</td>
+                <td>{{ form.fio.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.fio.errors }}{{ form.fio }}</td>
             </tr>
             <tr>
                 <td>{{ form.photo.label }}</td>
@@ -115,8 +117,8 @@
 
 
             <tr>
-                <td class="span2">{{ form.city.label }}<a class="_red-star">*</a></td>
-                <td class="span4">{{ form.city.errors }}{{ form.city }}</td>
+                <td>{{ form.city.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.city.errors }}{{ form.city }}</td>
             </tr>
             <tr>
                 <td>{{ form.area.label }}</td>
@@ -124,12 +126,8 @@
             </tr>
             <tr>
                 <td>{{ form.phone.label }}</td>
-                <td>
-                    <div class="row">
-                        <div class="span2">{{ form.phone.errors }}{{ form.phone }}</div>
-                        <div class="span2">{{ form.phone_details }}</div>
-                    </div>
-                </td>
+                <td>{{ form.phone.errors }}{{ form.phone }}</td>
+                <td>{{ form.phone_details.errors }}{{ form.phone_details }}</td>
             </tr>
             <tr>
                 <td>{{ form.email.label }}<a class="_red-star">*</a></td>
@@ -151,8 +149,8 @@
 
 
             <tr>
-                <td class="span2">{{ form.work_area.label }}</td>
-                <td class="span4">{{ form.work_area.errors }}{{ form.work_area }}</td>
+                <td>{{ form.work_area.label }}</td>
+                <td>{{ form.work_area.errors }}{{ form.work_area }}</td>
             </tr>
             <tr>
                 <td>{{ form.move.label }}</td>
@@ -162,11 +160,14 @@
                 <td>{{ form.ad_time.label }}</td>
                 <td>{{ form.ad_time.errors }}{{ form.ad_time }}</td>
             </tr>
-            <tr class="_ad-captcha">
-                <td>{{ form.captcha.label }}<a class="_red-star">*</a></td>
-                <td>{{ form.captcha }}{{ form.captcha.errors }}</td>
+            <tr class="_captcha">
+                <td class="captcha-label">Код с картинки<a class="_red-star">*</a></td>
+                <td class="captcha-label">{{ form.captcha.errors }}{{ form.captcha }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Сохранить данные" class="_ad-btn"></td>
             </tr>
         </table>
-        <input type="submit" value="Сохранить данные" class="btn btn-small">
     </form>
 {% endblock %}

@@ -19,7 +19,7 @@ MOVE_YES_NO = ((False, 'нет'), (None, 'возможен'), (True, 'обяза
 
 class ResumeForm(forms.ModelForm):
     phone_details = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Доп. информация')}),
-                                    label='Дополнительная информация')
+                                    label='Дополнительная информация', required=False)
     move_cities = forms.MultipleChoiceField(required=False, choices=CHOICE_CITY,
                                             label=_(u'Возможные города для переезда'))
     email = forms.EmailField(widget=forms.TextInput(attrs={'id': '_ad-email'}), label='E-mail')
