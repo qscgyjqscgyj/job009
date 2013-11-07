@@ -12,7 +12,7 @@ class Resume(models.Model):
     date = models.DateTimeField(verbose_name=_(u'Дата добавления'), auto_now=True)
     office = models.CharField(verbose_name=_(u'Должность'), max_length=50)
     category = models.ForeignKey(AdCategory, verbose_name=_(u'Рубрика'), related_name='resume_category')
-    subcategory = models.ForeignKey(AdSubCategory, verbose_name=_(u'Подрубрика'), related_name='resume_subcategory')
+    subcategory = models.ManyToManyField(AdSubCategory, verbose_name=_(u'Подрубрика'), related_name='resume_subcategory')
     schedule = models.ForeignKey(AdSchedule, verbose_name=_(u'График работы'), related_name='resume_schedule',
                                  blank=True, null=True)
     employment = models.ForeignKey(AdEmployment, verbose_name=_(u'Тип занятости'), related_name='resume_employment',
@@ -36,8 +36,7 @@ class Resume(models.Model):
     ex_education = models.TextField(verbose_name=_(u'Доп. образование'), blank=True, null=True)
     qualities = models.TextField(verbose_name=_(u'Личные качества'), blank=True, null=True)
     driving_license = models.BooleanField(verbose_name=_(u'Водительские права'))
-    business_trip = models.NullBooleanField(verbose_name=_(u'Готовность к командировкам'), blank=True, null=True)
-    smoke = models.NullBooleanField(verbose_name=_(u'Курю'), blank=True, null=True)
+    business_trip = models.BooleanField(verbose_name=_(u'Готовность к командировкам'))
     file_resume = models.FileField(verbose_name=_(u'Резюме'), upload_to='resume_file', blank=True, null=True)
     city = models.ForeignKey(City, verbose_name=_(u'Город проживания'), related_name='resume_city')
     area = models.ForeignKey(AdArea, verbose_name=_(u'Район проживания'), related_name='resume_area',
@@ -50,7 +49,7 @@ class Resume(models.Model):
     skype = models.CharField(verbose_name=_(u'Skype'), max_length=50, blank=True, null=True)
     work_area = models.ManyToManyField(AdArea, verbose_name=_(u'Желаемые районы для работы'),
                                        related_name='resume_work_area', blank=True, null=True)
-    move = models.NullBooleanField(verbose_name=_(u'Переезд'), blank=True, null=True)
+    move = models.BooleanField(verbose_name=_(u'Переезд'))
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни резюме'), related_name='resume_ad_time',
                                 blank=True, null=True)
     captcha = CaptchaField()
