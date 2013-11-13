@@ -21,7 +21,7 @@
             </tr>
             <tr class="ad-subcategory">
                 <td>{{ form.subcategory.label }}<a class="_red-star">*</a></td>
-                <td>{{ form.subcategory.errors }}{{ form.subcategory }}</td>
+                <td class="_ad-subcategory-td">{{ form.subcategory.errors }}{{ form.subcategory }}</td>
             </tr>
             <tr>
                 <td>{{ form.schedule.label }}</td>
@@ -33,10 +33,7 @@
             </tr>
             <tr>
                 <td>{{ form.salary.label }}</td>
-                <td>{{ form.salary.errors }}{{ form.salary }}</td>
-                <td>{{ form.salary_measure.errors }}{{ form.salary_measure }}</td>
-                <td></td>
-                <td></td>
+                <td>{{ form.salary.errors }}{{ form.salary }}{{ form.salary_measure.errors }}{{ form.salary_measure }}</td>
             </tr>
 
 
@@ -148,10 +145,6 @@
             </tr>
 
 
-            <tr>
-                <td>{{ form.work_area.label }}</td>
-                <td>{{ form.work_area.errors }}{{ form.work_area }}</td>
-            </tr>
             <tr>
                 <td>{{ form.move.label }}</td>
                 <td class="_ad-move-list">{{ form.move.errors }}{{ form.move }}</td>

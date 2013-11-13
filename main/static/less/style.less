@@ -5,28 +5,27 @@ a{
   }
 }
 #id_username, #id_password, #id_password1, #id_password2, #id_captcha_1, #_reg-email{
-  border-color: @blue;
-  border-width: 1px;
+  border: 1px solid @blue;
   width: 100px;
   position: relative; left: 5px;
 }
 #id_office, #id_fio, #id_birth, #id_institution, #id_diploma, #id_icq, #id_skype, #_ad-email{
-  border-color: @blue;
+  border: 1px solid @blue;
   width: 402px;
   position: relative; top: 5px; right: 5px;
 }
 #id_salary{
-  border-color: @blue;
+  border: 1px solid @blue;
   width: 70px;
   position: relative; top: 5px; right: 5px;
 }
 #id_phone{
-  border-color: @blue;
+  border: 1px solid @blue;
   width: 180px;
   position: relative; top: 5px; right: 5px;
 }
 #id_phone_details{
-  border-color: @blue;
+  border: 1px solid @blue;
   width: 190px;
   position: relative; top: 5px; right: 280px;
 }
@@ -35,7 +34,7 @@ a{
   color: @blue;
   height: 25px;
   width: 70px;
-  position: relative; top: 5px; right: 350px;
+  position: relative; top: 3px;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 0.01px;
@@ -48,7 +47,7 @@ a{
   position: relative; top: 5px; right: 5px;
   overflow: hidden;
   background: url('../img/drop_down_icon.png') no-repeat right #FEFEFE;
-  border-color: @blue;
+  border: 1px solid @blue;
   font-size:12px;
   -moz-appearance: none;
   text-indent: 0.01px;
@@ -59,13 +58,13 @@ a{
   padding: 1px;
 }
 #id_skills, #id_ex_education, #id_qualities{
-  border-color: @blue;
+  border: 1px solid @blue;
   max-height: 150px;
   width: 450px;
   position: relative; top: 5px; right: 5px;
 }
 #id_work_area, #id_move_cities{
-  border-color: @blue;
+  border: 1px solid @blue;
   min-height: 50px;
   height: 100px;
   position: relative; top: 5px; right: 5px;
@@ -362,7 +361,7 @@ a{
   }
 }
 ._ad-more-info-list{
-  position: relative; right: 30px;
+  position: relative; right: 5px;
   li{
     display: inline-block;
     padding-right: 10px;
@@ -376,7 +375,7 @@ a{
   }
 }
 ._ad-move-list{
-  position: relative; right: 30px; top: 7px;
+  position: relative; right: 30px;
   li{
     display: inline-block;
     padding-right: 10px;
@@ -590,9 +589,12 @@ a{
 }
 
 .ad-subcategory{
+  height: 100px;
+  ._ad-subcategory-td{
+    position: absolute;
+    z-index: 10;
+  }
   ul{
-    li{
-      float: left;
-    }
+    float: left;
   }
 }

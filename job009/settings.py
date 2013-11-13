@@ -27,7 +27,7 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',
-        }
+    }
 }
 
 TIME_ZONE = 'Asia/Krasnoyarsk'
@@ -46,11 +46,13 @@ TEMPLATE_DIRS = ()
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'dajaxice.finders.DajaxiceFinder',
 )
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -95,8 +97,6 @@ INSTALLED_APPS = (
     'django_geoip',
     'registration',
     'captcha',
-    'resume',
-    'jobs',
     'sorl.thumbnail',
     'redactor',
     'flatblocks',
@@ -104,6 +104,8 @@ INSTALLED_APPS = (
     'djkombu',
     'sphinx',
     'sphinxit',
+    'dajax',
+    'dajaxice',
 )
 
 LOCAL_APPS = (

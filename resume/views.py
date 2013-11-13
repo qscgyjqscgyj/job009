@@ -13,7 +13,7 @@ class ResumeFormView(FormView):
 
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
-        self.form_class.base_fields['city'].queryset = City.objects.all().filter(region=Region.objects.get(pk=80))
+        #self.form_class.base_fields['city'].queryset = City.objects.filter(region=Region.objects.get(pk=80))
         return kwargs
 
     def form_valid(self, form_class):

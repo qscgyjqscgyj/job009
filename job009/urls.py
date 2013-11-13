@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from dajaxice.core import dajaxice_config
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
@@ -18,6 +19,7 @@ urlpatterns = patterns(
     url(r'^resume/', include('resume.urls')),
     url(r'^job/', include('jobs.urls')),
     url(r'^', include('main.urls')),
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
 
 if settings.DEBUG:
