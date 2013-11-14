@@ -3,6 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django_geoip.models import City, Region
+from main.models import MaritalStatus, AdSubCategory
 from resume.forms import ResumeForm
 
 
@@ -14,6 +15,7 @@ class ResumeFormView(FormView):
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
         #self.form_class.base_fields['city'].queryset = City.objects.filter(region=Region.objects.get(pk=80))
+        self.form_class.base_fields['marital_status'].queryset = MaritalStatus.objects.filter(pk=1)
         return kwargs
 
     def form_valid(self, form_class):

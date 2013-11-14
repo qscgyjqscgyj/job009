@@ -20,6 +20,7 @@ admin.site.register(Education)
 admin.site.register(Position)
 admin.site.register(Employees)
 admin.site.register(CompanyCategory)
+admin.site.register(City)
 
 
 class CustomFlatBlockForm(FlatBlockForm):

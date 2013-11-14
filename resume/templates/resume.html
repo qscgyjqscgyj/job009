@@ -2,7 +2,7 @@
 {% load flatblock_tags %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
+    <form id="resume_form" accept-charset="utf-8" method="post">{% csrf_token %}
     <h4 class="_title">Добавление резюме:</h4>
         {% flatblock 'Добавление резюме' %}
         <table class="_ad-table">
@@ -21,7 +21,7 @@
             </tr>
             <tr class="ad-subcategory">
                 <td>{{ form.subcategory.label }}<a class="_red-star">*</a></td>
-                <td class="_ad-subcategory-td">{{ form.subcategory.errors }}{{ form.subcategory }}</td>
+                <td class="_ad-subcategory-td">{{ form.subcategory }}{{ form.subcategory.errors }}</td>
             </tr>
             <tr>
                 <td>{{ form.schedule.label }}</td>
@@ -117,7 +117,7 @@
                 <td>{{ form.city.label }}<a class="_red-star">*</a></td>
                 <td>{{ form.city.errors }}{{ form.city }}</td>
             </tr>
-            <tr>
+            <tr id="id_area_tr">
                 <td>{{ form.area.label }}</td>
                 <td>{{ form.area.errors }}{{ form.area }}</td>
             </tr>
@@ -159,7 +159,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Сохранить данные" class="_ad-btn"></td>
+                <td><input type="submit" value="Сохранить данные" class="_ad-btn" onclick="Dajaxice.resume.send_form(Dajax.process,{'form':$('#resume_form').serialize(true)});"></td>
             </tr>
         </table>
     </form>

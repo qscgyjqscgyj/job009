@@ -13,7 +13,8 @@ class ColumnCheckboxSelectMultiple(forms.CheckboxSelectMultiple):
         self.css_class = css_class
 
     def render(self, name, value, attrs=None, choices=()):
-        if value is None: value = []
+        if value is None:
+            value = []
         has_id = attrs and 'id' in attrs
         final_attrs = self.build_attrs(attrs, name=name)
         choices_enum = list(enumerate(chain(self.choices, choices)))

@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from captcha.fields import CaptchaField
 from django.contrib.auth.models import User
-from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django_geoip.models import City
 from main.models import *
 
 
@@ -22,7 +20,7 @@ class Resume(models.Model):
                                        related_name='resume_salary_measure', blank=True, null=True)
     fio = models.CharField(verbose_name=_(u'Ф.И.О.'), max_length=50)
     photo = models.ImageField(verbose_name=_(u'Фото'), upload_to='resume_photo', blank=True, null=True)
-    birth = models.DateField(verbose_name=_(u'Дата рождения'))
+    birth = models.DateField(verbose_name=_(u'Полных лет'))
     gender = models.ForeignKey(Gender, verbose_name=_(u'Пол'), related_name='resume_gender')
     marital_status = models.ForeignKey(MaritalStatus, verbose_name=_(u'Семейное положение'),
                                        related_name='resume_marital_status', blank=True, null=True)

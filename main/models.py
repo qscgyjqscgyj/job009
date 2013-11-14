@@ -1,7 +1,21 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django_geoip.models import City
+
+
+class City(models.Model):
+    name = models.CharField(verbose_name=_(u'Город'), max_length=100)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Город')
+        verbose_name_plural = _(u'Города')
 
 
 class AdCategory(models.Model):

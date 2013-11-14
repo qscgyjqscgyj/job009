@@ -1,24 +1,10 @@
 # -*- coding: utf-8 -*-
 from captcha.fields import CaptchaField
 from django import forms
-from django_geoip.models import City, Region
-from main.models import AdSalaryMeasure, AdSubCategory, AdArea, Gender, MaritalStatus
+from main.models import AdSalaryMeasure, AdSubCategory, AdArea, Gender, MaritalStatus, City, AdCategory
 from resume.models import Resume
 from django.utils.translation import ugettext_lazy as _
 from resume.widgets import ColumnCheckboxSelectMultiple
-
-
-def choice_city():
-    cities = City.objects.all().filter(region=Region.objects.get(pk=80))
-    choice = []
-    for CITY in cities:
-        c = City.objects.get(pk=CITY.pk)
-        choice.append((c.pk, c))
-    for CITY in cities:
-        if CITY == City.objects.get(pk=1428):
-            c = City.objects.get(pk=CITY.pk)
-            choice[0] = (c.pk, c)
-    return choice
 
 
 class ResumeForm(forms.ModelForm):
@@ -33,21 +19,23 @@ class ResumeForm(forms.ModelForm):
     move = forms.BooleanField(widget=forms.RadioSelect(choices=((True, _(u'да')), (False, _(u'нет')))),
                               label=_(u'Переезд'), required=False)
     subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-                                                 queryset=AdSubCategory.objects.all(), label=_(u'Специализация'))
+                                                 queryset=AdSubCategory.objects.none(), label=_(u'Специализация'))
     gender = forms.ModelChoiceField(queryset=Gender.objects.all(),
                                     widget=forms.Select(attrs={'onchange': "Dajaxice.resume.gender_marital(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                                'size': "1"}), label=_(u'Пол'))
-    marital_status = forms.ModelChoiceField(queryset=MaritalStatus.objects.filter(gender=1),
-                                            label=_(u'Семейное положение'))
-    city = forms.ChoiceField(choices=choice_city(), label=_(u'Город проживания'))
+    city = forms.ModelChoiceField(queryset=City.objects.all(), label=_(u'Город проживания'),
+                                  widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
+                                                             'size': "1"}))
+    category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
+                                      widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
+                                                                 'size': "1"}))
 
     def __init__(self, *args, **kwargs):
         super(ResumeForm, self).__init__(*args, **kwargs)
-        model_choice_field = [field for salary_measure, field in self.fields.iteritems()
-                              if isinstance(field, forms.ModelChoiceField)]
-
-        for salary_measure in model_choice_field:
-            salary_measure.empty_label = None
+        self.fields['salary_measure'].empty_label = None
+        self.fields['city'].empty_label = None
+        self.fields['area'].empty_label = None
+        self.fields['category'].empty_label = None
 
     class Meta:
 
