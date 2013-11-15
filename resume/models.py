@@ -50,7 +50,6 @@ class Resume(models.Model):
     move = models.BooleanField(verbose_name=_(u'Переезд'))
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни резюме'), related_name='resume_ad_time',
                                 blank=True, null=True)
-    captcha = CaptchaField()
     rating = models.IntegerField(verbose_name=_(u'Рейтинг объявления'), blank=True, null=True)
 
     def __unicode__(self):

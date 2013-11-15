@@ -3,19 +3,23 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django_geoip.models import City, Region
-from main.models import MaritalStatus, AdSubCategory
-from resume.forms import ResumeForm
+from main.models import MaritalStatus, AdSubCategory, Gender
+from resume.forms import ResumeForm, ResumeAuthForm
 
 
 class ResumeFormView(FormView):
-    form_class = ResumeForm
     template_name = 'resume.html'
     success_url = '/'
 
+    def get_form_class(self):
+        self.form_class = ResumeForm
+        if self.request.user.is_authenticated():
+            self.form_class = ResumeAuthForm
+        return self.form_class
+
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
-        #self.form_class.base_fields['city'].queryset = City.objects.filter(region=Region.objects.get(pk=80))
-        self.form_class.base_fields['marital_status'].queryset = MaritalStatus.objects.filter(pk=1)
+        #self.form_class.base_fields['marital_status'].queryset = MaritalStatus.objects.none()
         return kwargs
 
     def form_valid(self, form_class):
@@ -43,13 +47,13 @@ class ResumeFormView(FormView):
                             message.save()
                             return HttpResponseRedirect(self.get_success_url())
 
-    #def post(self, *args, **kwargs):
-    #    super(ResumeFormView, self).post(self, *args, **kwargs)
-    #    if self.request.method == 'POST':
-    #        form_class = self.get_form_class()
-    #        form = self.get_form(form_class)
-    #        form.base_fields['subcategory'].choices = AdSubCategory.objects.all()
-    #    if form.is_valid():
-    #        return self.form_valid(form)
-    #    else:
-    #        return self.form_invalid(form)
+    def post(self, request, *args, **kwargs):
+        super(ResumeFormView, self).post(self, *args, **kwargs)
+        if self.request.method == 'POST':
+            form = self.form_class(self.request.POST, self.request.FILES)
+            form.fields['subcategory'].choices = [(str(obj.pk), str(obj.name)) for obj in AdSubCategory.objects.filter(category=self.request.POST['category'])]
+            form.fields['marital_status'].choices = [(str(obj.pk), unicode(obj.name)) for obj in MaritalStatus.objects.filter(gender=self.request.POST['gender'])]
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)

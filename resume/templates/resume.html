@@ -153,10 +153,12 @@
                 <td>{{ form.ad_time.label }}</td>
                 <td>{{ form.ad_time.errors }}{{ form.ad_time }}</td>
             </tr>
-            <tr class="_captcha">
-                <td class="captcha-label">Код с картинки<a class="_red-star">*</a></td>
-                <td class="captcha-label">{{ form.captcha.errors }}{{ form.captcha }}</td>
-            </tr>
+            {% if form.captcha %}
+                <tr class="_captcha">
+                    <td class="captcha-label">Код с картинки<a class="_red-star">*</a></td>
+                    <td class="captcha-label">{{ form.captcha.errors }}{{ form.captcha }}</td>
+                </tr>
+            {% endif %}
             <tr>
                 <td></td>
                 <td><input type="submit" value="Сохранить данные" class="_ad-btn" onclick="Dajaxice.resume.send_form(Dajax.process,{'form':$('#resume_form').serialize(true)});"></td>

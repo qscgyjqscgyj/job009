@@ -13,9 +13,9 @@ def gender_marital(request, option):
     out = []
     gender = Gender.objects.get(name=option)
     for status in MaritalStatus.objects.filter(gender=gender):
-        out.append("<option value='" + str(status.pk) + "'>%s</option>" % status.name)
+        out.append(u"<option value='" + str(status.pk) + u"'>%s</option>" % status.name)
         if len(out) == 1:
-            out[0] = "<option value='" + str(status.pk) + "' selected='selected'>%s</option>" % status.name
+            out[0] = u"<option value='" + str(status.pk) + u"'>%s</option>" % status.name
     dajax.assign('#id_marital_status', 'innerHTML', ''.join(out))
     return dajax.json()
 
@@ -26,9 +26,9 @@ def city_area(request, option):
     out = []
     city = City.objects.get(name=option)
     for area in AdArea.objects.filter(city=city):
-        out.append("<option value='" + str(area.pk) + "'>%s</option>" % area.name)
+        out.append(u"<option value='" + str(area.pk) + u"'>%s</option>" % area.name)
         if len(out) == 1:
-            out[0] = "<option value='" + str(area.pk) + "' selected='selected'>%s</option>" % area.name
+            out[0] = u"<option value='" + str(area.pk) + u"'>%s</option>" % area.name
     if len(out) > 0:
         dajax.assign('#id_area', 'innerHTML', ''.join(out))
         dajax.remove_css_class('#id_area_tr', 'area_none')
