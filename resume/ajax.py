@@ -60,7 +60,7 @@ def category_subcategory(request, option):
         for sub in column:
             out.append(u"<li><label for='id_subcategory_" + str(get_pk(sub.pk)) +
                        u"'><input id='id_subcategory_" + str(get_pk(sub.pk)) +
-                       u"' name='subcategory' type='checkbox' value='" + str(sub.pk) + u"'>" + sub.name +
+                       u"' name='subcategory' type='checkbox' value='" + str(sub.pk) + u"'>" + u" " + sub.name +
                        u"</label></li>")
         out.append(u'</ul>')
     dajax.assign('._ad-subcategory-td', 'innerHTML', ''.join(out))

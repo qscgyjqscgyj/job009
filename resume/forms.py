@@ -19,7 +19,8 @@ class ResumeForm(forms.ModelForm):
     move = forms.BooleanField(widget=forms.RadioSelect(choices=((True, _(u'да')), (False, _(u'нет')))),
                               label=_(u'Переезд'), required=False)
     subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-                                                 queryset=AdSubCategory.objects.none(), label=_(u'Специализация'))
+                                                 label=_(u'Специализация'),
+                                                 queryset=AdSubCategory.objects.filter(category=1))
     gender = forms.ModelChoiceField(queryset=Gender.objects.all(),
                                     widget=forms.Select(attrs={'onchange': "Dajaxice.resume.gender_marital(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                                'size': "1"}), label=_(u'Пол'))
