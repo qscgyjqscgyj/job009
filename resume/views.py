@@ -46,13 +46,3 @@ class ResumeFormView(FormView):
                             message = form_class.save()
                             message.save()
                             return HttpResponseRedirect(self.get_success_url())
-
-    #def post(self, request, *args, **kwargs):
-    #    super(ResumeFormView, self).post(self, *args, **kwargs)
-    #    if self.request.method == 'POST':
-    #        form = self.form_class(self.request.POST, self.request.FILES)
-    #        form.fields['subcategory'].choices = [(str(obj.pk), str(obj.name)) for obj in AdSubCategory.objects.filter(category=self.request.POST['category'])]
-    #    if form.is_valid():
-    #        return self.form_valid(form)
-    #    else:
-    #        return self.form_invalid(form)
