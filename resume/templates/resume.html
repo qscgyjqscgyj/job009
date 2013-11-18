@@ -19,7 +19,7 @@
                 <td>{{ form.category.label }}<a class="_red-star">*</a></td>
                 <td>{{ form.category.errors }}{{ form.category }}</td>
             </tr>
-            <tr class="ad-subcategory">
+            <tr class="ad-subcategory area_none">
                 <td>{{ form.subcategory.label }}<a class="_red-star">*</a></td>
                 <td class="_ad-subcategory-td">{{ form.subcategory }}{{ form.subcategory.errors }}</td>
             </tr>
@@ -56,11 +56,11 @@
             </tr>
             <tr>
                 <td>{{ form.gender.label }}<a class="_red-star">*</a></td>
-                <td>{{ form.gender.errors }}{{ form.gender }}</td>
+                <td class="_ad-move-list">{{ form.gender.errors }}{{ form.gender }}</td>
             </tr>
             <tr>
                 <td>{{ form.marital_status.label }}</td>
-                <td>{{ form.marital_status.errors }}{{ form.marital_status }}</td>
+                <td class="_ad-move-list">{{ form.marital_status.errors }}{{ form.marital_status }}</td>
             </tr>
             <tr>
                 <td>{{ form.experience.label }}</td>
@@ -129,14 +129,6 @@
             <tr>
                 <td>{{ form.email.label }}<a class="_red-star">*</a></td>
                 <td>{{ form.email.errors }}{{ form.email }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.icq.label }}</td>
-                <td>{{ form.icq.errors }}{{ form.icq }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.skype.label }}</td>
-                <td>{{ form.skype.errors }}{{ form.skype }}</td>
             </tr>
 
 

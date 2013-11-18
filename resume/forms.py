@@ -18,13 +18,11 @@ class ResumeForm(forms.ModelForm):
     business_trip = forms.CheckboxInput()
     move = forms.BooleanField(widget=forms.RadioSelect(choices=((True, _(u'да')), (False, _(u'нет')))),
                               label=_(u'Переезд'), required=False)
-    subcategory = forms.MultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-                                            label=_(u'Специализация'),
-                                            choices=AdSubCategory.objects.none())
-    marital_status = forms.ChoiceField(label=_(u'Семейное положение'), choices=MaritalStatus.objects.none())
-    gender = forms.ModelChoiceField(queryset=Gender.objects.all(),
-                                    widget=forms.Select(attrs={'onchange': "Dajaxice.resume.gender_marital(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
-                                                               'size': "1"}), label=_(u'Пол'))
+    subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
+                                                 label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
+    marital_status = forms.ModelChoiceField(label=_(u'Семейное положение'), widget=forms.RadioSelect(),
+                                            queryset=MaritalStatus.objects.all())
+    gender = forms.ModelChoiceField(label=_(u'Пол'), queryset=Gender.objects.all(), widget=forms.RadioSelect())
     city = forms.ModelChoiceField(queryset=City.objects.all(), label=_(u'Город проживания'),
                                   widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                              'size': "1"}))
@@ -37,7 +35,9 @@ class ResumeForm(forms.ModelForm):
         self.fields['salary_measure'].empty_label = None
         self.fields['city'].empty_label = None
         self.fields['area'].empty_label = None
-        self.fields['category'].empty_label = None
+        self.fields['marital_status'].empty_label = None
+        self.fields['gender'].empty_label = None
+        #self.fields['category'].empty_label = None
 
     class Meta:
 
@@ -59,16 +59,15 @@ class ResumeAuthForm(forms.ModelForm):
     business_trip = forms.CheckboxInput()
     move = forms.BooleanField(widget=forms.RadioSelect(choices=((True, _(u'да')), (False, _(u'нет')))),
                               label=_(u'Переезд'), required=False)
-    marital_status = forms.ChoiceField(label=_(u'Семейное положение'), choices=MaritalStatus.objects.none())
-    subcategory = forms.MultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-                                            label=_(u'Специализация'),
-                                            choices=AdSubCategory.objects.none())
-    gender = forms.ModelChoiceField(queryset=Gender.objects.all(),
-                                    widget=forms.Select(attrs={'onchange': "Dajaxice.resume.gender_marital(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
-                                                               'size': "1"}), label=_(u'Пол'))
+    subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
+                                                 label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
+    marital_status = forms.ModelChoiceField(label=_(u'Семейное положение'), widget=forms.RadioSelect(),
+                                            queryset=MaritalStatus.objects.all())
+    gender = forms.ModelChoiceField(label=_(u'Пол'), queryset=Gender.objects.all(), widget=forms.RadioSelect())
     city = forms.ModelChoiceField(queryset=City.objects.all(), label=_(u'Город проживания'),
                                   widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                              'size': "1"}))
+    area = forms.ModelChoiceField(label=_(u'Район проживания'), queryset=AdArea.objects.all())
     category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
                                       widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                                  'size': "1"}))
@@ -78,7 +77,9 @@ class ResumeAuthForm(forms.ModelForm):
         self.fields['salary_measure'].empty_label = None
         self.fields['city'].empty_label = None
         self.fields['area'].empty_label = None
-        self.fields['category'].empty_label = None
+        self.fields['marital_status'].empty_label = None
+        self.fields['gender'].empty_label = None
+        #self.fields['category'].empty_label = None
 
     class Meta:
 

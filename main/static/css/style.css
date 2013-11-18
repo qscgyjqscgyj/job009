@@ -12,10 +12,6 @@ margin: 0;
 padding: 0;
 border: 0;
 outline: 0;
-font-weight: inherit;
-font-style: inherit;
-font-size: 100%;
-font-family: inherit;
 vertical-align: baseline;
 }
 a img, :link img, :visited img {
@@ -54,7 +50,6 @@ quotes: none;
 }
 /* meyerweb css reset end */
 
-em {font-style: italic;}
 strong {font-weight: bold;}
 h1, h2, h3, h4, h5, h6{font-weight:bold;}
 h1{font-size:197%}/* 26px */
@@ -937,7 +932,7 @@ ul.menu5 li {
 .vakansii {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px -2.0px 4.0px;
@@ -963,7 +958,7 @@ ul.menu5 li {
 	text-align: left;
 	text-indent: 0.0;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	line-height: 130.0%;
 	color: #000000;
@@ -976,7 +971,7 @@ ul.menu5 li {
 .avtoservis_32 {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px 0.0px 0.0px;
@@ -988,7 +983,7 @@ ul.menu5 li {
 .buhgalteriya_1s_kassovyi_ {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px 0.0px 0.0px;
@@ -1001,7 +996,7 @@ ul.menu5 li {
 	text-align: left;
 	text-indent: 0.0;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	line-height: 130.0%;
 	color: #000000;
@@ -1014,7 +1009,7 @@ ul.menu5 li {
 .direktora_rukovoditeli_6 {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px 0.0px 0.0px;
@@ -1026,7 +1021,7 @@ ul.menu5 li {
 .inzhenery_sfera_zhkh_2 {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px 0.0px 0.0px;
@@ -1038,7 +1033,7 @@ ul.menu5 li {
 .iskusstvo_1 {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px 0.0px 0.0px;
@@ -1050,7 +1045,7 @@ ul.menu5 li {
 .medicina_farmacevtika_15 {
 	text-align: left;
 	text-decoration: none;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 92.31%;
 	color: #000000;
 	margin: -1.0px 0.0px 0.0px 0.0px;

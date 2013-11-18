@@ -159,7 +159,6 @@ class Gender(models.Model):
 
 class MaritalStatus(models.Model):
     name = models.CharField(verbose_name=_(u'Семейное положение'), max_length=20)
-    gender = models.ForeignKey(Gender, verbose_name=_(u'Пол'), related_name='marital_status_gender')
 
     def __unicode__(self):
         return self.name
