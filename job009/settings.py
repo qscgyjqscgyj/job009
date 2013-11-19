@@ -145,13 +145,17 @@ LOGGING = {
 }
 
 for item in LOCAL_APPS:
-    INSTALLED_APPS+=(item,)
-    TEMPLATE_DIRS+=(join(PROJECT_PATH, item,'templates'),)
-    STATICFILES_DIRS+=((item,join(PROJECT_PATH, item,'static')),)
+    INSTALLED_APPS += (item,)
+    TEMPLATE_DIRS += (join(PROJECT_PATH, item, 'templates'),)
+    STATICFILES_DIRS += ((item, join(PROJECT_PATH, item, 'static')),)
 
 JQUERY_URL = STATIC_URL + 'js/jquery-1.7.min.js'
 REDACTOR_OPTIONS = {'lang': 'ru'}
 REDACTOR_UPLOAD = 'uploads/'
 
+DAJAX_FUNCTIONS=(
+    'resume.ajax.city_area',
+    'resume.ajax.category_subcategory',
+)
 
 from local import *
