@@ -5,11 +5,23 @@ from django.views.generic import FormView
 from django_geoip.models import City, Region
 from main.models import MaritalStatus, AdSubCategory, Gender
 from resume.forms import ResumeForm, ResumeAuthForm
+from user_profile.models import CustomEmployer
 
 
 class ResumeFormView(FormView):
     template_name = 'resume.html'
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super(ResumeFormView, self).get_context_data(**kwargs)
+        user = self.request.user
+        try:
+            employer = CustomEmployer.objects.get(pk=user.pk).pk
+        except ObjectDoesNotExist:
+            employer = False
+        if user.pk == employer:
+            context['employer'] = True
+        return context
 
     def get_form_class(self):
         self.form_class = ResumeForm

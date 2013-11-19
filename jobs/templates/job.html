@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-    <h2>Добавить вакансию:</h2>
-        {% for field in form %}
-            <dt>{{ field.label }}:</dt>
-            <dd class="clearfix">
-                {{ field }}
-                {{ field.errors }}
-            </dd>
-        {% endfor %}
-        <input type="submit" value="Сохранить данные" class="clearfix">
-    </form>
+    {% if not applicant %}
+        <form method="post">{% csrf_token %}
+        <h2>Добавить вакансию:</h2>
+            {% for field in form %}
+                <dt>{{ field.label }}:</dt>
+                <dd class="clearfix">
+                    {{ field }}
+                    {{ field.errors }}
+                </dd>
+            {% endfor %}
+            <input type="submit" value="Сохранить данные" class="clearfix">
+        </form>
+    {% else %}
+        Вы не можете добавлять вакансии. Зарегестрируйтесь или авторизуйтесь как "Работодатель"
+    {% endif %}
 {% endblock %}

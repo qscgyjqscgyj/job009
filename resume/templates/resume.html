@@ -2,6 +2,7 @@
 {% load flatblock_tags %}
 
 {% block content %}
+    {% if not employer %}
     <form id="resume_form" accept-charset="utf-8" method="post">{% csrf_token %}
     <h4 class="_title">Добавление резюме:</h4>
         {% flatblock 'Добавление резюме' %}
@@ -157,4 +158,7 @@
             </tr>
         </table>
     </form>
+    {% else %}
+        Вы не можете добавлять резюме. Зарегестрируйтесь или авторизуйтесь как "Соискатель"
+    {% endif %}
 {% endblock %}

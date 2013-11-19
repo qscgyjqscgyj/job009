@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django_geoip.models import City
 from jobs.forms import JobForm
+from user_profile.models import CustomApplicant
 
 
 class JobFormView(FormView):
@@ -11,9 +13,20 @@ class JobFormView(FormView):
     template_name = 'job.html'
     success_url = '/'
 
+    def get_context_data(self, **kwargs):
+        context = super(JobFormView, self).get_context_data(**kwargs)
+        user = self.request.user
+        try:
+            applicant = CustomApplicant.objects.get(pk=user.pk).pk
+        except ObjectDoesNotExist:
+            applicant = False
+        if user.pk == applicant:
+            context['applicant'] = True
+        return context
+
     def get_form_kwargs(self):
         kwargs = super(JobFormView, self).get_form_kwargs()
-        self.form_class.base_fields['city'].queryset = City.objects.all().order_by('name')
+        #self.form_class.base_fields['city'].queryset = City.objects.all().order_by('name')
         return kwargs
 
     def form_valid(self, form_class):
