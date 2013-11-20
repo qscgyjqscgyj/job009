@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block ad_list %}
+    <table class="resume_detail_table">
+        <tbody>
+            <tr>
+                <td class="resume_detail_date"><p>{{ resume.date.date }}</p><p>{{ resume.date.time }}</p></td>
+                <td class="resume_detail_context resume_detail_title"><h3>{{ resume.office }} {{ resume.salary }} {{ resume.salary_measure }}</h3></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Личные данные</h6></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Ф.И.О.: </label>{{ resume.fio }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Полных лет: </label>{{ resume.birth }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Пол: </label>{{ resume.gender }}</td>
+            </tr>
+            {% if resume.marital_status %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Семейное положение: </label>{{ resume.marital_status }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Место проживания: </label>{{ resume.city }}{% if resume.area %}, {{ resume.area }}{% endif %}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Водительские права: </label>{% if resume.driving_license %}Есть{% else %}Нет{% endif %}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Условия работы</h6></td>
+            </tr>
+
+            {% if resume.schedule %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">График рабоыт: </label>{{ resume.schedule }}</td>
+            </tr>
+            {% endif %}
+            {% if resume.employment %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Тип занятости: </label>{{ resume.employment }}</td>
+            </tr>
+            {% endif %}
+\            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Командировки: </label>{% if resume.business_trip %}готов к командировкам{% else %}не готов к командировкам{% endif %}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Переезд: </label>{% if resume.move %}готов к переезду{% else %}не готов к переезду{% endif %}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Образование</h6></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Уровень образования: </label>{{ resume.education }}</td>
+            </tr>
+            {% if resume.institution %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Учебное заведение: </label>{{ resume.institution }}</td>
+            </tr>
+            {% endif %}
+            {% if resume.diploma %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Образование: </label>{{ resume.diploma }}</td>
+            </tr>
+            {% endif %}
+            {% if resume.ex_education %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Дополнительное образование: </label>{{ resume.ex_education }}</td>
+            </tr>
+            {% endif %}
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Навыки работы</h6></td>
+            </tr>
+
+            {% if resume.experience %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Опыт работы: </label>{{ resume.experience }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context">{{ resume.skills }}</td>
+            </tr>
+
+            {% if resume.qualities %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Личные качества</h6></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context">{{ resume.qualities }}</td>
+            </tr>
+            {% endif %}
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Контактная информация</h6></td>
+            </tr>
+
+            {% if resume.phone %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ resume.phone }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ resume.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% if resume.photo %}
+    <div class="resume_detail_img">
+        {% thumbnail resume.photo "150x112" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
+        {% endthumbnail %}
+    </div>
+    {% else %}
+        <div class="resume_detail_img">
+            {% thumbnail 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Anatoly_Wasserman_%282010-09-11%29_2.jpg/250px-Anatoly_Wasserman_%282010-09-11%29_2.jpg' "150x112" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
+            {% endthumbnail %}
+        </div>
+    {% endif %}
+{% endblock %}
