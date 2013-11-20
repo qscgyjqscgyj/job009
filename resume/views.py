@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView
+from django.views.generic import FormView, DetailView
 from django_geoip.models import City, Region
 from main.models import MaritalStatus, AdSubCategory, Gender
 from resume.forms import ResumeForm, ResumeAuthForm
+from resume.models import Resume
 from user_profile.models import CustomEmployer
 
 
@@ -58,3 +59,10 @@ class ResumeFormView(FormView):
                             message = form_class.save()
                             message.save()
                             return HttpResponseRedirect(self.get_success_url())
+
+
+class ResumeDetailView(DetailView):
+    model = Resume
+    pk_url_kwarg = 'pk'
+    context_object_name = 'resume'
+    template_name = 'resume-detail.html'
