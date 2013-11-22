@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4 class="_title">Личный кабинет</h4>
+    <div class="tabbable _table-main" id="tabs-603801">
+        <ul class="nav nav-tabs _top-insets">
+            <li><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
+            <li class="active"><a href="/resume/my">Мои резюме</a></li>
+            <li><a href="/accounts/profile">Мой профиль</a></li>
+            <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+        </ul>
+    </div>
+
+    {% for res in resume %}
+        <p>{{ res }}</p>
+    {% endfor %}
+{% endblock %}
