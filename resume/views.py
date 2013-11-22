@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView, DetailView
+from django.views.generic import FormView, DetailView, ListView
 from django_geoip.models import City, Region
 from main.models import MaritalStatus, AdSubCategory, Gender
 from resume.forms import ResumeForm, ResumeAuthForm
 from resume.models import Resume
-from user_profile.models import CustomEmployer
+from user_profile.models import CustomEmployer, CustomApplicant
 
 
 class ResumeFormView(FormView):
@@ -66,3 +66,14 @@ class ResumeDetailView(DetailView):
     pk_url_kwarg = 'pk'
     context_object_name = 'resume'
     template_name = 'resume-detail.html'
+
+
+class UserResumeView(ListView):
+    model = Resume
+    template_name = 'user-resume.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserResumeView, self).get_context_data(**kwargs)
+        user = CustomApplicant.objects.get(username=self.request.user.username)
+        context['resume'] = Resume.objects.filter(owner=user)
+        return context

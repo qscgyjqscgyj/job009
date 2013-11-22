@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <a href="/resume/add/">Добавить резюме</a>
-        <a href="/job/add/">Добавить вакансию</a>
-    {% endif %}
+    <h4 class="_title">Личный кабинет</h4>
+    <div class="tabbable _table-main" id="tabs-603801">
+        <ul class="nav nav-tabs _top-insets">
+            <li><a class="_top-insets-element" href="/job/add">Разместить вакансию</a></li>
+            <li><a href="#">Мои вакансии</a></li>
+            <li class="active"><a href="/accounts/profile">Моя компания</a></li>
+            <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+        </ul>
+    </div>
+
     <form method="post">{% csrf_token %}
-    <h2>Работодатель:</h2>
         {% for field in form %}
             <dt>{{ field.label }}:</dt>
             <dd class="clearfix">
