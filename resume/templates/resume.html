@@ -3,9 +3,19 @@
 
 {% block content %}
     {% if not employer %}
-    <form id="resume_form" accept-charset="utf-8" method="post">{% csrf_token %}
-    <h4 class="_title">Добавление резюме:</h4>
-        {% flatblock 'Добавление резюме' %}
+        {% if user.is_authenticated %}
+            <h4 class="_title">Личный кабинет</h4>
+            <div class="tabbable _table-main" id="tabs-603801">
+                <ul class="nav nav-tabs _top-insets">
+                    <li class="active"><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
+                    <li><a href="#">Мои резюме</a></li>
+                    <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+                </ul>
+            </div>
+        {% else %}
+            {% flatblock 'Добавление резюме' %}
+        {% endif %}
+    <form id="resume_form" accept-charset="utf-8" method="post" enctype="multipart/form-data">{% csrf_token %}
         <table class="_ad-table">
             <tr>
                 <td colspan="2"><h5>Требования к должности</h5></td>

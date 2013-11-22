@@ -7,7 +7,7 @@
         <tbody>
             <tr>
                 <td class="resume_detail_date"><p>{{ resume.date.date }}</p><p>{{ resume.date.time }}</p></td>
-                <td class="resume_detail_context resume_detail_title"><h3>{{ resume.office }} {{ resume.salary }} {{ resume.salary_measure }}</h3></td>
+                <td class="resume_detail_context resume_detail_title"><h3>{{ resume.office }} {% if resume.salary %}{{ resume.salary }} {{ resume.salary_measure }}{% endif %}</h3></td>
             </tr>
 
             <tr>
@@ -59,7 +59,7 @@
                 <td class="resume_detail_context"><label class="resume_detail_label">Тип занятости: </label>{{ resume.employment }}</td>
             </tr>
             {% endif %}
-\            <tr>
+            <tr>
                 <td></td>
                 <td class="resume_detail_context"><label class="resume_detail_label">Командировки: </label>{% if resume.business_trip %}готов к командировкам{% else %}не готов к командировкам{% endif %}</td>
             </tr>

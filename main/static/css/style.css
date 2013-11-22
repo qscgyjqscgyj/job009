@@ -1337,4 +1337,5 @@ ul.spisok li {
     width: 750px;
     float: left;
     margin-left: 10px;
+    text-align: left;
 }
