@@ -26,10 +26,11 @@ class ResumeForm(forms.ModelForm):
     city = forms.ModelChoiceField(queryset=City.objects.all(), label=_(u'Город проживания'),
                                   widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                              'size': "1"}))
+    area = forms.ModelChoiceField(label=_(u'Район проживания'), queryset=AdArea.objects.all(), required=False)
     category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
                                       widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                                  'size': "1"}))
-    photo = forms.ImageField(label=_(u'Фото'))
+    photo = forms.ImageField(label=_(u'Фото'), required=False)
 
     def __init__(self,  *args, **kwargs):
         super(ResumeForm, self).__init__(*args, **kwargs)
@@ -72,7 +73,7 @@ class ResumeAuthForm(forms.ModelForm):
     category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
                                       widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                                  'size': "1"}))
-    photo = forms.ImageField(label=_(u'Фото'))
+    photo = forms.ImageField(label=_(u'Фото'), required=False)
 
     def __init__(self,  *args, **kwargs):
         super(ResumeAuthForm, self).__init__(*args, **kwargs)
