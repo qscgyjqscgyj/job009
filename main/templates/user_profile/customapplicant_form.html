@@ -10,15 +10,80 @@
             <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
         </ul>
     </div>
+    <form id="resume_form" accept-charset="utf-8" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table class="_ad-table">
+            <tr>
+                <td colspan="2"><h5>Личная информация</h5></td>
+            </tr>
 
-    <form enctype="multipart/form-data" method="post">{% csrf_token %}
-        {% for field in form %}
-            <dt>{{ field.label }}:</dt>
-            <dd class="clearfix">
-                {{ field }}
-                {{ field.errors }}
-            </dd>
-        {% endfor %}
-        <input type="submit" value="Сохранить данные" class="clearfix">
+
+            <tr>
+                <td>{{ form.username.label }}</td>
+                <td>{{ form.username.errors }}{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.fio.label }}</td>
+                <td>{{ form.fio.errors }}{{ form.fio }}</td>
+            </tr>
+            <tr >
+                <td>{{ form.photo.label }}</td>
+                <td>{{ form.photo.errors }}{{ form.photo }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.birth.label }}</td>
+                <td>{{ form.birth.errors }}{{ form.birth }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.gender.label }}</td>
+                <td>{{ form.gender.errors }}{{ form.gender }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.marital_status.label }}</td>
+                <td>{{ form.marital_status.errors }}{{ form.marital_status }}</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Образование и личные качества</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.education.label }}</td>
+                <td>{{ form.education.errors }}{{ form.education }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.professional_goals.label }}</td>
+                <td>{{ form.professional_goals.errors }}{{ form.professional_goals }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.interests.label }}</td>
+                <td>{{ form.interests.errors }}{{ form.interests }}</td>
+            </tr>
+            <tr>
+
+            <tr>
+                <td colspan="2"><h5>Контактная информация</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.email.label }}</td>
+                <td>{{ form.email.errors }}{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.city.label }}</td>
+                <td>{{ form.city.errors }}{{ form.city }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.phone.label }}</td>
+                <td>{{ form.phone.errors }}{{ form.phone }}</td>
+                <td>{{ form.phone_details.errors }}{{ form.phone_details }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Сохранить данные" class="_ad-btn"></td>
+            </tr>
+        </table>
     </form>
 {% endblock %}

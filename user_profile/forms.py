@@ -15,6 +15,7 @@ for CATEGORY in CHOICE_CATEGORIES:
 
 class CustomRegistrationForm(RegistrationForm):
     email = forms.EmailField(widget=forms.TextInput(attrs={'id': '_reg-email'}), label='E-mail')
+    username = forms.CharField(widget=forms.TextInput(attrs={'id': '_reg-username'}), label='Имя пользователя')
     captcha = CaptchaField()
 
 

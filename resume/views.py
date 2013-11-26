@@ -42,6 +42,8 @@ class ResumeFormView(FormView):
                 self.form_class.base_fields['marital_status'].initial = self.request.user.customapplicant.marital_status
                 self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
                 self.form_class.base_fields['city'].initial = self.request.user.customapplicant.city
+                self.form_class.base_fields['phone'].initial = self.request.user.customapplicant.phone
+                self.form_class.base_fields['phone_details'].initial = self.request.user.customapplicant.phone_details
             return kwargs
         except ObjectDoesNotExist and AttributeError:
             return kwargs
