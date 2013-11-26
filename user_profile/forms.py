@@ -20,7 +20,8 @@ class CustomRegistrationForm(RegistrationForm):
 
 class ApplicantProfileForm(forms.ModelForm):
     phone_details = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Дополнительная информация')}),
-                                    label='Дополнительная информация')
+                                    label='Дополнительная информация', required=False)
+    photo = forms.ImageField(label=_(u'Фото'), required=False)
 
     class Meta:
 
@@ -29,7 +30,7 @@ class ApplicantProfileForm(forms.ModelForm):
 
         model = CustomApplicant
         exclude = ('password', 'last_login', 'is_superuser', 'groups', 'user_permissions', 'first_name', 'last_name',
-                   'is_staff', 'is_active', 'date_joined',)
+                   'is_staff', 'is_active', 'date_joined', 'icq', 'skype', )
 
 
 class EmployerProfileForm(forms.ModelForm):

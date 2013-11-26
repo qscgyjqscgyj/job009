@@ -3,9 +3,9 @@ from captcha.fields import CaptchaField
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django_geoip.models import GeoLocationFacade, City
+from django_geoip.models import GeoLocationFacade
 from registration.models import RegistrationManager
-from main.models import Gender, MaritalStatus, Education, Position, CompanyCategory, Employees
+from main.models import Gender, MaritalStatus, Education, Position, CompanyCategory, Employees, City
 
 
 class CustomLocation(GeoLocationFacade):
@@ -27,7 +27,7 @@ class CustomLocation(GeoLocationFacade):
 class CustomApplicant(User):
     fio = models.CharField(verbose_name=_(u'Ф.И.О.'), max_length=100)
     photo = models.ImageField(verbose_name=_(u'Фото'), upload_to='applicant_photo')
-    birth = models.DateField(verbose_name=_(u'Дата рождения'), blank=True, null=True)
+    birth = models.CharField(verbose_name=_(u'Полных лет'), max_length=100, blank=True, null=True)
     gender = models.ForeignKey(Gender, verbose_name=_(u'Пол'), related_name='applicant_gender', blank=True, null=True)
     marital_status = models.ForeignKey(MaritalStatus, verbose_name=_(u'Семейное положение'),
                                        related_name='applicant_marital_status', blank=True, null=True)

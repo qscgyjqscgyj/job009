@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView, DetailView, ListView
+from django.views.generic import FormView, DetailView, ListView, DeleteView, UpdateView
 from django_geoip.models import City, Region
 from main.models import MaritalStatus, AdSubCategory, Gender
 from resume.forms import ResumeForm, ResumeAuthForm
@@ -32,8 +32,19 @@ class ResumeFormView(FormView):
 
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
-        #self.form_class.base_fields['marital_status'].queryset = MaritalStatus.objects.none()
-        return kwargs
+        try:
+            if self.request.user.customapplicant:
+                self.form_class.base_fields['fio'].initial = self.request.user.customapplicant.fio
+                self.form_class.base_fields['email'].initial = self.request.user.customapplicant.email
+                self.form_class.base_fields['photo'].initial = self.request.user.customapplicant.photo
+                self.form_class.base_fields['birth'].initial = self.request.user.customapplicant.birth
+                self.form_class.base_fields['gender'].initial = self.request.user.customapplicant.gender
+                self.form_class.base_fields['marital_status'].initial = self.request.user.customapplicant.marital_status
+                self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
+                self.form_class.base_fields['city'].initial = self.request.user.customapplicant.city
+            return kwargs
+        except ObjectDoesNotExist:
+            return kwargs
 
     def form_valid(self, form_class):
         if self.request.method == 'POST':
@@ -77,3 +88,22 @@ class UserResumeView(ListView):
         user = CustomApplicant.objects.get(username=self.request.user.username)
         context['resume'] = Resume.objects.filter(owner=user)
         return context
+
+
+class DeleteUserResume(DeleteView):
+    model = Resume
+    template_name = 'delete-user-resume.html'
+    success_url = '/accounts/profile'
+
+    def delete(self, request, *args, **kwargs):
+        if request.user == Resume.objects.get(pk=kwargs['pk']).owner:
+            return super(DeleteUserResume, self).delete(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect('/accounts/profile')
+
+
+class ChangeUserResume(UpdateView):
+    model = Resume
+    success_url = '/accounts/profile/'
+    template_name = 'change-user-resume.html'
+    form_class = ResumeAuthForm
