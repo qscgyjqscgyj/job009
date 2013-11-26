@@ -11,7 +11,7 @@ from user_profile.models import CustomEmployer, CustomApplicant
 
 class ResumeFormView(FormView):
     template_name = 'resume.html'
-    success_url = '/'
+    success_url = '/resume/my/'
 
     def get_context_data(self, **kwargs):
         context = super(ResumeFormView, self).get_context_data(**kwargs)
@@ -43,7 +43,7 @@ class ResumeFormView(FormView):
                 self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
                 self.form_class.base_fields['city'].initial = self.request.user.customapplicant.city
             return kwargs
-        except ObjectDoesNotExist:
+        except ObjectDoesNotExist and AttributeError:
             return kwargs
 
     def form_valid(self, form_class):
