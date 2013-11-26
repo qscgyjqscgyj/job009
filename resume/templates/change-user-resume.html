@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+    <h4 class="_title">Личный кабинет</h4>
+    <div class="tabbable _table-main" id="tabs-603801">
+        <ul class="nav nav-tabs _top-insets">
+            <li><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
+            <li class="active"><a href="/resume/my">Мои резюме</a></li>
+            <li><a href="/accounts/profile">Мой профиль</a></li>
+            <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+        </ul>
+    </div>
+
+        <form id="resume_form" accept-charset="utf-8" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table class="_ad-table">
+            <tr>
+                <td colspan="2"><h5>Требования к должности</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.office.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.office.errors }}{{ form.office }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.category.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.category.errors }}{{ form.category }}</td>
+            </tr>
+            <tr class="ad-subcategory area_none">
+                <td>{{ form.subcategory.label }}<a class="_red-star">*</a></td>
+                <td class="_ad-subcategory-td">{{ form.subcategory }}{{ form.subcategory.errors }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.schedule.label }}</td>
+                <td>{{ form.schedule.errors }}{{ form.schedule }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.employment.label }}</td>
+                <td>{{ form.employment.errors }}{{ form.employment }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.salary.label }}</td>
+                <td>{{ form.salary.errors }}{{ form.salary }}{{ form.salary_measure.errors }}{{ form.salary_measure }}</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Персональные данные</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.fio.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.fio.errors }}{{ form.fio }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.photo.label }}</td>
+                <td>{{ form.photo.errors }}{{ form.photo }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.birth.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.birth.errors }}{{ form.birth }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.gender.label }}<a class="_red-star">*</a></td>
+                <td class="_ad-move-list">{{ form.gender.errors }}{{ form.gender }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.marital_status.label }}</td>
+                <td class="_ad-move-list">{{ form.marital_status.errors }}{{ form.marital_status }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.experience.label }}</td>
+                <td>{{ form.experience.errors }}{{ form.experience }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.skills.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.skills.errors }}{{ form.skills }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.education.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.education.errors }}{{ form.education }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.institution.label }}</td>
+                <td>{{ form.institution.errors }}{{ form.institution }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.diploma.label }}</td>
+                <td>{{ form.diploma.errors }}{{ form.diploma }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.ex_education.label }}</td>
+                <td>{{ form.ex_education.errors }}{{ form.ex_education }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.qualities.label }}</td>
+                <td>{{ form.qualities.errors }}{{ form.qualities }}</td>
+            </tr>
+            <tr>
+                <td>Дополнительные сведения</td>
+                <td class="_ad-more-info-check">{{ form.driving_license.errors }}{{ form.driving_license }} есть водительские права</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="_ad-more-info-list">{{ form.business_trip.errors }}{{ form.business_trip }} готов к командировкам</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="_ad-more-info-list">{{ form.smoke.errors }}{{ form.smoke }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.file_resume.label }}</td>
+                <td>{{ form.file_resume.errors }}{{ form.file_resume }}</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Контактная информация</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.city.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.city.errors }}{{ form.city }}</td>
+            </tr>
+            <tr id="id_area_tr">
+                <td>{{ form.area.label }}</td>
+                <td>{{ form.area.errors }}{{ form.area }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.phone.label }}</td>
+                <td>{{ form.phone.errors }}{{ form.phone }}</td>
+                <td>{{ form.phone_details.errors }}{{ form.phone_details }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.email.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.email.errors }}{{ form.email }}</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><h5>Место работы</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.move.label }}</td>
+                <td class="_ad-move-list">{{ form.move.errors }}{{ form.move }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.ad_time.label }}</td>
+                <td>{{ form.ad_time.errors }}{{ form.ad_time }}</td>
+            </tr>
+            {% if form.captcha %}
+                <tr class="_captcha">
+                    <td class="captcha-label">Код с картинки<a class="_red-star">*</a></td>
+                    <td class="captcha-label">{{ form.captcha.errors }}{{ form.captcha }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Сохранить изменения" class="_ad-btn"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
