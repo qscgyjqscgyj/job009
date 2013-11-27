@@ -149,7 +149,7 @@ class ProfileView(TemplateView):
             context['customapplicant'] = self.request.user.customapplicant
         except ObjectDoesNotExist:
             try:
-                context['profile'] = self.request.user.customemployer
+                context['customemployer'] = self.request.user.customemployer
             except ObjectDoesNotExist:
                 context['profile'] = self.request.user.customagency
         return context

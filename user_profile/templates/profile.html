@@ -123,4 +123,104 @@
             </div>
         {% endif %}
     {% endif %}
+
+    {% if customemployer %}
+    <h4 class="_title">Личный кабинет</h4>
+    <div class="tabbable _table-main" id="tabs-603801">
+        <ul class="nav nav-tabs _top-insets">
+            <li><a class="_top-insets-element" href="/job/add">Разместить вакансию</a></li>
+            <li><a href="#">Мои вакансии</a></li>
+            <li class="active"><a href="/accounts/profile">Моя компания</a></li>
+            <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+        </ul>
+    </div>
+
+    <table class="resume_detail_table">
+        <tbody>
+{#            {% if customemployer.company_name %}#}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context resume_detail_info_title"><h6>Информация о компании</h6></td>
+                </tr>
+
+                {% if customemployer.company_name %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">Название компании: </label>{{ customemployer.company_name }}</td>
+                </tr>
+                {% endif %}
+                {% if customemployer.legal_company_name %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">Юридическое название компании: </label>{{ customemployer.legal_company_name }}</td>
+                </tr>
+                {% endif %}
+                {% if customemployer.about %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">Описание компании: </label>{{ customemployer.about }}</td>
+                </tr>
+                {% endif %}
+                {% if customemployer.company_categories %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context">
+                        <label class="resume_detail_label">Сфера деятельности: </label>
+                        {% for cat in customemployer.company_categories.all %}
+                            <p>{{ cat.name }}</p>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endif %}
+
+            <tr>
+                <td></td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Контакты компании</h6></td>
+            </tr>
+
+            {% if customemployer.city %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Город: </label>{{ customemployer.city }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Адрес: </label>{{ customemployer.street }}, {{ customemployer.building }}, {{ customemployer.about_address }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ customemployer.phone }}, {{ customemployer.phone_details }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Адрес сайте: </label>{{ customemployer.site }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ customemployer.email }}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><a class="_user-profile-edit-link" href="edit">Изменить</a></td>
+            </tr>
+        </tbody>
+    </table>
+    {% if customapplicant.photo %}
+    <div class="resume_detail_img">
+        {% thumbnail customapplicant.photo "150x112" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
+        {% endthumbnail %}
+    </div>
+    {% else %}
+        <div class="resume_detail_img">
+            {% thumbnail 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Anatoly_Wasserman_%282010-09-11%29_2.jpg/250px-Anatoly_Wasserman_%282010-09-11%29_2.jpg' "150x112" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
+            {% endthumbnail %}
+        </div>
+    {% endif %}
+
+
+    {% endif %}
 {% endblock %}
