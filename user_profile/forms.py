@@ -23,6 +23,7 @@ class ApplicantProfileForm(forms.ModelForm):
     phone_details = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Дополнительная информация')}),
                                     label='Дополнительная информация', required=False)
     photo = forms.ImageField(label=_(u'Фото'), required=False)
+    username = forms.CharField(widget=forms.TextInput(attrs={'id': '_profile-username'}), label='Имя пользователя')
 
     class Meta:
 
