@@ -47,6 +47,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'dajaxice.finders.DajaxiceFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 TEMPLATE_LOADERS = (
@@ -106,6 +107,7 @@ INSTALLED_APPS = (
     'sphinxit',
     'dajax',
     'dajaxice',
+    'compressor',
 )
 
 LOCAL_APPS = (
@@ -113,6 +115,10 @@ LOCAL_APPS = (
     'user_profile',
     'jobs',
     'resume',
+)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/less', 'lessc {infile} {outfile}'),
 )
 
 # A sample logging configuration. The only tangible logging

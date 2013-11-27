@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from registration.backends.default.views import ActivationView
-from user_profile.views import ApplicantRegistrationView, my_change_password, EmployerRegistrationView, AgencyRegistrationView, CustomProfileView
+from user_profile.views import ApplicantRegistrationView, my_change_password, EmployerRegistrationView, AgencyRegistrationView, CustomProfileView, ProfileView
 
 urlpatterns = patterns('',
     url(r'^activate/complete/$',
@@ -29,6 +29,9 @@ urlpatterns = patterns('',
        name='registration_disallowed'),
     (r'', include('registration.auth_urls')),
     url(r'^profile/$',
+       login_required(ProfileView.as_view(), login_url='/accounts/login/'),
+       name='profile_update'),
+    url(r'^profile/edit/$',
        login_required(CustomProfileView.as_view(), login_url='/accounts/login/'),
        name='profile_update'),
     url(r'^password_change/$',

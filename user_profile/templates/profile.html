@@ -1,4 +1,126 @@
-{% for city in cities %}
-    <p>{{ city.name }}, {{ city.region }}</p>
-{% endfor %}
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
 
+{% block ad_list %}
+    {% if customapplicant %}
+        <h4 class="_title">Личный кабинет</h4>
+        <div class="tabbable _table-main" id="tabs-603801">
+            <ul class="nav nav-tabs _top-insets">
+                <li><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
+                <li><a href="/resume/my">Мои резюме</a></li>
+                <li class="active"><a href="/accounts/profile">Мой профиль</a></li>
+                <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+            </ul>
+        </div>
+
+        <table class="resume_detail_table">
+            <tbody>
+                {% if customapplicant.fio %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context resume_detail_info_title"><h6>Личные данные</h6></td>
+                    </tr>
+
+                    {% if customapplicant.fio %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Ф.И.О.: </label>{{ customapplicant.fio }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if customapplicant.birth %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Полных лет: </label>{{ customapplicant.birth }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if customapplicant.gender %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Пол: </label>{{ customapplicant.gender }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if customapplicant.marital_status %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Семейное положение: </label>{{ customapplicant.marital_status }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if customapplicant.city %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Место проживания: </label>{{ customapplicant.city }}</td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+
+                {% if customapplicant.education or customapplicant.institution or customapplicant.diploma or customapplicant.ex_education %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context resume_detail_info_title"><h6>Образование</h6></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Уровень образования: </label>{{ customapplicant.education }}</td>
+                    </tr>
+                    {% if customapplicant.institution %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Учебное заведение: </label>{{ customapplicant.institution }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if customapplicant.diploma %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Специальность: </label>{{ customapplicant.diploma }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if customapplicant.ex_education %}
+                    <tr>
+                        <td></td>
+                        <td class="resume_detail_context"><label class="resume_detail_label">Дополнительное образование: </label>{{ customapplicant.ex_education }}</td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context resume_detail_info_title"><h6>Контактная информация</h6></td>
+                </tr>
+
+                {% if customapplicant.phone %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ customapplicant.phone }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">Дополнительная информация: </label>{{ customapplicant.phone_details }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ customapplicant.email }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a class="_user-profile-edit-link" href="edit">Изменить</a></td>
+                </tr>
+            </tbody>
+        </table>
+        {% if customapplicant.photo %}
+        <div class="resume_detail_img">
+            {% thumbnail customapplicant.photo "150x112" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
+            {% endthumbnail %}
+        </div>
+        {% else %}
+            <div class="resume_detail_img">
+                {% thumbnail 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Anatoly_Wasserman_%282010-09-11%29_2.jpg/250px-Anatoly_Wasserman_%282010-09-11%29_2.jpg' "150x112" crop="center" as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
+                {% endthumbnail %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User, UserManager
 from django.contrib.auth.views import password_change
 from django.contrib.sites.models import Site, RequestSite
 from django.core.exceptions import ObjectDoesNotExist
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DetailView, TemplateView
 from registration import signals
 from registration.models import RegistrationProfile
 from user_profile.forms import CustomRegistrationForm, ApplicantProfileForm, EmployerProfileForm, AgencyProfileForm
@@ -137,6 +137,22 @@ class CustomProfileView(UpdateView):
                 obj = self.request.user.customagency
                 self.form_class = AgencyProfileForm
                 return obj
+
+
+class ProfileView(TemplateView):
+    context_object_name = 'profile'
+    template_name = 'profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+        try:
+            context['customapplicant'] = self.request.user.customapplicant
+        except ObjectDoesNotExist:
+            try:
+                context['profile'] = self.request.user.customemployer
+            except ObjectDoesNotExist:
+                context['profile'] = self.request.user.customagency
+        return context
 
 
 def my_change_password(request):

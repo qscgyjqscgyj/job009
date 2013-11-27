@@ -33,8 +33,9 @@ class CustomApplicant(User):
                                        related_name='applicant_marital_status', blank=True, null=True)
     education = models.ForeignKey(Education, verbose_name=_(u'Образование'), related_name='applicant_education',
                                   blank=True, null=True)
-    professional_goals = models.TextField(verbose_name=_(u'Профессиональные цели'), blank=True, null=True)
-    interests = models.TextField(verbose_name=_(u'Интересы'), blank=True, null=True)
+    institution = models.CharField(verbose_name=_(u'Учебное заведение'), max_length=100, blank=True, null=True)
+    diploma = models.CharField(verbose_name=_(u'Специальность'), max_length=100, blank=True, null=True)
+    ex_education = models.TextField(verbose_name=_(u'Доп. образование'), blank=True, null=True)
     city = models.ForeignKey(City, verbose_name=_(u'Город'), blank=True, null=True)
     phone = models.CharField(verbose_name=_(u'Телефон'), max_length=100, blank=True, null=True)
     phone_details = models.CharField(verbose_name=_(u'Дополнительная информация'), max_length=100, blank=True, null=True)
