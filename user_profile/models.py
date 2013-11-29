@@ -68,7 +68,7 @@ class CustomEmployer(User):
     legal_company_name = models.CharField(verbose_name=_(u'Юридическое название компании'),
                                           max_length=100, blank=True, null=True)
     about = models.TextField(verbose_name=_(u'Описание компании'), blank=True, null=True)
-    photo = models.ImageField(verbose_name=_(u'Логотип'), upload_to='employer_photo', blank=True, null=True)
+    photo = models.ImageField(verbose_name=_(u'Логотип'), upload_to=u'employer_photo/%Y/%m/%d/', blank=True, null=True)
     site = models.URLField(verbose_name=_(u'Адрес сайта'), max_length=100, blank=True, null=True)
     company_categories = models.ManyToManyField(AdCategory, verbose_name=_(u'Рубрики'),
                                                 related_name='employer_ad_category', blank=True, null=True)
