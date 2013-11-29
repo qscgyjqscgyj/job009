@@ -99,17 +99,17 @@ class UserResumeView(ListView):
 class DeleteUserResume(DeleteView):
     model = Resume
     template_name = 'delete-user-resume.html'
-    success_url = '/accounts/profile'
+    success_url = '/resume/my'
 
     def delete(self, request, *args, **kwargs):
         if request.user == Resume.objects.get(pk=kwargs['pk']).owner:
             return super(DeleteUserResume, self).delete(request, *args, **kwargs)
         else:
-            return HttpResponseRedirect('/accounts/profile')
+            return HttpResponseRedirect('/resume/my')
 
 
 class ChangeUserResume(UpdateView):
     model = Resume
-    success_url = '/accounts/profile/'
+    success_url = '/resume/my'
     template_name = 'change-user-resume.html'
     form_class = ResumeAuthForm

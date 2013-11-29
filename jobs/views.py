@@ -2,10 +2,11 @@
 from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView
+from django.views.generic import FormView, ListView, DetailView, DeleteView, UpdateView
 from django_geoip.models import City
 from jobs.forms import JobForm
-from user_profile.models import CustomApplicant
+from jobs.models import Job
+from user_profile.models import CustomApplicant, CustomEmployer
 
 
 class JobFormView(FormView):
@@ -18,10 +19,13 @@ class JobFormView(FormView):
         user = self.request.user
         try:
             applicant = CustomApplicant.objects.get(pk=user.pk).pk
+            if user.pk == applicant:
+                context['applicant'] = True
         except ObjectDoesNotExist:
-            applicant = False
-        if user.pk == applicant:
-            context['applicant'] = True
+            try:
+                context['employer'] = self.request.user.customemployer
+            except ObjectDoesNotExist and AttributeError:
+                return context
         return context
 
     def get_form_kwargs(self):
@@ -48,3 +52,40 @@ class JobFormView(FormView):
                         message.owner = self.request.user.customagency
                         message.save()
                         return HttpResponseRedirect(self.get_success_url())
+
+
+class JobDetailView(DetailView):
+    model = Job
+    pk_url_kwarg = 'pk'
+    context_object_name = 'job'
+    template_name = 'job-detail.html'
+
+
+class UserJobsView(ListView):
+    model = Job
+    template_name = 'user-jobs.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserJobsView, self).get_context_data(**kwargs)
+        user = CustomEmployer.objects.get(username=self.request.user.username)
+        context['jobs'] = Job.objects.filter(owner=user)
+        return context
+
+
+class DeleteUserJob(DeleteView):
+    model = Job
+    template_name = 'delete-user-job.html'
+    success_url = '/job/my'
+
+    def delete(self, request, *args, **kwargs):
+        if request.user == Job.objects.get(pk=kwargs['pk']).owner:
+            return super(DeleteUserJob, self).delete(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect('/job/my')
+
+
+class ChangeUserJob(UpdateView):
+    model = Job
+    success_url = '/job/my'
+    template_name = 'change-user-job.html'
+    form_class = JobForm
