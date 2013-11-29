@@ -207,9 +207,9 @@
             </tr>
         </tbody>
     </table>
-    {% if customapplicant.photo %}
+    {% if customemployer.photo %}
     <div class="resume_detail_img">
-        {% thumbnail customapplicant.photo "150x112" crop="center" as im %}
+        {% thumbnail customemployer.photo "150x112" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
         {% endthumbnail %}
     </div>

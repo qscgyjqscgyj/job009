@@ -11,14 +11,67 @@
         </ul>
     </div>
 
-    <form method="post">{% csrf_token %}
-        {% for field in form %}
-            <dt>{{ field.label }}:</dt>
-            <dd class="clearfix">
-                {{ field }}
-                {{ field.errors }}
-            </dd>
-        {% endfor %}
-        <input type="submit" value="Сохранить данные" class="clearfix">
+    <form id="resume_form" accept-charset="utf-8" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table class="_ad-table">
+            <tr>
+                <td colspan="2"><h5>Информация о компании</h5></td>
+            </tr>
+
+
+            <tr>
+                <td>{{ form.company_name.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.company_name.errors }}{{ form.company_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.legal_company_name.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.legal_company_name.errors }}{{ form.legal_company_name }}</td>
+            </tr>
+            <tr >
+                <td>{{ form.about.label }}</td>
+                <td>{{ form.about.errors }}{{ form.about }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.photo.label }}</td>
+                <td>{{ form.photo.errors }}{{ form.photo }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.company_categories.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.company_categories.errors }}{{ form.company_categories }}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><h5>Контактная информация</h5></td>
+            </tr>
+
+            <tr>
+                <td>{{ form.city.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.city.errors }}{{ form.city }}</td>
+            </tr>
+            <tr>
+                <td>Адрес<a class="_red-star">*</a></td>
+                <td>
+                    {{ form.street.errors }}{{ form.street }}
+                    {{ form.building.errors }}{{ form.building }}
+                    {{ form.about_address.errors }}{{ form.about_address }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form.phone.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.phone.errors }}{{ form.phone }}</td>
+                <td>{{ form.phone_details.errors }}{{ form.phone_details }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.site.label }}</td>
+                <td>{{ form.site.errors }}{{ form.site }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.email.label }}<a class="_red-star">*</a></td>
+                <td>{{ form.email.errors }}{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Сохранить данные" class="_ad-btn"></td>
+            </tr>
+        </table>
     </form>
 {% endblock %}

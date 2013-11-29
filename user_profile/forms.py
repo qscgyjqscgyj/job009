@@ -2,15 +2,10 @@
 from captcha.fields import CaptchaField
 from registration.forms import RegistrationForm
 from django import forms
-from main.models import CompanyCategory
+from main.models import CompanyCategory, AdCategory
+from resume.widgets import ColumnCheckboxSelectMultiple
 from user_profile.models import CustomApplicant, CustomEmployer, CustomAgency
 from django.utils.translation import ugettext_lazy as _
-
-#добавление рубрик работодателя и кадровых агенств в массив для вывода в форме профиля
-CHOICE_CATEGORIES = CompanyCategory.objects.all()
-CHOICE_CATEGORY = []
-for CATEGORY in CHOICE_CATEGORIES:
-    CHOICE_CATEGORY.append((str(CATEGORY).lower(), str(CATEGORY).upper()))
 
 
 class CustomRegistrationForm(RegistrationForm):
@@ -36,12 +31,14 @@ class ApplicantProfileForm(forms.ModelForm):
 
 
 class EmployerProfileForm(forms.ModelForm):
-    company_categories = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple,
-                                                   choices=CHOICE_CATEGORY, label='Категория компании')
-    street = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Улица')}), label='Улица')
-    building = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Здание')}), label='Здание')
+    company_categories = forms.ModelMultipleChoiceField(required=False, widget=ColumnCheckboxSelectMultiple(columns=2),
+                                                        label='Категория компании', queryset=AdCategory.objects.all())
+    street = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Улица')}), label='Улица', required=False)
+    building = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Здание')}), label='Здание',
+                               required=False)
     about_address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Дополнительная информация')}),
-                                    label='Дополнительная информация')
+                                    label='Дополнительная информация', required=False)
+    photo = forms.ImageField(label=_(u'Логотип'), required=False)
 
     class Meta:
 
@@ -49,13 +46,13 @@ class EmployerProfileForm(forms.ModelForm):
             pass
 
         model = CustomEmployer
-        exclude = ('password', 'last_login', 'is_superuser', 'groups', 'user_permissions', 'first_name', 'last_name',
-                   'is_staff', 'is_active', 'date_joined',)
+        exclude = ('username', 'password', 'last_login', 'is_superuser', 'groups', 'user_permissions', 'first_name',
+                   'last_name', 'is_staff', 'is_active', 'date_joined', 'captcha', )
 
 
 class AgencyProfileForm(forms.ModelForm):
-    company_categories = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple,
-                                                   choices=CHOICE_CATEGORY, label='Категория компании')
+    company_categories = forms.ModelMultipleChoiceField(required=False, widget=ColumnCheckboxSelectMultiple(columns=2),
+                                                        label='Категория компании', queryset=AdCategory.objects.all())
     street = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Улица')}), label='Улица')
     building = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Здание')}), label='Здание')
     about_address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Дополнительная информация')}),

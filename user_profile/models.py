@@ -5,7 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django_geoip.models import GeoLocationFacade
 from registration.models import RegistrationManager
-from main.models import Gender, MaritalStatus, Education, Position, CompanyCategory, Employees, City
+from main.models import Gender, MaritalStatus, Education, Position, CompanyCategory, Employees, City, AdCategory
 
 
 class CustomLocation(GeoLocationFacade):
@@ -70,8 +70,8 @@ class CustomEmployer(User):
     about = models.TextField(verbose_name=_(u'Описание компании'), blank=True, null=True)
     photo = models.ImageField(verbose_name=_(u'Логотип'), upload_to='employer_photo', blank=True, null=True)
     site = models.URLField(verbose_name=_(u'Адрес сайта'), max_length=100, blank=True, null=True)
-    company_categories = models.ManyToManyField(CompanyCategory, verbose_name=_(u'Рубрики'),
-                                                related_name='employer_company_categories', blank=True, null=True)
+    company_categories = models.ManyToManyField(AdCategory, verbose_name=_(u'Рубрики'),
+                                                related_name='employer_ad_category', blank=True, null=True)
     employees = models.ForeignKey(Employees, verbose_name=_(u'Количество сотрудников'),
                                   related_name='employer_number_of_employees', blank=True, null=True)
     city = models.ForeignKey(City, verbose_name=_(u'Город'), blank=True, null=True)

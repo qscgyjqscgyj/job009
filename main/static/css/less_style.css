@@ -27,7 +27,9 @@ a:hover {
 #id_email,
 #_profile-username,
 #id_contact,
-#id_site
+#id_site,
+#id_company_name,
+#id_legal_company_name
 {
   border: 1px solid #45a1e0;
   width: 404px;
@@ -108,7 +110,8 @@ a:hover {
 #id_qualities,
 #id_professional_goals,
 #id_interests,
-#id_about_job
+#id_about_job,
+#id_about
 {
   border: 1px solid #45a1e0;
   max-height: 150px;
