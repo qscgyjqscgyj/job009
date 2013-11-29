@@ -26,4 +26,6 @@ sphinx.conf
 droptables*
 .htaccess
 indexes/*
+search_logs/*
+search_pids/*
 .gitignore
