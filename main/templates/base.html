@@ -48,7 +48,7 @@
                                                             <p class="time">{{ job.date.time|time:"H:i" }}</p>
                                                         </td>
                                                         <td class="_table-data">
-                                                            <p class="office_p"><a class="office" href="#">{{ job.office }}</a><b> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}</b></p>
+                                                            <p class="office_p"><a class="office" href="/job/{{ job.pk }}">{{ job.office }}</a><b> от {{ job.salary_from }}{% if job.salary_to %} до {{ job.salary_to }}{% endif %} {{ job.salary_measure }}</b></p>
                                                             <p class="info">стаж работы {{ job.experience }}, {{ job.employment }}, {{ job.education }} образование</p>
                                                             <p class="company">{% if job.owner.company_name %}"{{ job.owner.company_name }}"{% else %}Название компании не указано{% endif %}</p>
                                                         </td>

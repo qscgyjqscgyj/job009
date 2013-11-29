@@ -53,66 +53,58 @@
                 <td class="resume_detail_context"><label class="resume_detail_label">Тип занятости: </label>{{ job.employment }}</td>
             </tr>
             {% endif %}
-            {% if job.employment %}
+            {% if job.about_job %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Тип занятости: </label>{{ job.employment }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Описание вакансии, условие работы: </label>{{ job.about_job }}</td>
+            </tr>
+            {% endif %}
+            {% if job.city %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Город: </label>{{ job.city }}</td>
+            </tr>
+            {% endif %}
+            {% if job.street or job.building or job.about_address %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Адрес: </label>
+                    {% if job.street %}
+                        {{ job.street }}
+                    {% endif %}
+                    {% if job.building %}
+                        {{ job.building }}
+                    {% endif %}
+                    {% if job.about_address %}
+                        {{ job.about_address }}
+                    {% endif %}
+                </td>
             </tr>
             {% endif %}
 
-            <tr>
-                <td></td>
-                <td class="resume_detail_context resume_detail_info_title"><h6>Образование</h6></td>
-            </tr>
+
 
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Уровень образования: </label>{{ resume.education }}</td>
+                <td class="resume_detail_context resume_detail_info_title"><h6>Требования к соискателю</h6></td>
             </tr>
-            {% if resume.institution %}
+
+            {% if job.education %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Учебное заведение: </label>{{ resume.institution }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Образования: </label>{{ job.education }}</td>
             </tr>
             {% endif %}
-            {% if resume.diploma %}
+            {% if job.experience %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Образование: </label>{{ resume.diploma }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Опыт работы: </label>{{ job.experience }}</td>
             </tr>
             {% endif %}
-            {% if resume.ex_education %}
+            {% if job.skills %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Дополнительное образование: </label>{{ resume.ex_education }}</td>
-            </tr>
-            {% endif %}
-
-            <tr>
-                <td></td>
-                <td class="resume_detail_context resume_detail_info_title"><h6>Навыки работы</h6></td>
-            </tr>
-
-            {% if resume.experience %}
-            <tr>
-                <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Опыт работы: </label>{{ resume.experience }}</td>
-            </tr>
-            {% endif %}
-            <tr>
-                <td></td>
-                <td class="resume_detail_context">{{ resume.skills }}</td>
-            </tr>
-
-            {% if resume.qualities %}
-            <tr>
-                <td></td>
-                <td class="resume_detail_context resume_detail_info_title"><h6>Личные качества</h6></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td class="resume_detail_context">{{ resume.qualities }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Навыки работы: </label>{{ job.skills }}</td>
             </tr>
             {% endif %}
 
@@ -121,21 +113,39 @@
                 <td class="resume_detail_context resume_detail_info_title"><h6>Контактная информация</h6></td>
             </tr>
 
-            {% if resume.phone %}
+            {% if job.owner.company_name %}
+                <tr>
+                    <td></td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">Название компании:  </label>{{ job.owner.company_name }}</td>
+                </tr>
+            {% endif %}
+            {% if job.contact %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ resume.phone }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Контактное лицо: </label>{{ job.contact }}</td>
+            </tr>
+            {% endif %}
+            {% if job.phone %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ job.phone }}</td>
             </tr>
             {% endif %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ resume.email }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ job.email }}</td>
             </tr>
+            {% if job.site %}
+            <tr>
+                <td></td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Сайт: </label>{{ job.site }}</td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
-    {% if resume.photo %}
+    {% if job.owner.photo %}
     <div class="resume_detail_img">
-        {% thumbnail resume.photo "150x112" crop="center" as im %}
+        {% thumbnail job.owner.photo "150x112" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
         {% endthumbnail %}
     </div>

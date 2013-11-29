@@ -12,7 +12,7 @@ from user_profile.models import CustomApplicant, CustomEmployer
 class JobFormView(FormView):
     form_class = JobForm
     template_name = 'job.html'
-    success_url = '/'
+    success_url = '/job/my'
 
     def get_context_data(self, **kwargs):
         context = super(JobFormView, self).get_context_data(**kwargs)
@@ -31,7 +31,8 @@ class JobFormView(FormView):
     def get_form_kwargs(self):
         kwargs = super(JobFormView, self).get_form_kwargs()
         try:
-            if self.request.user.customemployer:
+            user = self.request.user
+            if user in CustomEmployer.objects.all():
                 self.form_class.base_fields['email'].initial = self.request.user.customemployer.email
                 self.form_class.base_fields['city'].initial = self.request.user.customemployer.city
                 self.form_class.base_fields['phone'].initial = self.request.user.customemployer.phone
@@ -77,9 +78,12 @@ class UserJobsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(UserJobsView, self).get_context_data(**kwargs)
-        user = CustomEmployer.objects.get(username=self.request.user.username)
-        context['jobs'] = Job.objects.filter(owner=user)
-        return context
+        try:
+            user = CustomEmployer.objects.get(username=self.request.user.customemployer.username)
+            context['jobs'] = Job.objects.filter(owner=user)
+            return context
+        except ObjectDoesNotExist and AttributeError:
+            return context
 
 
 class DeleteUserJob(DeleteView):

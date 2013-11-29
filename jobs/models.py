@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from captcha.fields import CaptchaField
-from django.contrib.auth.models import User
-from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from main.models import *
+from user_profile.models import CustomEmployer
 
 
 class Job(models.Model):
-    owner = models.ForeignKey(User, verbose_name=_(u'Владелец вакансии'), blank=True, null=True)
+    owner = models.ForeignKey(CustomEmployer, verbose_name=_(u'Владелец вакансии'), blank=True, null=True)
     date = models.DateTimeField(verbose_name=_(u'Дата добавления'), auto_now=True)
     contact = models.CharField(verbose_name=_(u'Контактное лицо'), max_length=100, blank=True, null=True)
     office = models.CharField(verbose_name=_(u'Должность'), max_length=50)

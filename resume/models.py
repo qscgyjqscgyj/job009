@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from captcha.fields import CaptchaField
-from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from main.models import *
+from user_profile.models import CustomApplicant
 
 
 class Resume(models.Model):
-    owner = models.ForeignKey(User, verbose_name=_(u'Владелец резюме'), blank=True, null=True)
+    owner = models.ForeignKey(CustomApplicant, verbose_name=_(u'Владелец резюме'), blank=True, null=True)
     date = models.DateTimeField(verbose_name=_(u'Дата добавления'), auto_now=True)
     office = models.CharField(verbose_name=_(u'Должность'), max_length=50)
     category = models.ForeignKey(AdCategory, verbose_name=_(u'Рубрика'), related_name='resume_category')

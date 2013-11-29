@@ -2,8 +2,6 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView, DetailView, ListView, DeleteView, UpdateView
-from django_geoip.models import City, Region
-from main.models import MaritalStatus, AdSubCategory, Gender
 from resume.forms import ResumeForm, ResumeAuthForm
 from resume.models import Resume
 from user_profile.models import CustomEmployer, CustomApplicant
@@ -11,7 +9,16 @@ from user_profile.models import CustomEmployer, CustomApplicant
 
 class ResumeFormView(FormView):
     template_name = 'resume.html'
-    success_url = '/resume/my/'
+    success_url = '/accounts/profile'
+
+    def get_success_url(self):
+        try:
+            if self.request.user.customapplicant:
+                url = '/resume/my'
+                return url
+        except ObjectDoesNotExist and AttributeError:
+            url = '/resume'
+            return url
 
     def get_context_data(self, **kwargs):
         context = super(ResumeFormView, self).get_context_data(**kwargs)
@@ -33,7 +40,8 @@ class ResumeFormView(FormView):
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
         try:
-            if self.request.user.customapplicant:
+            user = self.request.user
+            if user in CustomApplicant.objects.all():
                 self.form_class.base_fields['fio'].initial = self.request.user.customapplicant.fio
                 self.form_class.base_fields['email'].initial = self.request.user.customapplicant.email
                 self.form_class.base_fields['photo'].initial = self.request.user.customapplicant.photo
@@ -91,9 +99,12 @@ class UserResumeView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(UserResumeView, self).get_context_data(**kwargs)
-        user = CustomApplicant.objects.get(username=self.request.user.username)
-        context['resume'] = Resume.objects.filter(owner=user)
-        return context
+        try:
+            user = CustomApplicant.objects.get(username=self.request.user.customapplicant.username)
+            context['resume'] = Resume.objects.filter(owner=user)
+            return context
+        except ObjectDoesNotExist and AttributeError:
+            return context
 
 
 class DeleteUserResume(DeleteView):

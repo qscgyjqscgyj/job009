@@ -37,7 +37,7 @@ a:hover {
   top: 5px;
   right: 5px;
 }
-#id_salary, {
+#id_salary {
   border: 1px solid #45a1e0;
   width: 70px;
   position: relative;

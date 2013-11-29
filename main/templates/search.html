@@ -14,7 +14,7 @@
         </div>
         <div class="c_wrapper3 clearfix">
             <p class=" ya_ishu">Я ищу:</p>
-            <input class="perekluchatel2" type="radio" name="by" value="job" {% if url == 'job' or jobs %}checked="checked"{% endif %}/>
+            <input class="perekluchatel2" type="radio" name="by" value="job" {% if url == 'job' or jobs %}checked="checked"{% elif not url %}checked="checked"{% endif %}/>
             <p class=" vakansiu">Вакансию</p>
             <input class="perekluchatel" type="radio" name="by" value="resume" {% if url == 'resume' or resume %}checked="checked"{% endif %}/>
             <p class=" rezume">Резюме</p>
