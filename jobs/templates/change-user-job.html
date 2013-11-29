@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+        <h4 class="_title">Личный кабинет</h4>
+        <div class="tabbable _table-main" id="tabs-603801">
+            <ul class="nav nav-tabs _top-insets">
+                <li><a class="_top-insets-element" href="/job/add">Разместить вакансию</a></li>
+                <li class="active"><a href="/job/my">Мои вакансии</a></li>
+                <li><a href="/accounts/profile">Моя компания</a></li>
+                <li class="pull-right"><a id="tab-profile" href="/accounts/logout">Выйти</a></li>
+            </ul>
+        </div>
+
+        <form id="resume_form" accept-charset="utf-8" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <table class="_ad-table">
+                <tr>
+                    <td colspan="2"><h5>Общая информация о вакансии</h5></td>
+                </tr>
+
+                <tr>
+                    <td>{{ form.office.label }}<a class="_red-star">*</a></td>
+                    <td>{{ form.office.errors }}{{ form.office }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.category.label }}<a class="_red-star">*</a></td>
+                    <td>{{ form.category.errors }}{{ form.category }}</td>
+                </tr>
+                <tr class="ad-subcategory area_none">
+                    <td>{{ form.subcategory.label }}<a class="_red-star">*</a></td>
+                    <td class="_ad-subcategory-td">{{ form.subcategory }}{{ form.subcategory.errors }}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><h5>Условия работы</h5></td>
+                </tr>
+
+                <tr>
+                    <td>{{ form.schedule.label }}</td>
+                    <td>{{ form.schedule.errors }}{{ form.schedule }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.employment.label }}</td>
+                    <td>{{ form.employment.errors }}{{ form.employment }}</td>
+                </tr>
+                <tr>
+                    <td>Зарплата</td>
+                    <td>
+                        {{ form.salary_from.errors }}{{ form.salary_from }}
+                        {{ form.salary_to.errors }}{{ form.salary_to }}
+                        {{ form.salary_measure.errors }}{{ form.salary_measure }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ form.about_job.label }}<a class="_red-star">*</a></td>
+                    <td>{{ form.about_job.errors }}{{ form.about_job }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.city.label }}<a class="_red-star">*</a></td>
+                    <td>{{ form.city.errors }}{{ form.city }}</td>
+                </tr>
+                <tr id="id_area_tr">
+                    <td>{{ form.area.label }}</td>
+                    <td>{{ form.area.errors }}{{ form.area }}</td>
+                </tr>
+                <tr>
+                    <td>Адрес</td>
+                    <td>
+                        {{ form.street.errors }}{{ form.street }}
+                        {{ form.building.errors }}{{ form.building }}
+                        {{ form.about_address.errors }}{{ form.about_address }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><h5>Требования к соискателю</h5></td>
+                </tr>
+
+                <tr>
+                    <td>{{ form.education.label }}</td>
+                    <td>{{ form.education.errors }}{{ form.education }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.experience.label }}</td>
+                    <td>{{ form.experience.errors }}{{ form.experience }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.skills.label }}</td>
+                    <td>{{ form.skills.errors }}{{ form.skills }}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><h5>Контактная информация</h5></td>
+                </tr>
+
+                {% if employer.company_name %}
+                <tr>
+                    <td>Название компании</td>
+                    <td>{{ employer.company_name }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>{{ form.contact.label }}</td>
+                    <td>{{ form.contact.errors }}{{ form.contact }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.phone.label }}<a class="_red-star">*</a></td>
+                    <td>{{ form.phone.errors }}{{ form.phone }}</td>
+                    <td>{{ form.phone_details.errors }}{{ form.phone_details }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email.label }}<a class="_red-star">*</a></td>
+                    <td>{{ form.email.errors }}{{ form.email }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.site.label }}</td>
+                    <td>{{ form.site.errors }}{{ form.site }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Сохранить данные" class="_ad-btn"></td>
+                </tr>
+            </table>
+        </form>
+{% endblock %}

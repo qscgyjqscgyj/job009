@@ -1,0 +1,773 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+#_reg-username,
+#id_password,
+#id_password1,
+#id_password2,
+#id_captcha_1,
+#_reg-email,
+#id_username {
+  border: 1px solid #45a1e0;
+  width: 100px;
+  position: relative;
+  left: 5px;
+}
+#id_office,
+#id_fio,
+#id_birth,
+#id_institution,
+#id_diploma,
+#id_icq,
+#id_skype,
+#_ad-email,
+#id_email,
+#_profile-username,
+#id_contact,
+#id_site
+{
+  border: 1px solid #45a1e0;
+  width: 404px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+#id_salary, {
+  border: 1px solid #45a1e0;
+  width: 70px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+#id_salary_from, #id_salary_to {
+  border: 1px solid #45a1e0;
+  width: 160px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+#id_phone {
+  border: 1px solid #45a1e0;
+  width: 180px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+#id_phone_details {
+  border: 1px solid #45a1e0;
+  width: 190px;
+  position: relative;
+  top: 5px;
+  right: 276px;
+}
+#id_salary_measure {
+  border: none;
+  color: #45a1e0;
+  height: 25px;
+  width: 70px;
+  position: relative;
+  top: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  background: url('http://127.0.0.1:8000/static/main/img/drop_down_blue_icon.png') no-repeat right #fefefe;
+}
+#id_category,
+#id_schedule,
+#id_employment,
+#id_gender,
+#id_marital_status,
+#id_experience,
+#id_education,
+#id_city,
+#id_area,
+#id_ad_time {
+  height: 20px;
+  width: 405px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+  overflow: hidden;
+  background: url('http://127.0.0.1:8000/static/main/img/drop_down_icon.png') no-repeat right #fefefe;
+  border: 1px solid #45a1e0;
+  font-size: 12px;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  padding: 1px;
+}
+#id_skills,
+#id_ex_education,
+#id_qualities,
+#id_professional_goals,
+#id_interests,
+#id_about_job
+{
+  border: 1px solid #45a1e0;
+  max-height: 150px;
+  width: 450px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+#id_work_area,
+#id_move_cities {
+  border: 1px solid #45a1e0;
+  min-height: 50px;
+  height: 100px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+#id_street,
+#id_building,
+#id_about_address
+{
+  border: 1px solid #45a1e0;
+  width: 130px;
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+._red-star {
+  color: red;
+}
+._red-star:hover {
+  color: red;
+  text-decoration: none;
+}
+._top {
+  height: 75px;
+}
+._currency-banner {
+  border: 1px solid #e0ded7;
+  font-size: 10px;
+  width: 130px;
+  height: 60px;
+  margin-top: 5px;
+}
+._currency-banner ._currency-banner-img {
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+._currency-banner ._currency-banner-table {
+  position: relative;
+  left: 65px;
+  bottom: 40px;
+}
+._currency-banner ._currency-banner-table th {
+  line-height: 12px;
+  font-size: 10px;
+}
+._currency-banner ._currency-banner-table td {
+  line-height: 10px;
+}
+._logo {
+  position: relative;
+  bottom: 10px;
+}
+._tob-banner {
+  position: relative;
+  top: 10px;
+}
+._top-navigate {
+  position: relative;
+  border-top: 1px dotted #e0ded7;
+  border-bottom: 1px dotted #e0ded7;
+  background-color: #ffedd3;
+  font-size: 12px;
+  height: 90px;
+  width: 980px;
+}
+._top-navigate a {
+  color: #000000;
+}
+._top-navigate a:hover {
+  color: #f55305;
+}
+._top-navigate ul {
+  list-style-image: url("http://127.0.0.1:8000/static/main/img/top_navigate_bullet.png");
+}
+._top-navigate div {
+  position: relative;
+  bottom: 20px;
+}
+._top-navigate ._top-navigate-1 {
+  width: 200px;
+}
+._top-navigate ._top-navigate-2 {
+  width: 180px;
+  position: relative;
+  left: 17px;
+}
+._top-navigate ._top-navigate-3 {
+  width: 150px;
+}
+._top-navigate ._top-navigate-4 {
+  width: 190px;
+}
+._top-navigate ._top-navigate-5 {
+  width: 150px;
+}
+._middle {
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+._search-block {
+  margin-bottom: 20px;
+  width: 980px;
+  font-size: 12px;
+}
+._search-block ._search-block-div {
+  width: 960px;
+}
+._search-block ._search {
+  border-top: 1px solid #45a1e0;
+  border-bottom: 1px solid #45a1e0;
+}
+._search-block ._work {
+  position: relative;
+  bottom: 15px;
+  height: 60px;
+}
+._search-block ._work ._work-text {
+  color: #45a1e0;
+  position: relative;
+  left: 20px;
+  top: 15px;
+}
+._search-block ._work ._work-text:hover {
+  border: 0;
+  text-decoration: underline;
+}
+._search-block ._form {
+  height: 60px;
+  background-color: #45a1e0;
+  padding-left: 20px;
+  font-size: 12px;
+}
+._search-block ._form ._form-input-text {
+  border-radius: 0px;
+  border: 2px solid #7f9db9;
+  height: 15px;
+  position: relative;
+  top: 5px;
+  left: 10px;
+  width: 400px;
+}
+._search-block ._form ._form-input-submit {
+  position: relative;
+  left: 10px;
+  border-radius: 3px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#bababa), to(#868686));
+  color: #ffffff;
+  font-size: 10px;
+}
+._search-block ._form ._form-category {
+  color: #ffffff;
+  position: relative;
+  right: 10px;
+}
+._search-block ._form ._form-category ._form-category-choices {
+  position: relative;
+  bottom: 2px;
+}
+._search-block ._form ._form-category ._form-category-choices input {
+  width: 12px;
+  height: 12px;
+}
+._search-block ._form ._form-category ._form-category-choices ._form-category-type {
+  position: relative;
+  right: 45px;
+  top: 3px;
+}
+._search-block ._form ._form-category ._form-category-choices ._form-category-type label {
+  font-size: 12px;
+}
+._search-block ._search-block-resume-add {
+  position: relative;
+  left: 60px;
+  top: 5px;
+  font-size: 10px;
+  color: #ffffff;
+}
+._search-block ._search-block-job-add {
+  position: relative;
+  left: 143px;
+  bottom: 8px;
+  font-size: 10px;
+  color: #ffffff;
+}
+._profile-link a {
+  color: #000000;
+}
+._profile-link a:hover {
+  color: #f55305;
+}
+._content ._left-navigate {
+  list-style: none;
+  position: relative;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+._content ._left-navigate img {
+  margin-right: 3px;
+}
+._content ._left-navigate a {
+  color: #000000;
+}
+._content ._left-navigate a:hover {
+  color: #45a1e0;
+}
+._content ._content-center {
+  position: relative;
+  bottom: 20px;
+  border-left: 1px solid #45a1e0;
+}
+._content ._top-insets {
+  position: relative;
+  top: 10px;
+  border-color: #45a1e0;
+}
+._content ._top-insets a {
+  border-radius: 0px;
+  color: #808080;
+}
+._content ._top-insets a:hover {
+  background: none;
+  border: 1px solid #ffffff;
+  border-bottom-color: transparent;
+}
+._content ._top-insets li.active {
+  border-color: #45a1e0;
+}
+._content ._top-insets li.active:hover {
+  background-color: #ffffff;
+}
+._content ._top-insets li.active a {
+  border-radius: 0px;
+  border: 1px solid #45a1e0;
+  border-bottom-color: transparent;
+  color: #000000;
+}
+._content ._right-banners {
+  width: 200px;
+  position: relative;
+  left: 20px;
+  bottom: 10px;
+}
+._content ._right-banners img {
+  padding-bottom: 10px;
+}
+._title {
+  color: #45a1e0;
+  position: relative;
+  left: 10px;
+  text-align: left;
+}
+._login-form {
+  text-align: left;
+}
+._login-form ._login-form-block {
+  margin-bottom: 0px;
+}
+._login-form label {
+  font-size: 10px;
+}
+._login-form .myerrors {
+  font-size: 10px;
+  color: #f55305;
+  position: relative;
+  top: 10px;
+}
+._login-form .myerrors ul {
+  list-style: none;
+}
+._login-form ._login-form-button {
+  font-size: 10px;
+  position: relative;
+  left: 3px;
+}
+._login-form ._reg-form-button {
+  font-size: 10px;
+  position: relative;
+  top: 10px;
+}
+._login-list {
+  list-style: none;
+  position: relative;
+  right: 10px;
+  margin-top: 60px;
+  margin-left: 10px;
+  text-align: left;
+}
+._login-list a {
+  color: #45a1e0;
+}
+._login-list a:hover {
+  text-decoration: underline;
+}
+._ad-table {
+  position: relative;
+  left: 5px;
+  top: 10px;
+  font-size: 12px;
+}
+._ad-table tr td {
+  padding-right: 30px;
+  padding-bottom: 15px;
+  vertical-align: middle;
+}
+._ad-table tr .captcha-label {
+  padding-top: 5px;
+  vertical-align: top;
+}
+._ad-more-info-check {
+  position: relative;
+  right: 5px;
+  bottom: 5px;
+  font-size: 12px;
+}
+._ad-more-info-check input {
+  position: relative;
+  top: 2px;
+}
+._ad-more-info-list {
+  position: relative;
+  right: 5px;
+}
+._ad-more-info-list li {
+  display: inline-block;
+  padding-right: 10px;
+}
+._ad-more-info-list li label {
+  font-size: 12px;
+  position: relative;
+  left: 25px;
+}
+._ad-more-info-list li label input {
+  position: relative;
+  top: 2px;
+}
+._ad-move-list {
+  position: relative;
+  right: 30px;
+}
+._ad-move-list li {
+  display: inline-block;
+  padding-right: 10px;
+}
+._ad-move-list li label {
+  font-size: 12px;
+  position: relative;
+  left: 25px;
+}
+._ad-move-list li label input {
+  position: relative;
+  top: 1px;
+}
+._ad-btn {
+  position: relative;
+  right: 5px;
+}
+#nav ul {
+  background-color: #ffffff;
+  list-style-image: url("http://127.0.0.1:8000/static/main/img/top_navigate_bullet.png");
+  list-style-position: inside;
+}
+#nav li ul {
+  position: absolute;
+  width: 200px;
+  left: -999em;
+}
+#nav li:hover ul {
+  top: 13px;
+  left: 525px;
+  z-index: 100;
+  border: 1px solid #f77116;
+}
+#nav li:hover ul li {
+  padding-top: 5px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  width: 87%;
+  height: 20px;
+  background-image: none;
+}
+#nav li:hover ul li:hover {
+  background-color: #f55305;
+}
+#nav li:hover ul li:hover a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+#nav li:hover ul li a {
+  width: 205px;
+  color: #000000;
+  right: 10px;
+}
+#nav li:hover ul li a:hover {
+  color: #ffffff;
+  background-color: #f55305;
+}
+#nav2 ul {
+  background-color: #ffffff;
+  list-style-image: url("http://127.0.0.1:8000/static/main/img/top_navigate_bullet.png");
+  list-style-position: inside;
+}
+#nav2 li ul {
+  position: absolute;
+  width: 190px;
+  left: -999em;
+}
+#nav2 li:hover ul {
+  top: 27px;
+  left: 782px;
+  z-index: 100;
+  border: 1px solid #f77116;
+}
+#nav2 li:hover ul li {
+  padding-top: 5px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  width: 87%;
+  height: 20px;
+  background-image: none;
+}
+#nav2 li:hover ul li:hover {
+  background-color: #f55305;
+}
+#nav2 li:hover ul li:hover a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+#nav2 li:hover ul li a {
+  width: 155px;
+  color: #000000;
+  right: 10px;
+}
+#nav2 li:hover ul li a:hover {
+  color: #ffffff;
+  background-color: #f55305;
+}
+#nav3 ul {
+  background-color: #ffffff;
+  list-style-image: url("http://127.0.0.1:8000/static/main/img/top_navigate_bullet.png");
+  list-style-position: inside;
+}
+#nav3 li ul {
+  position: absolute;
+  width: 195px;
+  left: -999em;
+}
+#nav3 li:hover ul {
+  top: 12px;
+  left: 1026px;
+  z-index: 100;
+  border: 1px solid #f77116;
+}
+#nav3 li:hover ul li {
+  padding-top: 5px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  width: 87%;
+  height: 20px;
+  background-image: none;
+}
+#nav3 li:hover ul li:hover {
+  background-color: #f55305;
+}
+#nav3 li:hover ul li:hover a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+#nav3 li:hover ul li a {
+  width: 160px;
+  color: #000000;
+  right: 10px;
+}
+#nav3 li:hover ul li a:hover {
+  color: #ffffff;
+  background-color: #f55305;
+}
+._table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #e2d8bd;
+}
+._table tbody {
+  border-spacing: 2px;
+  border-color: gray;
+}
+._table tbody tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+._table tbody tr td {
+  border-bottom: 1px solid #e2d8bd;
+}
+._table tbody tr ._table-time {
+  width: 15%;
+}
+._table tbody tr ._table-time .date {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+._table tbody tr ._table-time .time {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+._table tbody tr ._table-data {
+  width: 85%;
+}
+._table tbody tr ._table-data .office_p {
+  position: relative;
+  bottom: 7px;
+}
+._table tbody tr ._table-data .office_p .office {
+  color: #1a568e;
+}
+._table tbody tr ._table-data .office_p .office:hover {
+  color: #45a1e0;
+  text-decoration: underline;
+}
+._table tbody tr ._table-data .link_p .link {
+  color: #1a568e;
+}
+._table tbody tr ._table-data .link_p .link:hover {
+  color: #45a1e0;
+  text-decoration: underline;
+}
+._table tbody tr ._table-data .info {
+  position: relative;
+  bottom: 5px;
+}
+._table tbody tr ._table-data .company {
+  position: relative;
+  bottom: 2px;
+  color: #555555;
+}
+.pagination {
+  margin-top: 20px;
+  text-align: left;
+}
+.pagination .show {
+  margin-bottom: 15px;
+}
+.pagination .show .show_by {
+  color: #000000;
+  margin: 3px;
+}
+.pagination .show .show_by:hover {
+  text-decoration: underline;
+}
+.pagination .show .active {
+  border: 1px solid #e3dabb;
+  padding: 2px;
+  margin: 0;
+  background-color: #f0ece3;
+}
+.pagination .show .active:hover {
+  text-decoration: none;
+}
+#tab-profile {
+  color: #1a568e;
+}
+#tab-profile:hover {
+  color: #45a1e0;
+  text-decoration: underline;
+}
+.main_link {
+  color: #45a1e0;
+  border-bottom: 1px dotted #45a1e0;
+  font: Georgia, serif;
+}
+.main_link:hover {
+  color: #2783c2;
+  border-bottom: 1px dashed #45a1e0;
+  text-decoration: none;
+}
+.search_ad {
+  color: #ffffff;
+}
+.search_ad:hover {
+  text-decoration: underline;
+}
+.top_menu a {
+  color: #000000;
+}
+.top_menu a:hover {
+  color: #f55305;
+  text-decoration: underline;
+}
+.captcha {
+  width: 80px;
+  height: 40px;
+  outline: 0;
+  position: relative;
+  left: 5px;
+  top: 5px;
+}
+.ad-subcategory {
+  height: 100px;
+}
+.ad-subcategory ._ad-subcategory-td {
+  position: absolute;
+  z-index: 10;
+}
+.ad-subcategory ul {
+  float: left;
+}
+.area_none {
+  display: none;
+}
+.resume_detail_table {
+  float: left;
+}
+.resume_detail_table .resume_detail_date {
+  position: relative;
+  right: 5px;
+}
+.resume_detail_table .resume_detail_title {
+  position: relative;
+  top: 5px;
+}
+.resume_detail_table td {
+  padding: 5px;
+}
+.resume_detail_table td .resume_detail_label {
+  color: #525252;
+}
+.resume_detail_table .resume_detail_context {
+  width: 470px;
+}
+.resume_detail_table .resume_detail_info_title {
+  padding-bottom: 10px;
+}
+.resume_detail_img {
+  float: left;
+  margin-top: 20px;
+}
+.resume_detail_img img {
+  border: 1px solid #d5d5d5;
+  padding: 3px;
+}
+.ad_list_img {
+  float: left;
+  position: relative;
+  bottom: 7px;
+  margin-right: 5px;
+}
+._user-add {
+  display: none;
+}
