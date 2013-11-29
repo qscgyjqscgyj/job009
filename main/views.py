@@ -2,6 +2,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 from jobs.models import Job
+from jobs.search_config import JobSearch
 from resume.models import Resume
 from sphinxit.core.processor import Search
 from resume.search_config import ResumeSearch
@@ -90,5 +91,15 @@ class SearchView(ListView):
             results = []
             for result in search_results:
                 results.append(Resume.objects.get(id=result['id']))
+            context['search_results'] = results
+        elif self.request.GET.get('by') == 'job' and self.request.GET.get('search'):
+            search = self.request.GET.get('search')
+            search_query = Search(indexes=['jobs'], config=JobSearch)
+            search_query = search_query.match(search)
+            search_result = search_query.ask()
+            search_results = search_result['result']['items']
+            results = []
+            for result in search_results:
+                results.append(Job.objects.get(id=result['id']))
             context['search_results'] = results
         return context
