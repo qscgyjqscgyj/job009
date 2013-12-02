@@ -31,17 +31,15 @@ class JobFormView(FormView):
     def get_form_kwargs(self):
         kwargs = super(JobFormView, self).get_form_kwargs()
         try:
-            user = self.request.user
-            if user in CustomEmployer.objects.all():
-                self.form_class.base_fields['email'].initial = self.request.user.customemployer.email
-                self.form_class.base_fields['city'].initial = self.request.user.customemployer.city
-                self.form_class.base_fields['phone'].initial = self.request.user.customemployer.phone
-                self.form_class.base_fields['phone_details'].initial = self.request.user.customemployer.phone_details
-                self.form_class.base_fields['street'].initial = self.request.user.customemployer.street
-                self.form_class.base_fields['building'].initial = self.request.user.customemployer.building
-                self.form_class.base_fields['about_address'].initial = self.request.user.customemployer.about_address
+            self.form_class.base_fields['email'].initial = self.request.user.customemployer.email
+            self.form_class.base_fields['city'].initial = self.request.user.customemployer.city
+            self.form_class.base_fields['phone'].initial = self.request.user.customemployer.phone
+            self.form_class.base_fields['phone_details'].initial = self.request.user.customemployer.phone_details
+            self.form_class.base_fields['street'].initial = self.request.user.customemployer.street
+            self.form_class.base_fields['building'].initial = self.request.user.customemployer.building
+            self.form_class.base_fields['about_address'].initial = self.request.user.customemployer.about_address
             return kwargs
-        except ObjectDoesNotExist and AttributeError:
+        except ObjectDoesNotExist:
             return kwargs
 
     def form_valid(self, form_class):

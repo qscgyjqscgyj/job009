@@ -40,24 +40,22 @@ class ResumeFormView(FormView):
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
         try:
-            user = self.request.user
-            if user in CustomApplicant.objects.all():
-                self.form_class.base_fields['fio'].initial = self.request.user.customapplicant.fio
-                self.form_class.base_fields['email'].initial = self.request.user.customapplicant.email
-                self.form_class.base_fields['photo'].initial = self.request.user.customapplicant.photo
-                self.form_class.base_fields['birth'].initial = self.request.user.customapplicant.birth
-                self.form_class.base_fields['gender'].initial = self.request.user.customapplicant.gender
-                self.form_class.base_fields['marital_status'].initial = self.request.user.customapplicant.marital_status
-                self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
-                self.form_class.base_fields['city'].initial = self.request.user.customapplicant.city
-                self.form_class.base_fields['phone'].initial = self.request.user.customapplicant.phone
-                self.form_class.base_fields['phone_details'].initial = self.request.user.customapplicant.phone_details
-                self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
-                self.form_class.base_fields['institution'].initial = self.request.user.customapplicant.institution
-                self.form_class.base_fields['ex_education'].initial = self.request.user.customapplicant.ex_education
-                self.form_class.base_fields['diploma'].initial = self.request.user.customapplicant.diploma
+            self.form_class.base_fields['fio'].initial = self.request.user.customapplicant.fio
+            self.form_class.base_fields['email'].initial = self.request.user.customapplicant.email
+            self.form_class.base_fields['photo'].initial = self.request.user.customapplicant.photo
+            self.form_class.base_fields['birth'].initial = self.request.user.customapplicant.birth
+            self.form_class.base_fields['gender'].initial = self.request.user.customapplicant.gender
+            self.form_class.base_fields['marital_status'].initial = self.request.user.customapplicant.marital_status
+            self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
+            self.form_class.base_fields['city'].initial = self.request.user.customapplicant.city
+            self.form_class.base_fields['phone'].initial = self.request.user.customapplicant.phone
+            self.form_class.base_fields['phone_details'].initial = self.request.user.customapplicant.phone_details
+            self.form_class.base_fields['education'].initial = self.request.user.customapplicant.education
+            self.form_class.base_fields['institution'].initial = self.request.user.customapplicant.institution
+            self.form_class.base_fields['ex_education'].initial = self.request.user.customapplicant.ex_education
+            self.form_class.base_fields['diploma'].initial = self.request.user.customapplicant.diploma
             return kwargs
-        except ObjectDoesNotExist and AttributeError:
+        except ObjectDoesNotExist:
             return kwargs
 
     def form_valid(self, form_class):
