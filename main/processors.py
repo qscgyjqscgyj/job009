@@ -1,5 +1,8 @@
 import urllib
 import lxml.html
+from jobs.models import Job
+from main.models import AdCategory
+from resume.models import Resume
 
 
 def get_banners_info(page):
@@ -17,3 +20,10 @@ def get_banners_info(page):
                'weather_day': weather_day, 'currency_date': currency_date,
                'currency_usd': currency_usd, 'currency_eur': currency_eur}
     return {'banners': banners}
+
+
+def get_left_menu_items(page):
+    ads = {}
+    for cat in AdCategory.objects.all():
+        ads[cat.name] = len(Resume.objects.filter(category=cat)) + len(Job.objects.filter(category=cat))
+    return {'categories': AdCategory.objects.all(), 'ads': ads}
