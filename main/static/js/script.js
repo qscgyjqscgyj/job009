@@ -15,6 +15,10 @@ $(document).ready(function () {
         }
     });
 
+    if($('#id_city').find(":selected").text() != 'Красноярск'){
+       $( "#id_area_tr").addClass('area_none');
+    }
+
 
     sfHover = function() {
         var sfEls = document.getElementById("nav").getElementsByTagName("li");

@@ -55,7 +55,7 @@ class ResumeFormView(FormView):
             self.form_class.base_fields['ex_education'].initial = self.request.user.customapplicant.ex_education
             self.form_class.base_fields['diploma'].initial = self.request.user.customapplicant.diploma
             return kwargs
-        except ObjectDoesNotExist:
+        except ObjectDoesNotExist and AttributeError:
             return kwargs
 
     def form_valid(self, form_class):
