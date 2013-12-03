@@ -6,7 +6,17 @@ from flatblocks.models import FlatBlock
 from redactor.widgets import RedactorEditor
 
 
-admin.site.register(AdCategory)
+class AdCategoryInline(admin.TabularInline):
+    model = AdSubCategory
+    fk_name = "category"
+
+
+class PersonAdmin(admin.ModelAdmin):
+    inlines = [
+        AdCategoryInline,
+    ]
+
+admin.site.register(AdCategory, PersonAdmin)
 admin.site.register(AdSubCategory)
 admin.site.register(AdSchedule)
 admin.site.register(AdSalaryMeasure)
