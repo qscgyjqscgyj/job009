@@ -20,7 +20,7 @@
                                 <p class="date">{{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}</p>
                             </td>
                             <td class="_table-data">
-                                <p class="office_p"><a class="office" href="/resume/{{ res.pk }}">{{ res.office }}</a><b> от {{ res.salary }} {{ res.salary_measure }}</b></p>
+                                <p class="office_p"><a class="office" href="/resume/{{ res.pk }}">{{ res.office }}</a><b>{% if res.salary %} от {{ res.salary }} {{ res.salary_measure }}{% endif %}</b></p>
                                 <p class="link_p"><a class="link" href="/resume/change/{{ res.pk }}">Изменить</a> <a class="link" href="/resume/delete/{{ res.pk }}">Удалить</a></p>
                             </td>
                         </tr>
