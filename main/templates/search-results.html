@@ -2,6 +2,13 @@
 {% load thumbnail %}
 
 {% block content %}
+    {% if search_results|length > 0 %}
+        <h4 class="_title _search_res">Результаты по запросу "{{ search }}"</h4>
+    {% else %}
+        <h4 class="_title _search_res">Ничего не найдено по запросу "{{ search }}"</h4>
+        <p class="_search_hint">Проверьте правильность написания запроса.</p>
+        <p class="_search_hint">Проверьте правильность выбора категории поиска: "Вакансии", "Резюме".</p>
+    {% endif %}
     <table class="table table-condensed table-bordered _table">
         <tbody>
             {% for res in search_results %}

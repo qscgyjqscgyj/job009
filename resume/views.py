@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView, DetailView, ListView, DeleteView, UpdateView
@@ -89,6 +90,20 @@ class ResumeDetailView(DetailView):
     pk_url_kwarg = 'pk'
     context_object_name = 'resume'
     template_name = 'resume-detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ResumeDetailView, self).get_context_data(**kwargs)
+        try:
+            if self.request.user.pk == CustomApplicant.objects.get(pk=self.request.user.pk).pk:
+                context['applicant'] = True
+                return context
+        except ObjectDoesNotExist:
+            try:
+                if self.request.user.pk == CustomEmployer.objects.get(pk=self.request.user.pk).pk:
+                    context['employer'] = True
+                    return context
+            except ObjectDoesNotExist:
+                return context
 
 
 class UserResumeView(ListView):

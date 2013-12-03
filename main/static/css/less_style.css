@@ -379,6 +379,8 @@ a:hover {
 }
 ._login-form {
   text-align: left;
+  position: relative;
+  left: 6px;
 }
 ._login-form ._login-form-block {
   margin-bottom: 0px;
@@ -773,4 +775,28 @@ a:hover {
 }
 ._user-add {
   display: none;
+}
+.ya_ishu, .vakansiu, .rezume{
+    position: relative;
+    bottom: 3px;
+    left: 4px;
+}
+.perekluchatel2{
+    position: relative;
+    bottom: 1px;
+    width: 12px !important;
+}
+.perekluchatel{
+    position: relative;
+    bottom: 2px;
+    width: 12px !important;
+}
+._search_res{
+    margin-bottom: 20px;
+}
+._search_hint{
+    position: relative;
+    left: 9px;
+    bottom: 5px;
+    margin: 2px;
 }

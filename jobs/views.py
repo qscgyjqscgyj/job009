@@ -69,6 +69,21 @@ class JobDetailView(DetailView):
     context_object_name = 'job'
     template_name = 'job-detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(JobDetailView, self).get_context_data(**kwargs)
+        try:
+            if self.request.user.pk == CustomApplicant.objects.get(pk=self.request.user.pk).pk:
+                context['applicant'] = True
+                return context
+        except ObjectDoesNotExist:
+            try:
+                if self.request.user.pk == CustomEmployer.objects.get(pk=self.request.user.pk).pk:
+                    context['employer'] = True
+                    return context
+            except ObjectDoesNotExist:
+                return context
+
+
 
 class UserJobsView(ListView):
     model = Job

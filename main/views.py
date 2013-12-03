@@ -92,6 +92,7 @@ class SearchView(ListView):
             for result in search_results:
                 results.append(Resume.objects.get(id=result['id']))
             context['search_results'] = results
+            context['search'] = self.request.GET.get('search')
             context['url'] = 'resume'
         elif self.request.GET.get('by') == 'job' and self.request.GET.get('search'):
             search = self.request.GET.get('search')
@@ -103,5 +104,6 @@ class SearchView(ListView):
             for result in search_results:
                 results.append(Job.objects.get(id=result['id']))
             context['search_results'] = results
+            context['search'] = self.request.GET.get('search')
             context['url'] = 'job'
         return context

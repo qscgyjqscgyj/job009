@@ -40,4 +40,6 @@ urlpatterns = patterns('',
     url(r'^password_change_done/$',
        TemplateView.as_view(template_name='registration/password_change_done.html'),
        name='change_pass_done'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout',
+                          {'next_page': '/'})
 )
