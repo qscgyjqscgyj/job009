@@ -11,25 +11,30 @@ class AdCategoryInline(admin.TabularInline):
     fk_name = "category"
 
 
-class PersonAdmin(admin.ModelAdmin):
+class AdCategoryAdmin(admin.ModelAdmin):
     inlines = [
         AdCategoryInline,
     ]
+    ordering = ['name']
 
-admin.site.register(AdCategory, PersonAdmin)
-admin.site.register(AdSubCategory)
+
+class AdSubCategotyAdmin(admin.ModelAdmin):
+    ordering = ['name']
+
+admin.site.register(AdCategory, AdCategoryAdmin)
+admin.site.register(AdSubCategory, AdSubCategotyAdmin)
 admin.site.register(AdSchedule)
 admin.site.register(AdSalaryMeasure)
 admin.site.register(AdEmployment)
 admin.site.register(AdExperience)
 admin.site.register(AdArea)
-admin.site.register(AdTime)
+#admin.site.register(AdTime)
 admin.site.register(Gender)
 admin.site.register(MaritalStatus)
 admin.site.register(Education)
-admin.site.register(Position)
-admin.site.register(Employees)
-admin.site.register(CompanyCategory)
+#admin.site.register(Position)
+#admin.site.register(Employees)
+#admin.site.register(CompanyCategory)
 admin.site.register(City)
 
 
