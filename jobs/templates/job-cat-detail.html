@@ -2,7 +2,11 @@
 {% load thumbnail %}
 
 {% block content %}
-    <h4 class="_title _search_res">Вакансиия категории "{{ category }}"</h4>
+    {% if jobs|length > 0 %}
+        <h4 class="_title _search_res">Вакансии категории "{{ category }}"</h4>
+    {% else %}
+        <h4 class="_title _search_res">В категории "{{ category }}" нет вакансий</h4>
+    {% endif %}
     {% if applicant %}
         <div class="tabbable _table-main" id="tabs-603801">
             <ul class="nav nav-tabs _top-insets">
