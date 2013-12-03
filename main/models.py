@@ -134,6 +134,7 @@ class AdArea(models.Model):
 
 class AdTime(models.Model):
     name = models.CharField(verbose_name=_(u'Время жизни объявления'), max_length=50)
+    #time = models.IntegerField(verbose_name=_(u'Число'))
 
     def __unicode__(self):
         return self.name

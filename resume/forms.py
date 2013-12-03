@@ -48,7 +48,7 @@ class ResumeForm(forms.ModelForm):
 
         model = Resume
 
-        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'subcategory')
+        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'subcategory', 'ad_time')
 
 
 class ResumeAuthForm(forms.ModelForm):
@@ -91,4 +91,4 @@ class ResumeAuthForm(forms.ModelForm):
 
         model = Resume
 
-        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'subcategory')
+        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'subcategory', 'ad_time')

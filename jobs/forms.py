@@ -35,4 +35,4 @@ class JobForm(forms.ModelForm):
             pass
 
         model = Job
-        exclude = ('owner', 'subcategory')
+        exclude = ('owner', 'subcategory', 'ad_time')
