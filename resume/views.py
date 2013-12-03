@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView, DetailView, ListView, DeleteView, UpdateView
@@ -41,6 +40,8 @@ class ResumeFormView(FormView):
 
     def get_form_kwargs(self):
         kwargs = super(ResumeFormView, self).get_form_kwargs()
+        if self.request.user.is_authenticated:
+            return super(ResumeFormView, self).get_form_kwargs()
         try:
             self.form_class.base_fields['fio'].initial = self.request.user.customapplicant.fio
             self.form_class.base_fields['email'].initial = self.request.user.customapplicant.email
@@ -57,8 +58,8 @@ class ResumeFormView(FormView):
             self.form_class.base_fields['ex_education'].initial = self.request.user.customapplicant.ex_education
             self.form_class.base_fields['diploma'].initial = self.request.user.customapplicant.diploma
             return kwargs
-        except ObjectDoesNotExist and AttributeError:
-                return kwargs
+        except ObjectDoesNotExist:
+                return super(ResumeFormView, self).get_form_kwargs()
 
     def form_valid(self, form_class):
         if self.request.method == 'POST':
