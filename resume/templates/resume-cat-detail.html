@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+    <h4 class="_title _search_res">Резюме категории "{{ category }}"</h4>
+    {% if applicant %}
+        <div class="tabbable _table-main" id="tabs-603801">
+            <ul class="nav nav-tabs _top-insets">
+                <li><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
+                <li><a href="/resume/my">Мои резюме</a></li>
+                <li><a href="/accounts/profile">Мой профиль</a></li>
+                <li class="active"><a href=" ">Резюме</a></li>
+                <li class="pull-right"><a id="tab-profile" href="/accounts/logout?next=/">Выйти</a></li>
+            </ul>
+        </div>
+    {% elif employer %}
+        <div class="tabbable _table-main" id="tabs-603801">
+            <ul class="nav nav-tabs _top-insets">
+                <li><a class="_top-insets-element" href="/job/add">Разместить вакансию</a></li>
+                <li><a href="/job/my">Мои вакансии</a></li>
+                <li><a href="/accounts/profile">Моя компания</a></li>
+                <li class="active"><a href=" ">Резюме</a></li>
+                <li class="pull-right"><a id="tab-profile" href="/accounts/logout?next=/">Выйти</a></li>
+            </ul>
+        </div>
+    {% endif %}
+
+    {% for res in resume %}
+        <table class="table table-condensed table-bordered _table _table-user-ads">
+            <tbody>
+                <tr>
+                    <td class="_table-time">
+                        <p class="date">{{ res.date.day }}.{{ res.date.month }}.{{ res.date.year }}</p>
+                    </td>
+                    <td class="_table-data">
+                        <p class="office_p"><a class="office" href="/resume/{{ res.pk }}">{{ res.office }}</a><b> от {{ res.salary_from }} {{ res.salary_measure }}</b></p>
+                        <p class="link_p"><a class="link" href="/resume/change/{{ res.pk }}">Изменить</a> <a class="link" href="/resume/delete/{{ res.pk }}">Удалить</a></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
