@@ -1,17 +1,37 @@
-<p class=" vakansii">Рубрики</p>
-<ul class="spisok">
-    {% for cat in categories %}
-        <li class=" li-it_komputery_programmnoe_">
-            <p class=" it_komputery_programmnoe_">
-                <a href="#">
-                    {{ cat.name }}
-                    {% for ad, a in ads.items %}
-                        {% if ad == cat.name %}
-                            ({{ a }})
-                        {% endif %}
-                    {% endfor %}
-                </a>
-            </p>
-        </li>
-    {% endfor %}
-</ul>
+{% if jobs %}
+    <p class=" vakansii">Вакансии</p>
+    <ul class="spisok">
+        {% for cat in categories %}
+            <li class=" li-it_komputery_programmnoe_">
+                <p class=" it_komputery_programmnoe_">
+                    <a href="#">
+                        {{ cat.name }}
+                        {% for ad, a in jobs_ads.items %}
+                            {% if ad == cat.name %}
+                                ({{ a }})
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+{% elif resume %}
+    <p class=" vakansii">Резюме</p>
+    <ul class="spisok">
+        {% for cat in categories %}
+            <li class=" li-it_komputery_programmnoe_">
+                <p class=" it_komputery_programmnoe_">
+                    <a href="#">
+                        {{ cat.name }}
+                        {% for ad, a in resume_ads.items %}
+                            {% if ad == cat.name %}
+                                ({{ a }})
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
