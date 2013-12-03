@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
-from resume.views import ResumeFormView, ResumeDetailView, UserResumeView, DeleteUserResume, ChangeUserResume
+from resume.views import ResumeFormView, ResumeDetailView, UserResumeView, DeleteUserResume, ChangeUserResume, ResumeCatDetailView
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
@@ -11,4 +11,5 @@ urlpatterns = patterns('',
         name='delete_user_resume'),
     url(r'^change/(?P<pk>\d+)/$', login_required(ChangeUserResume.as_view(), login_url='/accounts/login/'),
         name='change_user_resume'),
+    url(r'^(?P<slug>\S+)/$', ResumeCatDetailView.as_view(), name='resume_cat_ads'),
 )

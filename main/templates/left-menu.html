@@ -4,7 +4,7 @@
         {% for cat in categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
-                    <a href="#">
+                    <a href="/job/{{ cat.slug }}">
                         {{ cat.name }}
                         {% for ad, a in jobs_ads.items %}
                             {% if ad == cat.name %}
@@ -22,9 +22,27 @@
         {% for cat in categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
-                    <a href="#">
+                    <a href="/resume/{{ cat.slug }}">
                         {{ cat.name }}
                         {% for ad, a in resume_ads.items %}
+                            {% if ad == cat.name %}
+                                ({{ a }})
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class=" vakansii">Вакансии</p>
+    <ul class="spisok">
+        {% for cat in categories %}
+            <li class=" li-it_komputery_programmnoe_">
+                <p class=" it_komputery_programmnoe_">
+                    <a href="/job/{{ cat.slug }}">
+                        {{ cat.name }}
+                        {% for ad, a in jobs_ads.items %}
                             {% if ad == cat.name %}
                                 ({{ a }})
                             {% endif %}

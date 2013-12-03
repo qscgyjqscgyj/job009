@@ -3,6 +3,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView, DetailView, ListView, DeleteView, UpdateView
+from main.models import AdCategory
 from resume.forms import ResumeForm, ResumeAuthForm
 from resume.models import Resume
 from user_profile.models import CustomEmployer, CustomApplicant
@@ -137,3 +138,24 @@ class ChangeUserResume(UpdateView):
     success_url = '/resume/my'
     template_name = 'change-user-resume.html'
     form_class = ResumeAuthForm
+
+
+class ResumeCatDetailView(DetailView):
+    model = AdCategory
+    context_object_name = 'category'
+    template_name = 'resume-cat-detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ResumeCatDetailView, self).get_context_data(**kwargs)
+        context['resume'] = Resume.objects.filter(category=AdCategory.objects.get(name=self.object.name))
+        try:
+            if self.request.user.pk == CustomApplicant.objects.get(pk=self.request.user.pk).pk:
+                context['applicant'] = True
+                return context
+        except ObjectDoesNotExist:
+            try:
+                if self.request.user.pk == CustomEmployer.objects.get(pk=self.request.user.pk).pk:
+                    context['employer'] = True
+                    return context
+            except ObjectDoesNotExist:
+                return context

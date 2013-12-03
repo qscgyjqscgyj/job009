@@ -6,6 +6,7 @@ from django.views.generic import FormView, ListView, DetailView, DeleteView, Upd
 from django_geoip.models import City
 from jobs.forms import JobForm
 from jobs.models import Job
+from main.models import AdCategory
 from user_profile.models import CustomApplicant, CustomEmployer
 
 
@@ -84,7 +85,6 @@ class JobDetailView(DetailView):
                 return context
 
 
-
 class UserJobsView(ListView):
     model = Job
     template_name = 'user-jobs.html'
@@ -116,3 +116,26 @@ class ChangeUserJob(UpdateView):
     success_url = '/job/my'
     template_name = 'change-user-job.html'
     form_class = JobForm
+
+
+class JobCatDetailView(DetailView):
+    model = AdCategory
+    context_object_name = 'category'
+    template_name = 'job-cat-detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(JobCatDetailView, self).get_context_data(**kwargs)
+        context['jobs'] = Job.objects.filter(category=AdCategory.objects.get(name=self.object.name))
+        try:
+            if self.request.user.pk == CustomApplicant.objects.get(pk=self.request.user.pk).pk:
+                context['applicant'] = True
+                return context
+        except ObjectDoesNotExist:
+            try:
+                if self.request.user.pk == CustomEmployer.objects.get(pk=self.request.user.pk).pk:
+                    context['employer'] = True
+                    return context
+            except ObjectDoesNotExist:
+                return context
+
+

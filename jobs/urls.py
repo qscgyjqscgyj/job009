@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
-from jobs.views import JobFormView, UserJobsView, JobDetailView, DeleteUserJob, ChangeUserJob
+from jobs.views import JobFormView, UserJobsView, JobDetailView, DeleteUserJob, ChangeUserJob, JobCatDetailView
 
 urlpatterns = patterns('',
     url(r'^add/$',
@@ -10,5 +10,5 @@ urlpatterns = patterns('',
         url(r'^(?P<pk>\d+)/$', JobDetailView.as_view(), name='job_detail'),
         url(r'^delete/(?P<pk>\d+)/$', DeleteUserJob.as_view(), name='delete_user_job'),
         url(r'^change/(?P<pk>\d+)/$', ChangeUserJob.as_view(), name='change_user_resume'),
-
+        url(r'^(?P<slug>\S+)/$', JobCatDetailView.as_view(), name='job_cat_ads'),
     )

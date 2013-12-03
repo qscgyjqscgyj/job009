@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from main.mixins import SlugTraits
 
 
 class City(models.Model):
@@ -18,10 +19,14 @@ class City(models.Model):
         verbose_name_plural = _(u'Города')
 
 
-class AdCategory(models.Model):
+class AdCategory(SlugTraits(), models.Model):
     name = models.CharField(verbose_name=_(u'Название рубрики'), max_length=50)
     #subcategory = models.ManyToManyField(AdSubCategory, verbose_name=_(u'Подрубкрика'),
     #                                     related_name='ad_category_subcategory')
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('main.base', (), {'slug': self.slug})
 
     def __unicode__(self):
         return self.name
