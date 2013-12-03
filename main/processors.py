@@ -1,7 +1,7 @@
 import urllib
 import lxml.html
 from jobs.models import Job
-from main.models import AdCategory
+from main.models import AdCategory, TopBanner, MiddleBanner, RightBanner
 from resume.models import Resume
 
 
@@ -19,7 +19,8 @@ def get_banners_info(page):
     banners = {'weather_date': weather_date, 'weather_night': weather_night,
                'weather_day': weather_day, 'currency_date': currency_date,
                'currency_usd': currency_usd, 'currency_eur': currency_eur}
-    return {'banners': banners}
+    return {'banners': banners, 'banner_top': TopBanner.objects.get(pk=1), 'banners_middle': MiddleBanner.objects.all(),
+            'banners_right': RightBanner.objects.all()}
 
 
 def get_left_menu_items(page):

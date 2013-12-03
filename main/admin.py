@@ -36,6 +36,10 @@ admin.site.register(Education)
 #admin.site.register(Employees)
 #admin.site.register(CompanyCategory)
 admin.site.register(City)
+admin.site.register(TopBanner)
+admin.site.register(MiddleBanner)
+admin.site.register(RightBanner)
+
 
 
 class CustomFlatBlockForm(FlatBlockForm):

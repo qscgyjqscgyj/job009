@@ -236,3 +236,51 @@ class Employees(models.Model):
 
         verbose_name = _(u'Количество сотрудников')
         verbose_name_plural = _(u'Количество сотрудников')
+
+
+class TopBanner(models.Model):
+    image = models.ImageField(verbose_name=_(u'Баннер'), upload_to='top_banner')
+    size = models.CharField(verbose_name=_(u'Размер. Пример: 150x150'), max_length=100, blank=True, null=True)
+
+    def __unicode__(self):
+        return unicode(self.image)
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Беннер сверху')
+        verbose_name_plural = _(u'Баннер сверху')
+
+
+class MiddleBanner(models.Model):
+    image = models.ImageField(verbose_name=_(u'Баннер'), upload_to='middle_banner')
+    size = models.CharField(verbose_name=_(u'Размер. Пример: 150x150'), max_length=100, blank=True, null=True)
+
+    def __unicode__(self):
+        return unicode(self.image)
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Беннер по середине')
+        verbose_name_plural = _(u'Баннеры по середине')
+
+
+class RightBanner(models.Model):
+    image = models.ImageField(verbose_name=_(u'Баннер'), upload_to='right_banner')
+    size = models.CharField(verbose_name=_(u'Размер. Пример: 150x150'), max_length=100, blank=True, null=True)
+
+    def __unicode__(self):
+        return unicode(self.image)
+
+    class Meta:
+
+        def __init__(self):
+            pass
+
+        verbose_name = _(u'Беннер справа')
+        verbose_name_plural = _(u'Баннер справа')

@@ -14,18 +14,23 @@
                         {% include 'top-navigate.html' %}
                     </div>
                     <div class="top_banners">
-                        <img class=" bannertop1" src="{% static 'main/img/images/bannertop1.jpg' %}" alt="" width="468" height="60" />
-                        <img class=" bannertop2" src="{% static 'main/img/images/bannertop2.jpg' %}" alt="" width="468" height="60" />
+                        {% for banner in banners_middle %}
+                            {% thumbnail banner.image "468x60" as im %}
+                                <img class=" bannertop1" src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" />
+                            {% endthumbnail %}
+                        {% endfor %}
                     </div>
                 </div>
            </header>
             <div class="poisk clearfix">
                 {% include 'search.html' %}
             </div>
-            <div class="content clearfix">
+            <div class="content clearfix" style="background: url({% static 'main/img/images/figura_7.png' %}) repeat-y 250px 0; min-height: 800px;">
+            {% block left_menu %}
                 <div class="left clearfix">
                     {% include 'left-menu.html' %}
                 </div>
+            {% endblock %}
 
                 <div class="_center _content">
                     {% block content %}
@@ -86,9 +91,14 @@
                 </div>
 
                 <div class="right">
-                 <img class=" bannerright1" src="{% static 'main/img/images/bannerright1.jpg' %}" alt="" width="200" height="100" />
-                 <img class=" bannerright2" src="{% static 'main/img/images/bannerright2.jpg' %}" alt="" width="200" height="100" />
-                 <img class=" bannerright3" src="{% static 'main/img/images/bannerright3.jpg' %}" alt="" width="200" height="100" />
+                {% for banner in banners_right %}
+                    {% thumbnail banner.image "200x100" as im %}
+                        <img class=" bannerright1" src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" />
+                    {% endthumbnail %}
+{#                 <img class=" bannerright1" src="{% static 'main/img/images/bannerright1.jpg' %}" alt="" width="200" height="100" />#}
+{#                 <img class=" bannerright2" src="{% static 'main/img/images/bannerright2.jpg' %}" alt="" width="200" height="100" />#}
+{#                 <img class=" bannerright3" src="{% static 'main/img/images/bannerright3.jpg' %}" alt="" width="200" height="100" />#}
+                {% endfor %}
                 </div>
             </div>
         </div>
