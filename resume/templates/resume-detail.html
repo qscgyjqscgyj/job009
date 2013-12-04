@@ -3,6 +3,21 @@
 {% load thumbnail %}
 
 {% block ad_list %}
+        <table>
+            <tr>
+                <td>
+                    <a class="navigate_link" href="/resume"><h4 class="_title _search_res">Резюме</h4></a>
+                </td>
+                <td class="arrow">→</td>
+                <td>
+                    <a class="navigate_link" href="/resume/{{ resume.category }}"><h4 class="_title _search_res">{{ resume.category }}</h4></a>
+                </td>
+                <td class="arrow">→</td>
+                <td>
+                    <h4 class="_title _search_res">{{ resume.office }}</h4>
+                </td>
+            </tr>
+        </table>
     {% if applicant %}
         <div class="tabbable _table-main" id="tabs-603801">
             <ul class="nav nav-tabs _top-insets">
@@ -29,7 +44,7 @@
         <div class="tabbable _table-main" id="tabs-603801">
             <ul class="nav nav-tabs _top-insets">
                 <li><a class="_top-insets-element" href="/">Вакансии</a></li>
-                <li class="active"><a>Резюме</a></li>
+                <li class="active"><a href=" ">Резюме</a></li>
                 <li class="pull-right"><a id="tab-profile" href="/accounts/profile">{% if user.is_authenticated %}Личный кабинет{% else %}Войти в личный кабинет{% endif %}</a></li>
             </ul>
         </div>
