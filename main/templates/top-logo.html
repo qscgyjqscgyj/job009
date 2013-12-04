@@ -2,6 +2,7 @@
 {% load thumbnail %}
 
  <div class="header_top clearfix">
+ <a href="/" class="header_top_logo"></a>
  <a href="{{ banner_top.link }}">
  {% thumbnail banner_top.image "468x60" as im %}
     <img class=" banner-alena" src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" />

@@ -358,9 +358,12 @@ article,aside,figcaption,figure,footer,header,hgroup,nav,section,time {display: 
 	float: right;
 	min-width: 83.0px;
 }
-.header_top {
+.header_top_logo {
 	background: url(../img/images/logo.jpg) no-repeat;
 	min-height: 75.0px;
+    min-width: 220px;
+    float: left;
+    margin-left: -250px;
 }
 .top_menu {
 	padding: 13.0px 129.0px 11.0px 20.0px;

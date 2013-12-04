@@ -149,8 +149,6 @@ class ResumeCatDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ResumeCatDetailView, self).get_context_data(**kwargs)
         context['resume'] = Resume.objects.filter(category=AdCategory.objects.get(name=self.object.name))
-        if len(context['resume']) == 0:
-            context['resume'] = True
         try:
             if self.request.user.pk == CustomApplicant.objects.get(pk=self.request.user.pk).pk:
                 context['applicant'] = True
