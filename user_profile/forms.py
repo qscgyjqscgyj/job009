@@ -32,7 +32,7 @@ class ApplicantProfileForm(forms.ModelForm):
 
 class EmployerProfileForm(forms.ModelForm):
     company_categories = forms.ModelMultipleChoiceField(required=False, widget=ColumnCheckboxSelectMultiple(columns=2),
-                                                        label='Категория компании', queryset=AdCategory.objects.all())
+                                                        label='Категория компании', queryset=AdCategory.objects.all().order_by('name'))
     street = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Улица')}), label='Улица', required=False)
     building = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'Здание')}), label='Здание',
                                required=False)

@@ -32,5 +32,5 @@ def get_left_menu_items(page):
         jobs_ads[cat.name] = len(Job.objects.filter(category=cat))
         #if len(Resume.objects.filter(category=cat)) > 0 or len(Job.objects.filter(category=cat)) > 0:
         #    categories.append(cat)
-        categories = AdCategory.objects.all()
+        categories = AdCategory.objects.all().order_by('name')
     return {'categories': categories, 'resume_ads': resume_ads, 'jobs_ads': jobs_ads}
