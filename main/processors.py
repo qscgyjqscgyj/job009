@@ -26,11 +26,13 @@ def get_banners_info(page):
 def get_left_menu_items(page):
     resume_ads = {}
     jobs_ads = {}
-    categories = []
-    for cat in AdCategory.objects.all():
+    resume_categories = []
+    jobs_categories = []
+    for cat in AdCategory.objects.all().order_by('name'):
         resume_ads[cat.name] = len(Resume.objects.filter(category=cat))
         jobs_ads[cat.name] = len(Job.objects.filter(category=cat))
-        #if len(Resume.objects.filter(category=cat)) > 0 or len(Job.objects.filter(category=cat)) > 0:
-        #    categories.append(cat)
-        categories = AdCategory.objects.all().order_by('name')
-    return {'categories': categories, 'resume_ads': resume_ads, 'jobs_ads': jobs_ads}
+        if len(Resume.objects.filter(category=cat)) > 0:
+            resume_categories.append(cat)
+        if len(Job.objects.filter(category=cat)) > 0:
+            jobs_categories.append(cat)
+    return {'resume_categories': resume_categories, 'jobs_categories': jobs_categories, 'resume_ads': resume_ads, 'jobs_ads': jobs_ads}

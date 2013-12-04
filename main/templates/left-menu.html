@@ -1,7 +1,7 @@
 {% if jobs %}
     <p class=" vakansii">Вакансии</p>
     <ul class="spisok">
-        {% for cat in categories %}
+        {% for cat in jobs_categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
                     <a href="/job/{{ cat.slug }}">
@@ -19,7 +19,7 @@
 {% elif resume %}
     <p class=" vakansii">Резюме</p>
     <ul class="spisok">
-        {% for cat in categories %}
+        {% for cat in resume_categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
                     <a href="/resume/{{ cat.slug }}">
@@ -37,7 +37,7 @@
 {% else %}
     <p class=" vakansii">Вакансии</p>
     <ul class="spisok">
-        {% for cat in categories %}
+        {% for cat in jobs_categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
                     <a href="/job/{{ cat.slug }}">

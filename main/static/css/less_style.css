@@ -696,6 +696,8 @@ a:hover {
   color: #45a1e0;
   border-bottom: 1px dotted #45a1e0;
   font: Georgia, serif;
+  position: relative;
+  right: 10px;
 }
 .main_link:hover {
   color: #2783c2;
