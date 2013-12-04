@@ -848,4 +848,12 @@ a:hover {
 .cat_link:hover{
     color: #f55305;
 }
-
+.arrow{
+    position: relative;
+    left: 10px;
+    padding: 5px;
+    bottom: 2px;
+}
+.navigate_link:hover{
+    color: #45a1e0;
+}

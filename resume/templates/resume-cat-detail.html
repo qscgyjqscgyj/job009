@@ -3,7 +3,17 @@
 
 {% block content %}
     {% if resume|length > 0 %}
-        <h4 class="_title _search_res">Резюме категории "{{ category }}"</h4>
+        <table>
+            <tr>
+                <td>
+                    <a class="navigate_link" href="/resume"><h4 class="_title _search_res">Резюме</h4></a>
+                </td>
+                <td class="arrow">→</td>
+                <td>
+                    <h4 class="_title _search_res">{{ category }}</h4>
+                </td>
+            </tr>
+        </table>
     {% else %}
         <h4 class="_title _search_res">В категории "{{ category }}" нет резюме</h4>
     {% endif %}
@@ -14,7 +24,8 @@
                 <li><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
                 <li><a href="/resume/my">Мои резюме</a></li>
                 <li><a href="/accounts/profile">Мой профиль</a></li>
-                <li class="active"><a href=" ">Резюме</a></li>
+                <li><a href="/job/{{ category }}">Вакансии</a></li>
+                <li class="active"><a href="/resume/{{ category }}">Резюме</a></li>
                 <li class="pull-right"><a id="tab-profile" href="/accounts/logout?next=/">Выйти</a></li>
             </ul>
         </div>
@@ -24,8 +35,17 @@
                 <li><a class="_top-insets-element" href="/job/add">Разместить вакансию</a></li>
                 <li><a href="/job/my">Мои вакансии</a></li>
                 <li><a href="/accounts/profile">Моя компания</a></li>
-                <li class="active"><a href=" ">Резюме</a></li>
+                <li class="active"><a href="/job/{{ category }}">Вакансии</a></li>
+                <li><a href="/resume/{{ category }}">Резюме</a></li>
                 <li class="pull-right"><a id="tab-profile" href="/accounts/logout?next=/">Выйти</a></li>
+            </ul>
+        </div>
+    {% else %}
+        <div class="tabbable _table-main" id="tabs-603801">
+            <ul class="nav nav-tabs _top-insets">
+                <li><a class="_top-insets-element" href="/job/{{ category }}">Вакансия</a></li>
+                <li class="active"><a href="/resume/{{ category }}">Резюме</a></li>
+                <li class="pull-right"><a id="tab-profile" href="/accounts/profile">{% if user.is_authenticated %}Личный кабинет{% else %}Войти в личный кабинет{% endif %}</a></li>
             </ul>
         </div>
     {% endif %}
