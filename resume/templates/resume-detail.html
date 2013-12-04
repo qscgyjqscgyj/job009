@@ -165,13 +165,13 @@
     </table>
     {% if resume.photo %}
     <div class="resume_detail_img">
-        {% thumbnail resume.photo "150x112" crop="center" as im %}
+        {% thumbnail resume.photo "150x112" crop="top" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
         {% endthumbnail %}
     </div>
     {% else %}
         <div class="resume_detail_img">
-            {% thumbnail 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Anatoly_Wasserman_%282010-09-11%29_2.jpg/250px-Anatoly_Wasserman_%282010-09-11%29_2.jpg' "150x112" crop="center" as im %}
+            {% thumbnail 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Anatoly_Wasserman_%282010-09-11%29_2.jpg/250px-Anatoly_Wasserman_%282010-09-11%29_2.jpg' "150x112" crop="top" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="Иллюстрация">
             {% endthumbnail %}
         </div>
