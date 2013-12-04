@@ -94,15 +94,9 @@ a:hover {
   top: 5px;
   right: 5px;
   overflow: hidden;
-  background: url('http://127.0.0.1:8000/static/main/img/drop_down_icon.png') no-repeat right #fefefe;
+  background: no-repeat right #fefefe;
   border: 1px solid #45a1e0;
   font-size: 12px;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  appearance: none;
-  -webkit-appearance: none;
-  -o-appearance: none;
   padding: 1px;
 }
 #id_skills,
@@ -848,3 +842,10 @@ a:hover {
     text-align: left;
     margin-top: 20px;
 }
+.cat_link{
+    color: #000000;
+}
+.cat_link:hover{
+    color: #f55305;
+}
+

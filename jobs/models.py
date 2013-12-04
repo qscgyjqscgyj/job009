@@ -61,3 +61,4 @@ class Job(models.Model):
 
         verbose_name = _(u'Вакансия')
         verbose_name_plural = _(u'Вакансии')
+        ordering = ('-date',)

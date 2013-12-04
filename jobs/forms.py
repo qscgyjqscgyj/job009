@@ -19,11 +19,11 @@ class JobForm(forms.ModelForm):
                                   required=False)
     salary_to = forms.CharField(widget=forms.TextInput(attrs={'placeholder': _(u'до')}), label='Зарплата до',
                                 required=False)
-    #category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Сфера деятельности'),
-    #                                  widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
-    #                                                             'size': "1"}))
-    #subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-    #                                             label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
+    category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Сфера деятельности'),
+                                      widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
+                                                                 'size': "1"}))
+    subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
+                                                 label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
     city = forms.ModelChoiceField(queryset=City.objects.all(), label=_(u'Город'),
                                   widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                              'size': "1"}))
@@ -35,4 +35,4 @@ class JobForm(forms.ModelForm):
             pass
 
         model = Job
-        exclude = ('owner', 'subcategory', 'ad_time')
+        exclude = ('owner', 'ad_time')

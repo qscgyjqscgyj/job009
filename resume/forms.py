@@ -17,9 +17,9 @@ class ResumeForm(forms.ModelForm):
     driving_license = forms.CheckboxInput()
     business_trip = forms.CheckboxInput()
     move = forms.BooleanField(widget=forms.RadioSelect(choices=((True, _(u'да')), (False, _(u'нет')))),
-                              label=_(u'Переезд'), required=False)
-    #subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-    #                                             label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
+                              label=_(u'Готовность к переезду'), required=False)
+    subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
+                                                 label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
     marital_status = forms.ModelChoiceField(label=_(u'Семейное положение'), widget=forms.RadioSelect(),
                                             queryset=MaritalStatus.objects.all(), required=False)
     gender = forms.ModelChoiceField(label=_(u'Пол'), queryset=Gender.objects.all(), widget=forms.RadioSelect())
@@ -27,9 +27,9 @@ class ResumeForm(forms.ModelForm):
                                   widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                              'size': "1"}))
     area = forms.ModelChoiceField(label=_(u'Район проживания'), queryset=AdArea.objects.all(), required=False)
-    #category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
-    #                                  widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
-    #                                                             'size': "1"}))
+    category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
+                                      widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
+                                                                 'size': "1"}))
     photo = forms.ImageField(label=_(u'Фото'), required=False)
 
     def __init__(self,  *args, **kwargs):
@@ -48,7 +48,7 @@ class ResumeForm(forms.ModelForm):
 
         model = Resume
 
-        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'subcategory', 'ad_time')
+        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'ad_time')
 
 
 class ResumeAuthForm(forms.ModelForm):
@@ -60,9 +60,9 @@ class ResumeAuthForm(forms.ModelForm):
     driving_license = forms.CheckboxInput()
     business_trip = forms.CheckboxInput()
     move = forms.BooleanField(widget=forms.RadioSelect(choices=((True, _(u'да')), (False, _(u'нет')))),
-                              label=_(u'Переезд'), required=False)
-    #subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
-    #                                             label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
+                              label=_(u'Готовность к переезду'), required=False)
+    subcategory = forms.ModelMultipleChoiceField(widget=ColumnCheckboxSelectMultiple(columns=3),
+                                                 label=_(u'Специализация'), queryset=AdSubCategory.objects.all())
     marital_status = forms.ModelChoiceField(label=_(u'Семейное положение'), widget=forms.RadioSelect(),
                                             queryset=MaritalStatus.objects.all(), required=False)
     gender = forms.ModelChoiceField(label=_(u'Пол'), queryset=Gender.objects.all(), widget=forms.RadioSelect())
@@ -70,9 +70,9 @@ class ResumeAuthForm(forms.ModelForm):
                                   widget=forms.Select(attrs={'onchange': "Dajaxice.resume.city_area(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
                                                              'size': "1"}))
     area = forms.ModelChoiceField(label=_(u'Район проживания'), queryset=AdArea.objects.all(), required=False)
-    #category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
-    #                                  widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
-    #                                                             'size': "1"}))
+    category = forms.ModelChoiceField(queryset=AdCategory.objects.all(), label=_(u'Рубрика'),
+                                      widget=forms.Select(attrs={'onchange': "Dajaxice.resume.category_subcategory(Dajax.process, {'option':this.options[this.selectedIndex].innerHTML})",
+                                                                 'size': "1"}))
     photo = forms.ImageField(label=_(u'Фото'), required=False)
 
     def __init__(self,  *args, **kwargs):
@@ -91,4 +91,4 @@ class ResumeAuthForm(forms.ModelForm):
 
         model = Resume
 
-        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'subcategory', 'ad_time')
+        exclude = ('owner', 'date', 'rating', 'icq', 'skype', 'ad_time')

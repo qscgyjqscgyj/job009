@@ -1304,6 +1304,7 @@ ul.menu5 li {
 ul.spisok li {
 	background: url(../img/images/4.png) no-repeat;
 	padding-left: 6.0px;
+    margin-bottom: 7px;
 }
 .right {
 	float: right;

@@ -46,7 +46,7 @@ class Resume(models.Model):
     skype = models.CharField(verbose_name=_(u'Skype'), max_length=50, blank=True, null=True)
     work_area = models.ManyToManyField(AdArea, verbose_name=_(u'Желаемые районы для работы'),
                                        related_name='resume_work_area', blank=True, null=True)
-    move = models.BooleanField(verbose_name=_(u'Переезд'))
+    move = models.BooleanField(verbose_name=_(u'Готовность к переезду'))
     ad_time = models.ForeignKey(AdTime, verbose_name=_(u'Время жизни резюме'), related_name='resume_ad_time',
                                 blank=True, null=True)
     rating = models.IntegerField(verbose_name=_(u'Рейтинг объявления'), blank=True, null=True)
@@ -61,3 +61,4 @@ class Resume(models.Model):
 
         verbose_name = _(u'Резюме')
         verbose_name_plural = _(u'Резюме')
+        ordering = ('-date',)

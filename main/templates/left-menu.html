@@ -4,7 +4,7 @@
         {% for cat in jobs_categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
-                    <a href="/job/{{ cat.slug }}">
+                    <a class="cat_link" href="/job/{{ cat.slug }}">
                         {{ cat.name }}
                         {% for ad, a in jobs_ads.items %}
                             {% if ad == cat.name %}
@@ -22,7 +22,7 @@
         {% for cat in resume_categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
-                    <a href="/resume/{{ cat.slug }}">
+                    <a class="cat_link" href="/resume/{{ cat.slug }}">
                         {{ cat.name }}
                         {% for ad, a in resume_ads.items %}
                             {% if ad == cat.name %}
@@ -40,7 +40,7 @@
         {% for cat in jobs_categories %}
             <li class=" li-it_komputery_programmnoe_">
                 <p class=" it_komputery_programmnoe_">
-                    <a href="/job/{{ cat.slug }}">
+                    <a class="cat_link" href="/job/{{ cat.slug }}">
                         {{ cat.name }}
                         {% for ad, a in jobs_ads.items %}
                             {% if ad == cat.name %}

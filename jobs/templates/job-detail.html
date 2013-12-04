@@ -6,21 +6,31 @@
     {% if applicant %}
         <div class="tabbable _table-main" id="tabs-603801">
             <ul class="nav nav-tabs _top-insets">
+                <li class="active"><a href=" ">Вакансия</a></li>
+                <li><a href="/resume/">Резюме</a></li>
                 <li><a class="_top-insets-element" href="/resume/add">Разместить резюме</a></li>
                 <li><a href="/resume/my">Мои резюме</a></li>
                 <li><a href="/accounts/profile">Мой профиль</a></li>
-                <li class="active"><a href=" ">Вакансия</a></li>
                 <li class="pull-right"><a id="tab-profile" href="/accounts/logout?next=/">Выйти</a></li>
             </ul>
         </div>
     {% elif employer %}
         <div class="tabbable _table-main" id="tabs-603801">
             <ul class="nav nav-tabs _top-insets">
+                <li class="active"><a href=" ">Вакансия</a></li>
+                <li><a href="/resume/">Резюме</a></li>
                 <li><a class="_top-insets-element" href="/job/add">Разместить вакансию</a></li>
                 <li><a href="/job/my">Мои вакансии</a></li>
                 <li><a href="/accounts/profile">Моя компания</a></li>
-                <li class="active"><a href=" ">Вакансия</a></li>
                 <li class="pull-right"><a id="tab-profile" href="/accounts/logout?next=/">Выйти</a></li>
+            </ul>
+        </div>
+    {% else %}
+        <div class="tabbable _table-main" id="tabs-603801">
+            <ul class="nav nav-tabs _top-insets">
+                <li class="active"><a class="_top-insets-element" href="/">Вакансия</a></li>
+                <li><a href="/resume/">Резюме</a></li>
+                <li class="pull-right"><a id="tab-profile" href="/accounts/profile">{% if user.is_authenticated %}Личный кабинет{% else %}Войти в личный кабинет{% endif %}</a></li>
             </ul>
         </div>
     {% endif %}
