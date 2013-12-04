@@ -15,9 +15,11 @@
                     </div>
                     <div class="top_banners">
                         {% for banner in banners_middle %}
+                            <a href="{{ banner.link }}">
                             {% thumbnail banner.image "468x60" as im %}
                                 <img class=" bannertop1" src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" />
                             {% endthumbnail %}
+                            </a>
                         {% endfor %}
                     </div>
                 </div>
@@ -92,12 +94,11 @@
 
                 <div class="right">
                 {% for banner in banners_right %}
+                    <a href="{{ banner.link }}">
                     {% thumbnail banner.image "200x100" as im %}
                         <img class=" bannerright1" src="{{ im.url }}" alt="" width="{{ im.width }}" height="{{ im.height }}" />
                     {% endthumbnail %}
-{#                 <img class=" bannerright1" src="{% static 'main/img/images/bannerright1.jpg' %}" alt="" width="200" height="100" />#}
-{#                 <img class=" bannerright2" src="{% static 'main/img/images/bannerright2.jpg' %}" alt="" width="200" height="100" />#}
-{#                 <img class=" bannerright3" src="{% static 'main/img/images/bannerright3.jpg' %}" alt="" width="200" height="100" />#}
+                    </a>
                 {% endfor %}
                 </div>
             </div>

@@ -20,6 +20,7 @@ class AdCategoryAdmin(admin.ModelAdmin):
 
 class AdSubCategotyAdmin(admin.ModelAdmin):
     ordering = ['name']
+    list_display = ('name', 'category', )
 
 admin.site.register(AdCategory, AdCategoryAdmin)
 admin.site.register(AdSubCategory, AdSubCategotyAdmin)
@@ -39,7 +40,6 @@ admin.site.register(City)
 admin.site.register(TopBanner)
 admin.site.register(MiddleBanner)
 admin.site.register(RightBanner)
-
 
 
 class CustomFlatBlockForm(FlatBlockForm):

@@ -241,6 +241,7 @@ class Employees(models.Model):
 class TopBanner(models.Model):
     image = models.ImageField(verbose_name=_(u'Баннер'), upload_to='top_banner')
     size = models.CharField(verbose_name=_(u'Размер. Пример: 150x150'), max_length=100, blank=True, null=True)
+    link = models.URLField(verbose_name=_(u'Ссылка'), max_length=100, blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.image)
@@ -257,6 +258,7 @@ class TopBanner(models.Model):
 class MiddleBanner(models.Model):
     image = models.ImageField(verbose_name=_(u'Баннер'), upload_to='middle_banner')
     size = models.CharField(verbose_name=_(u'Размер. Пример: 150x150'), max_length=100, blank=True, null=True)
+    link = models.URLField(verbose_name=_(u'Ссылка'), max_length=100, blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.image)
@@ -273,6 +275,7 @@ class MiddleBanner(models.Model):
 class RightBanner(models.Model):
     image = models.ImageField(verbose_name=_(u'Баннер'), upload_to='right_banner')
     size = models.CharField(verbose_name=_(u'Размер. Пример: 150x150'), max_length=100, blank=True, null=True)
+    link = models.URLField(verbose_name=_(u'Ссылка'), max_length=100, blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.image)
