@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $( "#search_text" ).val('');
-    
+
     $( ".placeholder" ).click(function() {
         $( ".placeholder" ).fadeOut( 1, function(){});
         $( "#search_text" ).focus();

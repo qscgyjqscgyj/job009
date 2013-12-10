@@ -29,6 +29,17 @@ class JobForm(forms.ModelForm):
                                                              'size': "1"}))
     area = forms.ModelChoiceField(label=_(u'Район'), queryset=AdArea.objects.all(), required=False)
 
+    def __init__(self,  *args, **kwargs):
+        super(JobForm, self).__init__(*args, **kwargs)
+        self.fields['salary_measure'].empty_label = None
+        self.fields['city'].empty_label = None
+        self.fields['area'].empty_label = None
+        self.fields['category'].empty_label = 'Выберите'
+        self.fields['schedule'].empty_label = 'Выберите'
+        self.fields['employment'].empty_label = 'Выберите'
+        self.fields['experience'].empty_label = 'Выберите'
+        self.fields['education'].empty_label = 'Выберите'
+
     class Meta:
 
         def __init__(self):

@@ -39,7 +39,11 @@ class ResumeForm(forms.ModelForm):
         self.fields['area'].empty_label = None
         self.fields['marital_status'].empty_label = None
         self.fields['gender'].empty_label = None
-        #self.fields['category'].empty_label = None
+        self.fields['category'].empty_label = 'Выберите'
+        self.fields['schedule'].empty_label = 'Выберите'
+        self.fields['employment'].empty_label = 'Выберите'
+        self.fields['experience'].empty_label = 'Выберите'
+        self.fields['education'].empty_label = 'Выберите'
 
     class Meta:
 
@@ -82,7 +86,11 @@ class ResumeAuthForm(forms.ModelForm):
         self.fields['area'].empty_label = None
         self.fields['marital_status'].empty_label = None
         self.fields['gender'].empty_label = None
-        #self.fields['category'].empty_label = None
+        self.fields['category'].empty_label = 'Выберите'
+        self.fields['schedule'].empty_label = 'Выберите'
+        self.fields['employment'].empty_label = 'Выберите'
+        self.fields['experience'].empty_label = 'Выберите'
+        self.fields['education'].empty_label = 'Выберите'
 
     class Meta:
 
