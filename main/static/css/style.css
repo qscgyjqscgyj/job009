@@ -21,6 +21,9 @@ border: 0;
 :focus {
 outline: 0;
 }
+html{
+    font: 62.5% Tahoma, Vedana, sans-serif;
+}
 body {
 line-height: 1;
 color: black;
