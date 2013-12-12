@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load thumbnail %}
+{% load flatblock_tags %}
 
 {#{% block left_menu %}#}
 {#{% endblock %}#}
@@ -104,11 +105,11 @@
                 {% endif %}
                 <tr>
                     <td></td>
-                    <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ customapplicant.email }}</td>
+                    <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label><a class="link" href="mailto:{{ customapplicant.email }}">{{ customapplicant.email }}</a></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><a class="_user-profile-edit-link" href="edit">Изменить</a></td>
+                    <td><a class="_user-profile-edit-link link" href="edit">Изменить</a></td>
                 </tr>
             </tbody>
         </table>
@@ -140,7 +141,7 @@
 
     <table class="resume_detail_table">
         <tbody>
-{#            {% if customemployer.company_name %}#}
+            {% if customemployer.company_name or customemployer.legal_company_name or customemployer.about or customemployer.company_categories.all %}
                 <tr>
                     <td></td>
                     <td class="resume_detail_context resume_detail_info_title"><h6>Информация о компании</h6></td>
@@ -164,7 +165,7 @@
                     <td class="resume_detail_context"><label class="resume_detail_label">Описание компании: </label>{{ customemployer.about }}</td>
                 </tr>
                 {% endif %}
-                {% if customemployer.company_categories %}
+                {% if customemployer.company_categories.all %}
                 <tr>
                     <td></td>
                     <td class="resume_detail_context">
@@ -175,6 +176,9 @@
                     </td>
                 </tr>
                 {% endif %}
+            {% else %}
+                {% autoescape off %}{% flatblock 'Информация о компании отсутствует' %}{% endautoescape %}
+            {% endif %}
 
             <tr>
                 <td></td>
@@ -187,26 +191,31 @@
                 <td class="resume_detail_context"><label class="resume_detail_label">Город: </label>{{ customemployer.city }}</td>
             </tr>
             {% endif %}
+            {% if customemployer.street or customemployer.building or customemployer.about_address %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Адрес: </label>{{ customemployer.street }}, {{ customemployer.building }}, {{ customemployer.about_address }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Адрес: </label>{% if customemployer.street %}{{ customemployer.street }}{% endif %}{% if customemployer.building %}, {{ customemployer.building }}{% endif %}{% if customemployer.about_address %}, {{ customemployer.about_address }}{% endif %}</td>
             </tr>
+            {% if customemployer.phone %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ customemployer.phone }}, {{ customemployer.phone_details }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Телефон: </label>{{ customemployer.phone }}{% if customemployer.phone_details %}, {{ customemployer.phone_details }}{% endif %}</td>
             </tr>
+            {% endif %}
+            {% if customemployer.site %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">Адрес сайте: </label>{{ customemployer.site }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">Адрес сайта: </label><a target="_blank" class="link" href="{{ customemployer.site }}">{{ customemployer.site }}</a></td>
             </tr>
+            {% endif %}
             <tr>
                 <td></td>
-                <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label>{{ customemployer.email }}</td>
+                <td class="resume_detail_context"><label class="resume_detail_label">E-mail: </label><a class="link" href="mailto:{{ customemployer.email }}">{{ customemployer.email }}</a></td>
             </tr>
-
+        {% endif %}
             <tr>
                 <td></td>
-                <td><a class="_user-profile-edit-link" href="edit">Изменить</a></td>
+                <td><a class="_user-profile-edit-link link" href="edit">Изменить</a></td>
             </tr>
         </tbody>
     </table>
