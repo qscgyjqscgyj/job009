@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+{% load flatblock_tags %}
 <h4 class="_title">Авторизация</h4>
 
 {% if user.is_authenticated %}
-    Что такое, {{ user.username }}? Вы же уже авторизорваны.
-    Впрочем, всегда можно <a href="{% url 'auth_logout' %}">выйти</a>.<br/><br/>
+    {% flatblock 'Попытка входа активного пользователя' %}
 {% else %}
 
 {% if form.non_field_errors %}
     {{ form.non_field_errors }}
 {% endif %}
+
+{% flatblock 'Авторизация' %}
 
 <form method="post" class="_login-form form-horizontal">{% csrf_token %}
     <table class="_ad-table">

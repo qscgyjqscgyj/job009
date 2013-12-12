@@ -1,8 +1,7 @@
 {% extends "base.html" %}
+{% load flatblock_tags %}
 
 {% block content %}
-<h1>Активация</h1>
-Привет, {{ user }}!<br/>
-Ваша учетная запись активирована. <a href="{% url 'auth_login' %}">Заходите</a> на сайт.
-<br/><br/>
+<h4 class="_title">Активация</h4>
+{% flatblock 'Успешная активация пользователя' %}
 {% endblock %}

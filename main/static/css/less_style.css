@@ -12,7 +12,7 @@ a:hover {
 #_reg-email,
 #id_username {
   border: 1px solid #45a1e0;
-  width: 100px;
+  width: 200px;
   position: relative;
   left: 5px;
 }
@@ -495,7 +495,7 @@ a:hover {
   border: 1px solid #f77116;
 }
 #nav li:hover ul li {
-  padding-top: 5px;
+  padding-top: 2px;
   margin-bottom: 0px;
   padding-right: 10px;
   width: 87%;
@@ -535,7 +535,7 @@ a:hover {
   border: 1px solid #f77116;
 }
 #nav2 li:hover ul li {
-  padding-top: 5px;
+  padding-top: 2px;
   margin-bottom: 0px;
   padding-right: 10px;
   width: 87%;
@@ -575,7 +575,7 @@ a:hover {
   border: 1px solid #f77116;
 }
 #nav3 li:hover ul li {
-  padding-top: 5px;
+  padding-top: 2px;
   margin-bottom: 0px;
   padding-right: 10px;
   width: 87%;
@@ -846,7 +846,7 @@ a:hover {
     color: #000000;
 }
 .cat_link:hover{
-    color: #f55305;
+    color: #45a1e0;
 }
 .arrow{
     position: relative;
@@ -856,4 +856,11 @@ a:hover {
 }
 .navigate_link:hover{
     color: #45a1e0;
+}
+.link{
+    color: #1a568e;
+}
+.link:hover{
+    color: #45a1e0;
+    text-decoration: underline;
 }

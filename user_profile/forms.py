@@ -40,6 +40,10 @@ class EmployerProfileForm(forms.ModelForm):
                                     label='Дополнительная информация', required=False)
     photo = forms.ImageField(label=_(u'Логотип'), required=False)
 
+    def __init__(self,  *args, **kwargs):
+        super(EmployerProfileForm, self).__init__(*args, **kwargs)
+        self.fields['city'].empty_label = None
+
     class Meta:
 
         def __init__(self):
