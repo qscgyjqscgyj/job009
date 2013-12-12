@@ -4,14 +4,14 @@
 <h4 class="_title">Авторизация</h4>
 
 {% if user.is_authenticated %}
-    {% flatblock 'Попытка входа активного пользователя' %}
+    {% autoescape off %}{% flatblock 'Попытка входа активного пользователя' %}{% endautoescape %}
 {% else %}
 
 {% if form.non_field_errors %}
     {{ form.non_field_errors }}
 {% endif %}
 
-{% flatblock 'Авторизация' %}
+{% autoescape off %}{% flatblock 'Авторизация' %}{% endautoescape %}
 
 <form method="post" class="_login-form form-horizontal">{% csrf_token %}
     <table class="_ad-table">

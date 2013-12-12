@@ -3,5 +3,5 @@
 
 {% block content %}
 <h4 class="_title">Активация</h4>
-{% flatblock 'Успешная активация пользователя' %}
+{% autoescape off %}{% flatblock 'Успешная активация пользователя' %}{% endautoescape %}
 {% endblock %}

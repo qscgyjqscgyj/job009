@@ -2,7 +2,7 @@
 {% block content %}
 {% load flatblock_tags %}
 <h4 class="_title">Регистрация</h4>
-{% flatblock 'Регистрация' %}
+{% autoescape off %}{% flatblock 'Регистрация' %}{% endautoescape %}
 <form method="post" class="_login-form form-horizontal">{% csrf_token %}
     <table class="_ad-table">
         <tr>

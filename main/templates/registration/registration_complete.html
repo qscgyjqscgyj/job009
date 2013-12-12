@@ -3,5 +3,5 @@
 
 {% block content %}
 <h4 class="_title">Регистрация завершена</h4>
-{% flatblock 'Решистрация завершена' %}
+{% autoescape off %}{% flatblock 'Решистрация завершена' %}{% endautoescape %}
 {% endblock %}
