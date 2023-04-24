@@ -73,6 +73,10 @@ ROOT_URLCONF = 'job009.urls'
 WSGI_APPLICATION = 'job009.wsgi.application'
 
 
+SOUTH_MIGRATION_MODULES = {
+   'captcha': 'captcha.south_migrations',
+}
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
@@ -102,10 +106,10 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'redactor',
     'flatblocks',
-    'djcelery',
-    'djkombu',
-    'sphinx',
-    'sphinxit',
+    # 'djcelery',
+    # 'djkombu',
+    # 'sphinx',
+    # 'sphinxit',
     'dajax',
     'dajaxice',
     'compressor',

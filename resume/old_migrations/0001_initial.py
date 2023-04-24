@@ -11,7 +11,7 @@ class Migration(SchemaMigration):
         # Adding model 'Resume'
         db.create_table(u'resume_resume', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['user_profile.CustomApplicant'], null=True, blank=True)),
+            ('owner', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], null=True, blank=True)),
             ('date', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
             ('office', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('category', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_category', to=orm['main.AdCategory'])),
@@ -21,7 +21,7 @@ class Migration(SchemaMigration):
             ('salary_measure', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_salary_measure', null=True, to=orm['main.AdSalaryMeasure'])),
             ('fio', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('photo', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('birth', self.gf('django.db.models.fields.CharField')(max_length=20)),
+            ('birth', self.gf('django.db.models.fields.DateField')()),
             ('gender', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_gender', to=orm['main.Gender'])),
             ('marital_status', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_marital_status', null=True, to=orm['main.MaritalStatus'])),
             ('experience', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_experience', null=True, to=orm['main.AdExperience'])),
@@ -31,30 +31,22 @@ class Migration(SchemaMigration):
             ('diploma', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
             ('ex_education', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
             ('qualities', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-            ('driving_license', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('business_trip', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('driving_license', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('business_trip', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
+            ('smoke', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
             ('file_resume', self.gf('django.db.models.fields.files.FileField')(max_length=100, null=True, blank=True)),
-            ('city', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_city', to=orm['main.City'])),
+            ('city', self.gf('django.db.models.fields.related.ForeignKey')(related_name='resume_city', to=orm['django_geoip.City'])),
             ('area', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_area', null=True, to=orm['main.AdArea'])),
             ('phone', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('phone_details', self.gf('django.db.models.fields.CharField')(max_length=100, null=True, blank=True)),
             ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
             ('icq', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
             ('skype', self.gf('django.db.models.fields.CharField')(max_length=50, null=True, blank=True)),
-            ('move', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('move', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
             ('ad_time', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='resume_ad_time', null=True, to=orm['main.AdTime'])),
-            ('rating', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
+            ('rating', self.gf('django.db.models.fields.IntegerField')()),
         ))
         db.send_create_signal(u'resume', ['Resume'])
-
-        # Adding M2M table for field subcategory on 'Resume'
-        m2m_table_name = db.shorten_name(u'resume_resume_subcategory')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('resume', models.ForeignKey(orm[u'resume.resume'], null=False)),
-            ('adsubcategory', models.ForeignKey(orm[u'main.adsubcategory'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['resume_id', 'adsubcategory_id'])
 
         # Adding M2M table for field work_area on 'Resume'
         m2m_table_name = db.shorten_name(u'resume_resume_work_area')
@@ -65,16 +57,25 @@ class Migration(SchemaMigration):
         ))
         db.create_unique(m2m_table_name, ['resume_id', 'adarea_id'])
 
+        # Adding M2M table for field move_cities on 'Resume'
+        m2m_table_name = db.shorten_name(u'resume_resume_move_cities')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('resume', models.ForeignKey(orm[u'resume.resume'], null=False)),
+            ('city', models.ForeignKey(orm[u'django_geoip.city'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['resume_id', 'city_id'])
+
 
     def backwards(self, orm):
         # Deleting model 'Resume'
         db.delete_table(u'resume_resume')
 
-        # Removing M2M table for field subcategory on 'Resume'
-        db.delete_table(db.shorten_name(u'resume_resume_subcategory'))
-
         # Removing M2M table for field work_area on 'Resume'
         db.delete_table(db.shorten_name(u'resume_resume_work_area'))
+
+        # Removing M2M table for field move_cities on 'Resume'
+        db.delete_table(db.shorten_name(u'resume_resume_move_cities'))
 
 
     models = {
@@ -114,9 +115,28 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'django_geoip.city': {
+            'Meta': {'unique_together': "(('region', 'name'),)", 'object_name': 'City'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'latitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '9', 'decimal_places': '6', 'blank': 'True'}),
+            'longitude': ('django.db.models.fields.DecimalField', [], {'null': 'True', 'max_digits': '9', 'decimal_places': '6', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'region': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'cities'", 'to': u"orm['django_geoip.Region']"})
+        },
+        u'django_geoip.country': {
+            'Meta': {'object_name': 'Country'},
+            'code': ('django.db.models.fields.CharField', [], {'max_length': '2', 'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'})
+        },
+        u'django_geoip.region': {
+            'Meta': {'unique_together': "(('country', 'name'),)", 'object_name': 'Region'},
+            'country': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'regions'", 'to': u"orm['django_geoip.Country']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
         u'main.adarea': {
             'Meta': {'object_name': 'AdArea'},
-            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'areas'", 'to': u"orm['main.City']"}),
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'areas'", 'to': u"orm['django_geoip.City']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
@@ -124,7 +144,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'AdCategory'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '150', 'null': 'True', 'blank': 'True'})
+            'subcategory': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'ad_category_subcategory'", 'symmetrical': 'False', 'to': u"orm['main.AdSubCategory']"})
         },
         u'main.ademployment': {
             'Meta': {'object_name': 'AdEmployment'},
@@ -148,7 +168,6 @@ class Migration(SchemaMigration):
         },
         u'main.adsubcategory': {
             'Meta': {'object_name': 'AdSubCategory'},
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'ad_sub_category_category'", 'to': u"orm['main.AdCategory']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         },
@@ -156,11 +175,6 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'AdTime'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
-        },
-        u'main.city': {
-            'Meta': {'object_name': 'City'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
         u'main.education': {
             'Meta': {'object_name': 'Education'},
@@ -178,16 +192,16 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '20'})
         },
         u'resume.resume': {
-            'Meta': {'ordering': "('-date',)", 'object_name': 'Resume'},
+            'Meta': {'object_name': 'Resume'},
             'ad_time': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_ad_time'", 'null': 'True', 'to': u"orm['main.AdTime']"}),
             'area': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_area'", 'null': 'True', 'to': u"orm['main.AdArea']"}),
-            'birth': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
-            'business_trip': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'birth': ('django.db.models.fields.DateField', [], {}),
+            'business_trip': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'category': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_category'", 'to': u"orm['main.AdCategory']"}),
-            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_city'", 'to': u"orm['main.City']"}),
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_city'", 'to': u"orm['django_geoip.City']"}),
             'date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'diploma': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
-            'driving_license': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'driving_license': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'education': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'resume_education'", 'to': u"orm['main.Education']"}),
             'email': ('django.db.models.fields.EmailField', [], {'max_length': '75'}),
             'employment': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_employment'", 'null': 'True', 'to': u"orm['main.AdEmployment']"}),
@@ -200,39 +214,22 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'institution': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
             'marital_status': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_marital_status'", 'null': 'True', 'to': u"orm['main.MaritalStatus']"}),
-            'move': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'move': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
+            'move_cities': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['django_geoip.City']", 'null': 'True', 'blank': 'True'}),
             'office': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['user_profile.CustomApplicant']", 'null': 'True', 'blank': 'True'}),
+            'owner': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']", 'null': 'True', 'blank': 'True'}),
             'phone': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'phone_details': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'qualities': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'rating': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'rating': ('django.db.models.fields.IntegerField', [], {}),
             'salary': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
             'salary_measure': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_salary_measure'", 'null': 'True', 'to': u"orm['main.AdSalaryMeasure']"}),
             'schedule': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'resume_schedule'", 'null': 'True', 'to': u"orm['main.AdSchedule']"}),
             'skills': ('django.db.models.fields.TextField', [], {}),
             'skype': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
-            'subcategory': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'resume_subcategory'", 'symmetrical': 'False', 'to': u"orm['main.AdSubCategory']"}),
+            'smoke': ('django.db.models.fields.NullBooleanField', [], {'null': 'True', 'blank': 'True'}),
             'work_area': ('django.db.models.fields.related.ManyToManyField', [], {'blank': 'True', 'related_name': "'resume_work_area'", 'null': 'True', 'symmetrical': 'False', 'to': u"orm['main.AdArea']"})
-        },
-        u'user_profile.customapplicant': {
-            'Meta': {'object_name': 'CustomApplicant', '_ormbases': [u'auth.User']},
-            'birth': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'city': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['main.City']", 'null': 'True', 'blank': 'True'}),
-            'diploma': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'education': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'applicant_education'", 'null': 'True', 'to': u"orm['main.Education']"}),
-            'ex_education': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'fio': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'gender': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'applicant_gender'", 'null': 'True', 'to': u"orm['main.Gender']"}),
-            'icq': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
-            'institution': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'marital_status': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'applicant_marital_status'", 'null': 'True', 'to': u"orm['main.MaritalStatus']"}),
-            'phone': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'phone_details': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'photo': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'skype': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
-            u'user_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True', 'primary_key': 'True'})
         }
     }
 

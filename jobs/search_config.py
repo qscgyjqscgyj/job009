@@ -1,5 +1,5 @@
-from sphinxit.core.helpers import BaseSearchConfig
+# from sphinxit.core.helpers import BaseSearchConfig
 
 
-class JobSearch(BaseSearchConfig):
-    WITH_STATUS = False
+# class JobSearch(BaseSearchConfig):
+#     WITH_STATUS = False

@@ -1,0 +1,1 @@
+python manage.py loaddata initial_data.json main.json jobs.json flatblocks.json resume.json
